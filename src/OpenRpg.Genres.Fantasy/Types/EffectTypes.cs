@@ -5,10 +5,11 @@ namespace OpenRpg.Genres.Fantasy.Types
         public static int UnknownBonus = 0;
             
         // Generic Melee/Magic
-        public static int PureAttackBonusAmount = 1;
-        public static int PureDefenseBonusAmount = 2;
-        public static int PureAttackBonusPercentage = 3;
-        public static int PureDefenseBonusPercentage = 4;
+        public static int AllMeleeAttackBonusAmount = 1;
+        public static int AllMeleeDefenseBonusAmount = 2;
+        public static int AllAttributeBonusAmount = 3;
+        public static int AllElementDamageBonusAmount = 4;
+        public static int AllElementDefenseBonusAmount = 5;
             
         // General Attribute Amount
         public static int DexterityBonusAmount = 10;

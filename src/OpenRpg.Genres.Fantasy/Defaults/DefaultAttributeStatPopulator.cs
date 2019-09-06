@@ -18,13 +18,14 @@ namespace OpenRpg.Genres.Fantasy.Defaults
             var intelligenceValue = activeEffects.CalculateBonusFor(EffectTypes.IntelligenceBonusAmount, EffectTypes.IntelligenceBonusPercentage);
             var wisdomValue = activeEffects.CalculateBonusFor(EffectTypes.WisdomBonusAmount, EffectTypes.WisdomBonusPercentage);
             var charismaValue = activeEffects.CalculateBonusFor(EffectTypes.CharismaBonusAmount, EffectTypes.CharismaBonusPercentage);
+            var allAttributeValue = activeEffects.GetPotencyFor(EffectTypes.AllAttributeBonusAmount);
 
-            stats.Strength(strengthValue);
-            stats.Dexterity(dexterityValue);
-            stats.Constitution(constitutionValue);
-            stats.Intelligence(intelligenceValue);
-            stats.Wisdom(wisdomValue);
-            stats.Charisma(charismaValue);
+            stats.Strength(strengthValue + allAttributeValue);
+            stats.Dexterity(dexterityValue + allAttributeValue);
+            stats.Constitution(constitutionValue + allAttributeValue);
+            stats.Intelligence(intelligenceValue + allAttributeValue);
+            stats.Wisdom(wisdomValue + allAttributeValue);
+            stats.Charisma(charismaValue + allAttributeValue);
         }
     }
 }

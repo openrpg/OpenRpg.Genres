@@ -2,18 +2,31 @@ using System.Collections.Generic;
 using OpenRpg.Combat.Attacks;
 using OpenRpg.Combat.Extensions;
 using OpenRpg.Core.Effects;
+using OpenRpg.Core.Extensions;
 using OpenRpg.Core.Stats;
 using OpenRpg.Genres.Fantasy.Effects;
 using OpenRpg.Genres.Fantasy.Extensions;
 using OpenRpg.Genres.Fantasy.Stats;
+using OpenRpg.Genres.Fantasy.Types;
 
 namespace OpenRpg.Genres.Fantasy.Defaults
 {
     public class DefaultDamageStatPopulator : IDamageStatPopulator
     {
-        public float ComputeDamage(float statModifier, EffectRelationship damageRelationship, IReadOnlyCollection<Effect> effects)
+        public float ComputeMeleeDamage(float statModifier, EffectRelationship damageRelationship, IReadOnlyCollection<Effect> effects)
         {
             var totalDamage = effects.CalculateTotal(damageRelationship);
+            totalDamage += effects.GetPotencyFor(EffectTypes.AllMeleeAttackBonusAmount);
+            if(totalDamage == 0) { return 0; }
+
+            var modifierBonus = totalDamage * statModifier;
+            return totalDamage + modifierBonus;
+        }
+        
+        public float ComputeElementalDamage(float statModifier, EffectRelationship damageRelationship, IReadOnlyCollection<Effect> effects)
+        {
+            var totalDamage = effects.CalculateTotal(damageRelationship);
+            totalDamage += effects.GetPotencyFor(EffectTypes.AllElementDamageBonusAmount);
             if(totalDamage == 0) { return 0; }
 
             var modifierBonus = totalDamage * statModifier;
@@ -21,41 +34,41 @@ namespace OpenRpg.Genres.Fantasy.Defaults
         }
         
         public float ComputeIceDamage(IEntityStats stats, IReadOnlyCollection<Effect> effects)
-        { return ComputeDamage(stats.Intelligence() / 100, EffectRelationships.IceDamageRelationship, effects); }
+        { return ComputeElementalDamage(stats.Intelligence() / 100, EffectRelationships.IceDamageRelationship, effects); }
         
         public float ComputeFireDamage(IEntityStats stats, IReadOnlyCollection<Effect> effects)
-        { return ComputeDamage(stats.Intelligence() / 100, EffectRelationships.FireDamageRelationship, effects); }
+        { return ComputeElementalDamage(stats.Intelligence() / 100, EffectRelationships.FireDamageRelationship, effects); }
         
         public float ComputeWindDamage(IEntityStats stats, IReadOnlyCollection<Effect> effects)
-        { return ComputeDamage(stats.Intelligence() / 100, EffectRelationships.WindDamageRelationship, effects); }
+        { return ComputeElementalDamage(stats.Intelligence() / 100, EffectRelationships.WindDamageRelationship, effects); }
         
         public float ComputeEarthDamage(IEntityStats stats, IReadOnlyCollection<Effect> effects)
-        { return ComputeDamage(stats.Intelligence() / 100, EffectRelationships.EarthDamageRelationship, effects); }
+        { return ComputeElementalDamage(stats.Intelligence() / 100, EffectRelationships.EarthDamageRelationship, effects); }
         
         public float ComputeLightDamage(IEntityStats stats, IReadOnlyCollection<Effect> effects)
-        { return ComputeDamage(stats.Intelligence() / 100, EffectRelationships.LightDamageRelationship, effects); }
+        { return ComputeElementalDamage(stats.Intelligence() / 100, EffectRelationships.LightDamageRelationship, effects); }
         
         public float ComputeDarkDamage(IEntityStats stats, IReadOnlyCollection<Effect> effects)
-        { return ComputeDamage(stats.Intelligence() / 100, EffectRelationships.DarkDamageRelationship, effects); }
+        { return ComputeElementalDamage(stats.Intelligence() / 100, EffectRelationships.DarkDamageRelationship, effects); }
 
         public float ComputeSlashingDamage(IEntityStats stats, IReadOnlyCollection<Effect> effects)
         {
             var strengthBonus = stats.Strength() / 200;
             var dexterityBonus = stats.Dexterity() / 200;
-            return ComputeDamage(strengthBonus + dexterityBonus, EffectRelationships.SlashingDamageRelationship, effects);
+            return ComputeMeleeDamage(strengthBonus + dexterityBonus, EffectRelationships.SlashingDamageRelationship, effects);
         }
         
         public float ComputeBluntDamage(IEntityStats stats, IReadOnlyCollection<Effect> effects)
-        { return ComputeDamage(stats.Strength() / 100, EffectRelationships.BluntDamageRelationship, effects); }
+        { return ComputeMeleeDamage(stats.Strength() / 100, EffectRelationships.BluntDamageRelationship, effects); }
         
         public float ComputePiercingDamage(IEntityStats stats, IReadOnlyCollection<Effect> effects)
-        { return ComputeDamage(stats.Dexterity() / 100, EffectRelationships.PiercingDamageRelationship, effects); }
+        { return ComputeMeleeDamage(stats.Dexterity() / 100, EffectRelationships.PiercingDamageRelationship, effects); }
         
         public float ComputeUnarmedDamage(IEntityStats stats, IReadOnlyCollection<Effect> effects)
         {
             var strengthBonus = stats.Strength() / 200;
             var dexterityBonus = stats.Dexterity() / 200;
-            return ComputeDamage(strengthBonus + dexterityBonus, EffectRelationships.UnarmedDamageRelationship, effects);
+            return ComputeMeleeDamage(strengthBonus + dexterityBonus, EffectRelationships.UnarmedDamageRelationship, effects);
         }
         
         public void PopulateStats(IEntityStats stats, ICustomStatData customStatData, IReadOnlyCollection<Effect> activeEffects)
