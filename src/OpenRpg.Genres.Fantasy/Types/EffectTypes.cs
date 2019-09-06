@@ -18,11 +18,10 @@ namespace OpenRpg.Genres.Fantasy.Types
         public static int ConstitutionBonusAmount = 14;
         public static int CharismaBonusAmount = 15;
         public static int HealthBonusAmount = 16;
-        public static int HealthRestoreAmount = 17;
-        public static int MagicRestoreAmount = 18;
-        public static int ExperienceRestoreAmount = 19;
-        public static int MaxHelthBonusAmount = 20;
-        public static int MaxMagicBonusAmount = 21;
+        public static int MagicBonusAmount = 17;
+        public static int HealthRestoreAmount = 18;
+        public static int MagicRestoreAmount = 19;
+        public static int ExperienceRestoreAmount = 20;
         
         // General Attribute Percentage
         public static int DexterityBonusPercentage = 30;
@@ -33,10 +32,9 @@ namespace OpenRpg.Genres.Fantasy.Types
         public static int CharismaBonusPercentage = 35;
         public static int HealthBonusPercentage = 36;
         public static int HealthRestorePercentage = 37;
-        public static int MagicRestorePercentage = 38;
-        public static int ExperienceRestorePercentage = 39;
-        public static int MaxHelthBonusPercentage = 40;
-        public static int MaxMagicBonusPercentage = 41;
+        public static int MagicBonusPercentage = 38;
+        public static int MagicRestorePercentage = 39;
+        public static int ExperienceRestorePercentage = 40;
 
         // Melee Damage (Damage Types)
         public static int SlashingDamageAmount = 50;

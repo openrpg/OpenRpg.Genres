@@ -12,6 +12,12 @@ namespace OpenRpg.Genres.Fantasy.Defaults
     {
         public void PopulateStats(IEntityStats stats, ICustomStatData customStatData, IReadOnlyCollection<Effect> activeEffects)
         {
+            PopulateHP(stats, customStatData, activeEffects);
+            PopulateMP(stats, customStatData, activeEffects);
+        }
+        
+        public void PopulateHP(IEntityStats stats, ICustomStatData customStatData, IReadOnlyCollection<Effect> activeEffects)
+        {
             var constitutionBonus = stats.Constitution() * 5;
             var effectBonus = activeEffects.GetPotencyFor(EffectTypes.HealthBonusAmount);
             var effectBonusPercentage = activeEffects.GetPotencyFor(EffectTypes.HealthBonusPercentage);
@@ -21,6 +27,19 @@ namespace OpenRpg.Genres.Fantasy.Defaults
 
             stats.Health(maxHealthStat);
             stats.MaxHealth(maxHealthStat);
+        }
+        
+        public void PopulateMP(IEntityStats stats, ICustomStatData customStatData, IReadOnlyCollection<Effect> activeEffects)
+        {
+            var intelligenceBonus = stats.Intelligence() * 5;
+            var effectBonus = activeEffects.GetPotencyFor(EffectTypes.MagicBonusAmount);
+            var effectBonusPercentage = activeEffects.GetPotencyFor(EffectTypes.MagicBonusPercentage);
+            var maxMagicStat = intelligenceBonus + effectBonus;
+            var additionalMagic = maxMagicStat * effectBonusPercentage;
+            maxMagicStat += additionalMagic;
+
+            stats.Magic(maxMagicStat);
+            stats.MaxMagic(maxMagicStat);
         }
     }
 }
