@@ -6,17 +6,20 @@ using OpenRpg.Genres.Fantasy.Equipment;
 
 namespace OpenRpg.Genres.Fantasy.Defaults
 {
+    /// <summary>
+    /// A default character implementation, this can be ignored or used as a basis for your own
+    /// </summary>
     public class DefaultCharacter : ICharacter
     {
-        public int Id { get; }
-        public string AssetCode { get; }
-        public string NameLocaleId { get; }
-        public string DescriptionLocaleId { get; }
+        public int Id { get; set; }
+        public string AssetCode { get; set;  }
+        public string NameLocaleId { get; set;  }
+        public string DescriptionLocaleId { get; set;  }
         
-        public byte GenderType { get; }
-        public IClass Class { get; }
-        public IRaceTemplate Race { get; }
-        public IEquipment Equipment { get; }
-        public IEntityStats Stats { get; }
+        public byte GenderType { get; set;  }
+        public IClass Class { get; set;  }
+        public IRaceTemplate Race { get; set;  }
+        public IEquipment Equipment { get; set;  }
+        public IEntityStats Stats { get; set; }
     }
 }
