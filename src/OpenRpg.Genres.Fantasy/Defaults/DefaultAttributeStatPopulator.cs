@@ -10,7 +10,7 @@ namespace OpenRpg.Genres.Fantasy.Defaults
 {
     public class DefaultAttributeStatPopulator : IAttributeStatPopulator
     {
-        public void PopulateStats(IEntityStats stats, ICustomStatData customStatData, IReadOnlyCollection<Effect> activeEffects)
+        public void PopulateStats(IEntityStats stats, IReadOnlyCollection<Effect> activeEffects)
         {
             var strengthValue = activeEffects.CalculateBonusFor(EffectTypes.StrengthBonusAmount, EffectTypes.StrengthBonusPercentage);
             var dexterityValue = activeEffects.CalculateBonusFor(EffectTypes.DexterityBonusAmount, EffectTypes.DexterityBonusPercentage);

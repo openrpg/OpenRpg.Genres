@@ -72,7 +72,7 @@ namespace OpenRpg.Genres.Fantasy.Defaults
             return ComputeMeleeDefense(strengthBonus + dexterityBonus, EffectRelationships.UnarmedDefenseRelationship, effects);
         }       
 
-        public void PopulateStats(IEntityStats stats, ICustomStatData customStatData, IReadOnlyCollection<Effect> activeEffects)
+        public void PopulateStats(IEntityStats stats, IReadOnlyCollection<Effect> activeEffects)
         {
             var iceDefense = ComputeIceDefense(stats, activeEffects);
             var fireDefense = ComputeFireDefense(stats, activeEffects);

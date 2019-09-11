@@ -21,13 +21,13 @@ namespace OpenRpg.Genres.Fantasy.Defaults
             DefenseStatPopulator = defenseStatPopulator;
         }
 
-        public IEntityStats ComputeStats(ICustomStatData customStatData, IReadOnlyCollection<Effect> effects)
+        public IEntityStats ComputeStats(IReadOnlyCollection<Effect> effects)
         {
             var stats = new DefaultEntityStats();
-            AttributeStatPopulator.PopulateStats(stats, customStatData, effects);
-            DefenseStatPopulator.PopulateStats(stats, customStatData, effects);
-            DamageStatPopulator.PopulateStats(stats, customStatData, effects);
-            VitalStatsPopulator.PopulateStats(stats, customStatData, effects);
+            AttributeStatPopulator.PopulateStats(stats, effects);
+            DefenseStatPopulator.PopulateStats(stats, effects);
+            DamageStatPopulator.PopulateStats(stats, effects);
+            VitalStatsPopulator.PopulateStats(stats, effects);
             return stats;
         }
     }

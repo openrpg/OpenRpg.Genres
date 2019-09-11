@@ -13,5 +13,5 @@ namespace OpenRpg.Genres.Fantasy.Characters
         IRaceTemplate Race { get; }
         IEquipment Equipment { get; }
         IEntityStats Stats { get; }
-    }    
+    }
 }
