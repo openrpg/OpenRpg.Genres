@@ -34,7 +34,7 @@ namespace OpenRpg.Genres.Fantasy.Extensions
 
         private static void ProcessEquipmentSlot(IEquipmentSlot<IItem> equipmentSlot, List<Effect> effectList)
         {
-            if(equipmentSlot.SlottedItem == null) { return; }
+            if(equipmentSlot?.SlottedItem == null) { return; }
             var effects = GetItemEffects(equipmentSlot.SlottedItem);
             effectList.AddRange(effects);
         }
