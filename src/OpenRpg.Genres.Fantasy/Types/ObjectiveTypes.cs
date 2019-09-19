@@ -10,8 +10,8 @@ namespace OpenRpg.Genres.Fantasy.Types
         public static int LevelObjective = 4;
         public static int ClassObjective = 5;
         public static int EffectObjective = 6;
-        public static int QuestObjective = 6;
-        public static int EnemyDefeatedObjective = 7;
-        public static int EnemySightedObjective = 8;
+        public static int QuestObjective = 7;
+        public static int EnemyDefeatedObjective = 8;
+        public static int EnemySightedObjective = 9;
     }
 }
