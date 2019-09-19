@@ -88,12 +88,12 @@ namespace OpenRpg.Genres.Fantasy.Types
         public static int WindDefenseAmount = 134;
         public static int LightDefenseAmount = 135;
         public static int DarkDefenseAmount = 136;
-        public static int FireDefensePercentage = 130;
-        public static int IceDefensePercentage = 131;
-        public static int EarthDefensePercentage = 132;
-        public static int WindDefensePercentage = 134;
-        public static int LightDefensePercentage = 135;
-        public static int DarkDefensePercentage = 136;
+        public static int FireDefensePercentage = 137;
+        public static int IceDefensePercentage = 138;
+        public static int EarthDefensePercentage = 139;
+        public static int WindDefensePercentage = 140;
+        public static int LightDefensePercentage = 141;
+        public static int DarkDefensePercentage = 142;
         
         // Magic Bonus (Damage Bonus)
         public static int FireBonusAmount = 150;
