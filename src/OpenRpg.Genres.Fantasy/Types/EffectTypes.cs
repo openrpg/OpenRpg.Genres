@@ -108,5 +108,11 @@ namespace OpenRpg.Genres.Fantasy.Types
         public static int WindBonusPercentage = 159;
         public static int LightBonusPercentage = 160;
         public static int DarkBonusPercentage = 161;
+        
+        // Pure Damage Types
+        public static int PureDamageAmount = 170;
+        public static int PureDamagePercentage = 171;
+        public static int PureDefenseAmount = 172;
+        public static int PureDefensePercentage = 173;
     }
 }

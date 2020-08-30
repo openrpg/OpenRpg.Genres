@@ -71,6 +71,18 @@ namespace OpenRpg.Genres.Fantasy.Defaults
             var dexterityBonus = baseAttributeStats.Dexterity() / 200;
             return ComputeMeleeDefense(strengthBonus + dexterityBonus, EffectRelationships.UnarmedDefenseRelationship, effects);
         }       
+        
+        public float ComputePureDefense(IEntityStats stats, IReadOnlyCollection<Effect> effects)
+        {
+            var amount = effects.GetPotencyFor(EffectTypes.PureDefenseAmount);
+            var percentage = effects.GetPotencyFor(EffectTypes.PureDefensePercentage);
+
+            if (percentage == 0)
+            { return amount; }
+
+            var addition = amount * (percentage/100);
+            return amount + addition;
+        }
 
         public void PopulateStats(IEntityStats stats, IReadOnlyCollection<Effect> activeEffects)
         {
@@ -84,6 +96,7 @@ namespace OpenRpg.Genres.Fantasy.Defaults
             var bluntDefense = ComputeBluntDefense(stats, activeEffects);
             var piercingDefense = ComputePiercingDefense(stats, activeEffects);
             var unarmedDefense = ComputeUnarmedDefense(stats, activeEffects);
+            var pureDefense = ComputePureDefense(stats, activeEffects);
 
             stats.IceDefense(iceDefense);
             stats.FireDefense(fireDefense);
@@ -95,6 +108,7 @@ namespace OpenRpg.Genres.Fantasy.Defaults
             stats.BluntDefense(bluntDefense);
             stats.PiercingDefense(piercingDefense);
             stats.UnarmedDefense(unarmedDefense);
+            stats.PureDefense(pureDefense);
         }
     }
 }

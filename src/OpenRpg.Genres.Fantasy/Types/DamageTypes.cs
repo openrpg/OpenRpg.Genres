@@ -17,5 +17,8 @@ namespace OpenRpg.Genres.Fantasy.Types
         public static int WindDamage = 53;
         public static int LightDamage = 54;
         public static int DarkDamage = 55;
+        
+        // Pure type
+        public static int PureDamage = 100;
     }
 }

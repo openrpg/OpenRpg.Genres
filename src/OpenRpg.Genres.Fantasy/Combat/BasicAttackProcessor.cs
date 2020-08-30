@@ -17,7 +17,7 @@ namespace OpenRpg.Genres.Fantasy.Combat
             
             foreach (var applicableDefense in applicableDefenses)
             {
-                if (!damageLookups.ContainsKey(applicableDefense.StatType)) 
+                if (!damageLookups.ContainsKey(applicableDefense.StatType))
                 { continue; }
 
                 float defendedAmount;

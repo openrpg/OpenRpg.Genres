@@ -76,7 +76,7 @@ namespace OpenRpg.Genres.Fantasy.Extensions
         
         public static ICollection<StatReference> GetDamageReferences(this IEntityStats entityStats)
         {
-            return new StatReference[]
+            return new[]
             {
                 new StatReference(DamageTypes.IceDamage, entityStats.IceDamage()),
                 new StatReference(DamageTypes.FireDamage, entityStats.FireDamage()),
@@ -87,13 +87,14 @@ namespace OpenRpg.Genres.Fantasy.Extensions
                 new StatReference(DamageTypes.SlashingDamage, entityStats.SlashingDamage()),
                 new StatReference(DamageTypes.BluntDamage, entityStats.BluntDamage()),
                 new StatReference(DamageTypes.PiercingDamage, entityStats.PiercingDamage()),
-                new StatReference(DamageTypes.UnarmedDamage, entityStats.UnarmedDamage())
+                new StatReference(DamageTypes.UnarmedDamage, entityStats.UnarmedDamage()),
+                new StatReference(DamageTypes.PureDamage, entityStats.PureDamage())
             };
         }
         
         public static ICollection<StatReference> GetDefenseReferences(this IEntityStats entityStats)
         {
-            return new StatReference[]
+            return new[]
             {
                 new StatReference(DamageTypes.IceDamage, entityStats.IceDefense()),
                 new StatReference(DamageTypes.FireDamage, entityStats.FireDefense()),
@@ -104,7 +105,8 @@ namespace OpenRpg.Genres.Fantasy.Extensions
                 new StatReference(DamageTypes.SlashingDamage, entityStats.SlashingDefense()),
                 new StatReference(DamageTypes.BluntDamage, entityStats.BluntDefense()),
                 new StatReference(DamageTypes.PiercingDamage, entityStats.PiercingDefense()),
-                new StatReference(DamageTypes.UnarmedDamage, entityStats.UnarmedDefense())
+                new StatReference(DamageTypes.UnarmedDamage, entityStats.UnarmedDefense()),
+                new StatReference(DamageTypes.PureDamage, entityStats.PureDefense())
             };
         }
     }

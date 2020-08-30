@@ -71,6 +71,18 @@ namespace OpenRpg.Genres.Fantasy.Defaults
             return ComputeMeleeDamage(strengthBonus + dexterityBonus, EffectRelationships.UnarmedDamageRelationship, effects);
         }
         
+        public float ComputePureDamage(IEntityStats stats, IReadOnlyCollection<Effect> effects)
+        {
+            var amount = effects.GetPotencyFor(EffectTypes.PureDamageAmount);
+            var percentage = effects.GetPotencyFor(EffectTypes.PureDamagePercentage);
+
+            if (percentage == 0)
+            { return amount; }
+
+            var addition = amount * (percentage/100);
+            return amount + addition;
+        }
+        
         public void PopulateStats(IEntityStats stats, IReadOnlyCollection<Effect> activeEffects)
         {
             var iceDamage = ComputeIceDamage(stats, activeEffects);
@@ -83,6 +95,7 @@ namespace OpenRpg.Genres.Fantasy.Defaults
             var bluntDamage = ComputeBluntDamage(stats, activeEffects);
             var piercingDamage = ComputePiercingDamage(stats, activeEffects);
             var unarmedDamage = ComputeUnarmedDamage(stats, activeEffects);
+            var pureDamage = ComputePureDamage(stats, activeEffects);
 
             stats.IceDamage(iceDamage);
             stats.FireDamage(fireDamage);
@@ -94,6 +107,7 @@ namespace OpenRpg.Genres.Fantasy.Defaults
             stats.BluntDamage(bluntDamage);
             stats.PiercingDamage(piercingDamage);
             stats.UnarmedDamage(unarmedDamage);
+            stats.PureDamage(pureDamage);
         }
     }
 }
