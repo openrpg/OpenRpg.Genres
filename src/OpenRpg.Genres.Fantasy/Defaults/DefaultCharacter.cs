@@ -20,6 +20,6 @@ namespace OpenRpg.Genres.Fantasy.Defaults
         public IClass Class { get; set;  }
         public IRaceTemplate Race { get; set;  }
         public IEquipment Equipment { get; set;  }
-        public IEntityStats Stats { get; set; }
+        public IStatsVariables Stats { get; set; }
     }
 }

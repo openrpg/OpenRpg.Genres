@@ -9,7 +9,7 @@ namespace OpenRpg.Genres.Fantasy.Combat
 {
     public class DefaultAttackProcessor : IAttackProcessor
     {
-        public ProcessedAttack ProcessAttack(Attack attack, IEntityStats stats)
+        public ProcessedAttack ProcessAttack(Attack attack, IStatsVariables stats)
         {
             var applicableDefenses = stats.GetDefenseReferences().Where(x => x.StatValue != 0);
             var damageLookups = attack.Damages.ToDictionary(x => x.Type, x => x.Value);

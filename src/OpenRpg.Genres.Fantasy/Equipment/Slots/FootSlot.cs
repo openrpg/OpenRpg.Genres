@@ -1,6 +1,7 @@
 using OpenRpg.Genres.Fantasy.Types;
 using OpenRpg.Items;
-using OpenRpg.Items.Defaults;
+
+using OpenRpg.Items.Equipment;
 
 namespace OpenRpg.Genres.Fantasy.Equipment.Slots
 {

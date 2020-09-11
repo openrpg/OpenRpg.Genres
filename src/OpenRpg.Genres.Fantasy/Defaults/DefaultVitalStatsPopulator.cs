@@ -10,13 +10,13 @@ namespace OpenRpg.Genres.Fantasy.Defaults
 {
     public class DefaultVitalStatsPopulator : IVitalStatsPopulator
     {
-        public void PopulateStats(IEntityStats stats, IReadOnlyCollection<Effect> activeEffects)
+        public void PopulateStats(IStatsVariables stats, IReadOnlyCollection<Effect> activeEffects)
         {
             PopulateHP(stats, activeEffects);
             PopulateMP(stats, activeEffects);
         }
         
-        public void PopulateHP(IEntityStats stats, IReadOnlyCollection<Effect> activeEffects)
+        public void PopulateHP(IStatsVariables stats, IReadOnlyCollection<Effect> activeEffects)
         {
             var constitutionBonus = stats.Constitution() * 5;
             var effectBonus = activeEffects.GetPotencyFor(EffectTypes.HealthBonusAmount);
@@ -29,7 +29,7 @@ namespace OpenRpg.Genres.Fantasy.Defaults
             stats.MaxHealth(maxHealthStat);
         }
         
-        public void PopulateMP(IEntityStats stats, IReadOnlyCollection<Effect> activeEffects)
+        public void PopulateMP(IStatsVariables stats, IReadOnlyCollection<Effect> activeEffects)
         {
             var intelligenceBonus = stats.Intelligence() * 5;
             var effectBonus = activeEffects.GetPotencyFor(EffectTypes.MagicBonusAmount);

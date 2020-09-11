@@ -62,7 +62,7 @@ namespace OpenRpg.Genres.Fantasy.Defaults
         {
             if (requirement.RequirementType == RequirementTypes.TriggerRequirement)
             {
-                var hasTrigger = state.Triggers.ContainsKey(requirement.AssociatedId);
+                var hasTrigger = state.Triggers.HasVariable(requirement.AssociatedId);
                 var triggerState = (requirement.AssociatedValue == 1);
                 if(requirement.AssociatedValue == 0 && !hasTrigger) { return true; }
                 
@@ -71,7 +71,7 @@ namespace OpenRpg.Genres.Fantasy.Defaults
 
             if (requirement.RequirementType == RequirementTypes.QuestStateRequirement)
             {
-                var hasQuestState = state.QuestStates.ContainsKey(requirement.AssociatedId);
+                var hasQuestState = state.QuestStates.HasVariable(requirement.AssociatedId);
                 if(requirement.AssociatedValue == QuestStateTypes.QuestNotStarted && !hasQuestState) { return true; }
 
                 return state.QuestStates[requirement.AssociatedId] == requirement.AssociatedValue;

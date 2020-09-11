@@ -34,45 +34,45 @@ namespace OpenRpg.Genres.Fantasy.Defaults
             return totalDamage + modifierBonus;
         }
         
-        public float ComputeIceDefense(IEntityStats baseAttributeStats, IReadOnlyCollection<Effect> effects)
+        public float ComputeIceDefense(IStatsVariables baseAttributeStats, IReadOnlyCollection<Effect> effects)
         { return ComputeElementalDefense(baseAttributeStats.Intelligence() / 100, EffectRelationships.IceDefenseRelationship, effects); }
         
-        public float ComputeFireDefense(IEntityStats baseAttributeStats, IReadOnlyCollection<Effect> effects)
+        public float ComputeFireDefense(IStatsVariables baseAttributeStats, IReadOnlyCollection<Effect> effects)
         { return ComputeElementalDefense(baseAttributeStats.Intelligence() / 100, EffectRelationships.FireDefenseRelationship, effects); }
         
-        public float ComputeWindDefense(IEntityStats baseAttributeStats, IReadOnlyCollection<Effect> effects)
+        public float ComputeWindDefense(IStatsVariables baseAttributeStats, IReadOnlyCollection<Effect> effects)
         { return ComputeElementalDefense(baseAttributeStats.Intelligence() / 100, EffectRelationships.WindDefenseRelationship, effects); }
         
-        public float ComputeEarthDefense(IEntityStats baseAttributeStats, IReadOnlyCollection<Effect> effects)
+        public float ComputeEarthDefense(IStatsVariables baseAttributeStats, IReadOnlyCollection<Effect> effects)
         { return ComputeElementalDefense(baseAttributeStats.Intelligence() / 100, EffectRelationships.EarthDefenseRelationship, effects); }
         
-        public float ComputeLightDefense(IEntityStats baseAttributeStats, IReadOnlyCollection<Effect> effects)
+        public float ComputeLightDefense(IStatsVariables baseAttributeStats, IReadOnlyCollection<Effect> effects)
         { return ComputeElementalDefense(baseAttributeStats.Intelligence() / 100, EffectRelationships.LightDefenseRelationship, effects); }
         
-        public float ComputeDarkDefense(IEntityStats baseAttributeStats, IReadOnlyCollection<Effect> effects)
+        public float ComputeDarkDefense(IStatsVariables baseAttributeStats, IReadOnlyCollection<Effect> effects)
         { return ComputeElementalDefense(baseAttributeStats.Intelligence() / 100, EffectRelationships.DarkDefenseRelationship, effects); }
 
-        public float ComputeSlashingDefense(IEntityStats baseAttributeStats, IReadOnlyCollection<Effect> effects)
+        public float ComputeSlashingDefense(IStatsVariables baseAttributeStats, IReadOnlyCollection<Effect> effects)
         {
             var strengthBonus = baseAttributeStats.Strength() / 200;
             var dexterityBonus = baseAttributeStats.Dexterity() / 200;
             return ComputeMeleeDefense(strengthBonus + dexterityBonus, EffectRelationships.SlashingDefenseRelationship, effects);
         }
         
-        public float ComputeBluntDefense(IEntityStats baseAttributeStats, IReadOnlyCollection<Effect> effects)
+        public float ComputeBluntDefense(IStatsVariables baseAttributeStats, IReadOnlyCollection<Effect> effects)
         { return ComputeMeleeDefense(baseAttributeStats.Strength() / 100, EffectRelationships.BluntDefenseRelationship, effects); }
         
-        public float ComputePiercingDefense(IEntityStats baseAttributeStats, IReadOnlyCollection<Effect> effects)
+        public float ComputePiercingDefense(IStatsVariables baseAttributeStats, IReadOnlyCollection<Effect> effects)
         { return ComputeMeleeDefense(baseAttributeStats.Dexterity() / 100, EffectRelationships.PiercingDefenseRelationship, effects); }
         
-        public float ComputeUnarmedDefense(IEntityStats baseAttributeStats, IReadOnlyCollection<Effect> effects)
+        public float ComputeUnarmedDefense(IStatsVariables baseAttributeStats, IReadOnlyCollection<Effect> effects)
         {
             var strengthBonus = baseAttributeStats.Strength() / 200;
             var dexterityBonus = baseAttributeStats.Dexterity() / 200;
             return ComputeMeleeDefense(strengthBonus + dexterityBonus, EffectRelationships.UnarmedDefenseRelationship, effects);
         }       
         
-        public float ComputePureDefense(IEntityStats stats, IReadOnlyCollection<Effect> effects)
+        public float ComputePureDefense(IStatsVariables stats, IReadOnlyCollection<Effect> effects)
         {
             var amount = effects.GetPotencyFor(EffectTypes.PureDefenseAmount);
             var percentage = effects.GetPotencyFor(EffectTypes.PureDefensePercentage);
@@ -84,7 +84,7 @@ namespace OpenRpg.Genres.Fantasy.Defaults
             return amount + addition;
         }
 
-        public void PopulateStats(IEntityStats stats, IReadOnlyCollection<Effect> activeEffects)
+        public void PopulateStats(IStatsVariables stats, IReadOnlyCollection<Effect> activeEffects)
         {
             var iceDefense = ComputeIceDefense(stats, activeEffects);
             var fireDefense = ComputeFireDefense(stats, activeEffects);

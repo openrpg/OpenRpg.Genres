@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using OpenRpg.Core.Defaults;
 using OpenRpg.Core.Effects;
 using OpenRpg.Core.Stats;
 using OpenRpg.Genres.Fantasy.Stats;
@@ -21,9 +20,9 @@ namespace OpenRpg.Genres.Fantasy.Defaults
             DefenseStatPopulator = defenseStatPopulator;
         }
 
-        public IEntityStats ComputeStats(IReadOnlyCollection<Effect> effects)
+        public IStatsVariables ComputeStats(IReadOnlyCollection<Effect> effects)
         {
-            var stats = new DefaultEntityStats();
+            var stats = new DefaultStatsVariables();
             AttributeStatPopulator.PopulateStats(stats, effects);
             DefenseStatPopulator.PopulateStats(stats, effects);
             DamageStatPopulator.PopulateStats(stats, effects);
