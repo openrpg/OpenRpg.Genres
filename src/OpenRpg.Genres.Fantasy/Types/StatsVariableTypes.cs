@@ -1,6 +1,6 @@
 namespace OpenRpg.Genres.Fantasy.Types
 {
-    public static class StatsVariableTypes
+    public class StatsVariableTypes
     {
         // Base stats
         public static int Strength = 1;
