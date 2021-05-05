@@ -17,8 +17,16 @@ namespace OpenRpg.Genres.Fantasy.Defaults
         {
             var totalDamage = effects.CalculateTotal(damageRelationship);
             totalDamage += effects.GetPotencyFor(EffectTypes.AllMeleeAttackBonusAmount);
+            
             if(totalDamage == 0) { return 0; }
 
+            var percentageBonus = effects.GetPotencyFor(EffectTypes.AllMeleeAttackBonusPercentage);
+            if (percentageBonus != 0)
+            { 
+                var addition = totalDamage * (percentageBonus/100);
+                totalDamage += addition;
+            }
+            
             var modifierBonus = totalDamage * statModifier;
             return totalDamage + modifierBonus;
         }
@@ -28,9 +36,28 @@ namespace OpenRpg.Genres.Fantasy.Defaults
             var totalDamage = effects.CalculateTotal(damageRelationship);
             totalDamage += effects.GetPotencyFor(EffectTypes.AllElementDamageBonusAmount);
             if(totalDamage == 0) { return 0; }
+            
+            var percentageBonus = effects.GetPotencyFor(EffectTypes.AllElementDamageBonusPercentage);
+            if (percentageBonus != 0)
+            { 
+                var addition = totalDamage * (percentageBonus/100);
+                totalDamage += addition;
+            }
 
             var modifierBonus = totalDamage * statModifier;
             return totalDamage + modifierBonus;
+        }
+        
+        public float ComputePureDamage(IStatsVariables stats, IReadOnlyCollection<Effect> effects)
+        {
+            var amount = effects.GetPotencyFor(EffectTypes.PureDamageAmount);
+            var percentage = effects.GetPotencyFor(EffectTypes.PureDamagePercentage);
+
+            if (percentage == 0)
+            { return amount; }
+
+            var addition = amount * (percentage/100);
+            return amount + addition;
         }
         
         public float ComputeIceDamage(IStatsVariables stats, IReadOnlyCollection<Effect> effects)
@@ -70,19 +97,7 @@ namespace OpenRpg.Genres.Fantasy.Defaults
             var dexterityBonus = stats.Dexterity() / 200;
             return ComputeMeleeDamage(strengthBonus + dexterityBonus, EffectRelationships.UnarmedDamageRelationship, effects);
         }
-        
-        public float ComputePureDamage(IStatsVariables stats, IReadOnlyCollection<Effect> effects)
-        {
-            var amount = effects.GetPotencyFor(EffectTypes.PureDamageAmount);
-            var percentage = effects.GetPotencyFor(EffectTypes.PureDamagePercentage);
 
-            if (percentage == 0)
-            { return amount; }
-
-            var addition = amount * (percentage/100);
-            return amount + addition;
-        }
-        
         public void PopulateStats(IStatsVariables stats, IReadOnlyCollection<Effect> activeEffects)
         {
             var iceDamage = ComputeIceDamage(stats, activeEffects);

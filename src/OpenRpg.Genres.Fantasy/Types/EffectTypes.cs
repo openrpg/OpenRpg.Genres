@@ -10,6 +10,10 @@ namespace OpenRpg.Genres.Fantasy.Types
         public static int AllAttributeBonusAmount = 3;
         public static int AllElementDamageBonusAmount = 4;
         public static int AllElementDefenseBonusAmount = 5;
+        public static int AllMeleeAttackBonusPercentage = 6;
+        public static int AllMeleeDefenseBonusPercentage = 7;
+        public static int AllElementDamageBonusPercentage = 8;
+        public static int AllElementDefenseBonusPercentage = 9;
             
         // General Attribute Amount
         public static int DexterityBonusAmount = 10;
