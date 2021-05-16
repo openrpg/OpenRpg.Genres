@@ -23,11 +23,16 @@ namespace OpenRpg.Genres.Fantasy.Defaults
         public IStatsVariables ComputeStats(IReadOnlyCollection<Effect> effects)
         {
             var stats = new DefaultStatsVariables();
+            RecomputeStats(stats, effects);
+            return stats;
+        }
+
+        public void RecomputeStats(IStatsVariables stats, IReadOnlyCollection<Effect> effects)
+        {
             AttributeStatPopulator.PopulateStats(stats, effects);
             DefenseStatPopulator.PopulateStats(stats, effects);
             DamageStatPopulator.PopulateStats(stats, effects);
             VitalStatsPopulator.PopulateStats(stats, effects);
-            return stats;
         }
     }
 }
