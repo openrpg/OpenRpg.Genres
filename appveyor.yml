@@ -14,9 +14,9 @@ dotnet_csproj:
   file_version: '{version}'
   informational_version: '{version}'
 before_build:
-- cmd: nuget restore src/OpenRpg.Fantasy.sln
+- cmd: nuget restore src/OpenRpg.Genres.Fantasy.sln
 build:
-  project: src/OpenRpg.Fantasy.sln
+  project: src/OpenRpg.Genres.Fantasy.sln
   publish_nuget: true
   verbosity: minimal
 artifacts:
