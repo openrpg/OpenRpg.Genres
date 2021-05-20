@@ -23,10 +23,34 @@ namespace OpenRpg.Genres.Fantasy.Extensions
         public static int MaxHealth(this IStatsVariables stats) => (int)stats[StatsVariableTypes.MaxHealth];
         public static int Magic(this IStatsVariables stats) => (int)stats[StatsVariableTypes.Magic];
         public static int MaxMagic(this IStatsVariables stats) => (int)stats[StatsVariableTypes.MaxMagic];
-        public static void Health(this IStatsVariables stats, int value) => stats[StatsVariableTypes.Health] = value;
+
+        public static void Health(this IStatsVariables stats, int value)
+        {
+            if(value > stats[StatsVariableTypes.MaxHealth])
+            { stats[StatsVariableTypes.Health] = stats[StatsVariableTypes.MaxHealth]; }
+            else if(stats[StatsVariableTypes.Health] - value <= 0)
+            { stats[StatsVariableTypes.Health] = 0; }
+            else
+            { stats[StatsVariableTypes.Health] = value; }
+        }
         public static void MaxHealth(this IStatsVariables stats, int value) => stats[StatsVariableTypes.MaxHealth] = value;
-        public static void Magic(this IStatsVariables stats, int value) => stats[StatsVariableTypes.Magic] = value;
+
+        public static void Magic(this IStatsVariables stats, int value)
+        {
+            if(value > stats[StatsVariableTypes.MaxMagic])
+            { stats[StatsVariableTypes.Magic] = stats[StatsVariableTypes.MaxMagic]; }
+            else if(stats[StatsVariableTypes.Magic] - value <= 0)
+            { stats[StatsVariableTypes.Magic] = 0; }
+            else
+            { stats[StatsVariableTypes.MaxMagic] = value; }
+        }
+        
         public static void MaxMagic(this IStatsVariables stats, int value) => stats[StatsVariableTypes.MaxMagic] = value;
+        
+        public static void AddMagic(this IStatsVariables stats, int change) => stats.Magic(stats.Magic() + change);
+        public static void DeductMagic(this IStatsVariables stats, int change) => stats.Magic(stats.Magic() - change);
+        public static void AddHealth(this IStatsVariables stats, int change) => stats.Health(stats.Health() + change);
+        public static void DeductHealth(this IStatsVariables stats, int change) => stats.Health(stats.Health() - change);
         
         public static float IceDamage(this IStatsVariables stats) => stats[StatsVariableTypes.IceDamage];
         public static float FireDamage(this IStatsVariables stats) => stats[StatsVariableTypes.FireDamage];
@@ -108,6 +132,68 @@ namespace OpenRpg.Genres.Fantasy.Extensions
                 new StatReference(DamageTypes.UnarmedDamage, stats.UnarmedDefense()),
                 new StatReference(DamageTypes.PureDamage, stats.PureDefense())
             };
+        }
+        
+        public static float GetDefenseFor(this IStatsVariables stats, int effectType)
+        {
+            if (effectType == EffectTypes.PiercingBonusAmount) { return stats.PiercingDefense(); }
+            if (effectType == EffectTypes.SlashingBonusAmount) { return stats.SlashingDefense(); }
+            if (effectType == EffectTypes.BluntBonusAmount) { return stats.BluntDefense(); }
+            if (effectType == EffectTypes.UnarmedBonusAmount) { return stats.UnarmedDefense(); }
+            if (effectType == EffectTypes.FireBonusAmount) { return stats.FireDefense(); }
+            if (effectType == EffectTypes.IceBonusAmount) { return stats.IceDefense(); }
+            if (effectType == EffectTypes.WindBonusAmount) { return stats.WindDefense(); }
+            if (effectType == EffectTypes.EarthBonusAmount) { return stats.EarthDefense(); }
+            if (effectType == EffectTypes.LightBonusAmount) { return stats.LightDefense(); }
+            if (effectType == EffectTypes.DarkBonusAmount) { return stats.DarkDefense(); }
+
+            if (effectType == EffectTypes.AllElementDamageBonusAmount)
+            {
+                return stats.FireDefense() + stats.IceDefense() + stats.WindDefense() +
+                       stats.EarthDefense() + stats.LightDefense() + stats.DarkDefense();
+            }
+
+            if (effectType == EffectTypes.AllMeleeDefenseBonusAmount)
+            {
+                return stats.PiercingDefense() + stats.SlashingDefense() +
+                       stats.BluntDefense() + stats.UnarmedDefense();
+            }
+
+            if (effectType == EffectTypes.PureDamageAmount)
+            { return stats.PureDefense(); }
+
+            return 0;
+        }
+
+        public static float GetDamageFor(this IStatsVariables stats, int effectType)
+        {
+            if (effectType == EffectTypes.PiercingBonusAmount) { return stats.PiercingDamage(); }
+            if (effectType == EffectTypes.SlashingBonusAmount) { return stats.SlashingDamage(); }
+            if (effectType == EffectTypes.BluntBonusAmount) { return stats.BluntDamage(); }
+            if (effectType == EffectTypes.UnarmedBonusAmount) { return stats.UnarmedDamage(); }
+            if (effectType == EffectTypes.FireBonusAmount) { return stats.FireDamage(); }
+            if (effectType == EffectTypes.IceBonusAmount) { return stats.IceDamage(); }
+            if (effectType == EffectTypes.WindBonusAmount) { return stats.WindDamage(); }
+            if (effectType == EffectTypes.EarthBonusAmount) { return stats.EarthDamage(); }
+            if (effectType == EffectTypes.LightBonusAmount) { return stats.LightDamage(); }
+            if (effectType == EffectTypes.DarkBonusAmount) { return stats.DarkDamage(); }
+
+            if (effectType == EffectTypes.AllElementDamageBonusAmount)
+            {
+                return stats.FireDamage() + stats.IceDamage() + stats.WindDamage() +
+                       stats.EarthDamage() + stats.LightDamage() + stats.DarkDamage();
+            }
+
+            if (effectType == EffectTypes.AllMeleeDefenseBonusAmount)
+            {
+                return stats.PiercingDamage() + stats.SlashingDamage() +
+                       stats.BluntDamage() + stats.UnarmedDamage();
+            }
+
+            if (effectType == EffectTypes.PureDamageAmount)
+            { return stats.PureDamage(); }
+
+            return 0;
         }
     }
 }
