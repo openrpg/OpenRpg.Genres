@@ -24,28 +24,26 @@ namespace OpenRpg.Genres.Fantasy.Extensions
         public static int Magic(this IStatsVariables stats) => (int)stats[StatsVariableTypes.Magic];
         public static int MaxMagic(this IStatsVariables stats) => (int)stats[StatsVariableTypes.MaxMagic];
 
-        public static void Health(this IStatsVariables stats, int value)
+        public static void Health(this IStatsVariables stats, int value) => stats[StatsVariableTypes.Health] = value;
+        
+        public static void HealthWithCheck(this IStatsVariables stats, int value)
         {
-            if (!stats.HasVariable(StatsVariableTypes.Health))
-            { stats[StatsVariableTypes.Health] = 0; }
-            
             if(value > stats[StatsVariableTypes.MaxHealth])
             { stats[StatsVariableTypes.Health] = stats[StatsVariableTypes.MaxHealth]; }
-            else if(stats[StatsVariableTypes.Health] - value <= 0)
+            else if(value <= 0)
             { stats[StatsVariableTypes.Health] = 0; }
             else
             { stats[StatsVariableTypes.Health] = value; }
         }
+        
         public static void MaxHealth(this IStatsVariables stats, int value) => stats[StatsVariableTypes.MaxHealth] = value;
 
-        public static void Magic(this IStatsVariables stats, int value)
+        public static void Magic(this IStatsVariables stats, int value) => stats[StatsVariableTypes.MaxHealth] = value;
+        public static void MagicWithCheck(this IStatsVariables stats, int value)
         {
-            if (!stats.HasVariable(StatsVariableTypes.Magic))
-            { stats[StatsVariableTypes.Magic] = 0; }
-            
             if(value > stats[StatsVariableTypes.MaxMagic])
             { stats[StatsVariableTypes.Magic] = stats[StatsVariableTypes.MaxMagic]; }
-            else if(stats[StatsVariableTypes.Magic] - value <= 0)
+            else if(value <= 0)
             { stats[StatsVariableTypes.Magic] = 0; }
             else
             { stats[StatsVariableTypes.MaxMagic] = value; }
@@ -53,10 +51,10 @@ namespace OpenRpg.Genres.Fantasy.Extensions
         
         public static void MaxMagic(this IStatsVariables stats, int value) => stats[StatsVariableTypes.MaxMagic] = value;
         
-        public static void AddMagic(this IStatsVariables stats, int change) => stats.Magic(stats.Magic() + change);
-        public static void DeductMagic(this IStatsVariables stats, int change) => stats.Magic(stats.Magic() - change);
-        public static void AddHealth(this IStatsVariables stats, int change) => stats.Health(stats.Health() + change);
-        public static void DeductHealth(this IStatsVariables stats, int change) => stats.Health(stats.Health() - change);
+        public static void AddMagic(this IStatsVariables stats, int change) => stats.MagicWithCheck(stats.Magic() + change);
+        public static void DeductMagic(this IStatsVariables stats, int change) => stats.MagicWithCheck(stats.Magic() - change);
+        public static void AddHealth(this IStatsVariables stats, int change) => stats.HealthWithCheck(stats.Health() + change);
+        public static void DeductHealth(this IStatsVariables stats, int change) => stats.HealthWithCheck(stats.Health() - change);
         
         public static float IceDamage(this IStatsVariables stats) => stats[StatsVariableTypes.IceDamage];
         public static float FireDamage(this IStatsVariables stats) => stats[StatsVariableTypes.FireDamage];
