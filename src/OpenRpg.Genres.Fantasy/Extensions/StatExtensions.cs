@@ -46,7 +46,7 @@ namespace OpenRpg.Genres.Fantasy.Extensions
             else if(value <= 0)
             { stats[StatsVariableTypes.Magic] = 0; }
             else
-            { stats[StatsVariableTypes.MaxMagic] = value; }
+            { stats[StatsVariableTypes.Magic] = value; }
         }
         
         public static void MaxMagic(this IStatsVariables stats, int value) => stats[StatsVariableTypes.MaxMagic] = value;
