@@ -38,7 +38,7 @@ namespace OpenRpg.Genres.Fantasy.Extensions
         
         public static void MaxHealth(this IStatsVariables stats, int value) => stats[StatsVariableTypes.MaxHealth] = value;
 
-        public static void Magic(this IStatsVariables stats, int value) => stats[StatsVariableTypes.MaxHealth] = value;
+        public static void Magic(this IStatsVariables stats, int value) => stats[StatsVariableTypes.Magic] = value;
         public static void MagicWithCheck(this IStatsVariables stats, int value)
         {
             if(value > stats[StatsVariableTypes.MaxMagic])
