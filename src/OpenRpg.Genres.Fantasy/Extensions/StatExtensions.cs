@@ -164,6 +164,22 @@ namespace OpenRpg.Genres.Fantasy.Extensions
 
             return 0;
         }
+        
+        public static float GetDefenseFromDamageType(this IStatsVariables stats, int damageType)
+        {
+            if (damageType == DamageTypes.PiercingDamage) { return stats.PiercingDefense(); }
+            if (damageType == DamageTypes.SlashingDamage) { return stats.SlashingDefense(); }
+            if (damageType == DamageTypes.BluntDamage) { return stats.BluntDefense(); }
+            if (damageType == DamageTypes.UnarmedDamage) { return stats.UnarmedDefense(); }
+            if (damageType == DamageTypes.FireDamage) { return stats.FireDefense(); }
+            if (damageType == DamageTypes.IceDamage) { return stats.IceDefense(); }
+            if (damageType == DamageTypes.WindDamage) { return stats.WindDefense(); }
+            if (damageType == DamageTypes.EarthDamage) { return stats.EarthDefense(); }
+            if (damageType == DamageTypes.LightDamage) { return stats.LightDefense(); }
+            if (damageType == DamageTypes.DarkDamage) { return stats.DarkDefense(); }
+            if (damageType == DamageTypes.PureDamage) { return stats.PureDefense(); }
+            return 0;
+        }
 
         public static float GetDamageFor(this IStatsVariables stats, int effectType)
         {
@@ -193,6 +209,22 @@ namespace OpenRpg.Genres.Fantasy.Extensions
             if (effectType == EffectTypes.PureDamageAmount)
             { return stats.PureDamage(); }
 
+            return 0;
+        }
+        
+        public static float GetDamageFromDamageType(this IStatsVariables stats, int damageType)
+        {
+            if (damageType == DamageTypes.PiercingDamage) { return stats.PiercingDamage(); }
+            if (damageType == DamageTypes.SlashingDamage) { return stats.SlashingDamage(); }
+            if (damageType == DamageTypes.BluntDamage) { return stats.BluntDamage(); }
+            if (damageType == DamageTypes.UnarmedDamage) { return stats.UnarmedDamage(); }
+            if (damageType == DamageTypes.FireDamage) { return stats.FireDamage(); }
+            if (damageType == DamageTypes.IceDamage) { return stats.IceDamage(); }
+            if (damageType == DamageTypes.WindDamage) { return stats.WindDamage(); }
+            if (damageType == DamageTypes.EarthDamage) { return stats.EarthDamage(); }
+            if (damageType == DamageTypes.LightDamage) { return stats.LightDamage(); }
+            if (damageType == DamageTypes.DarkDamage) { return stats.DarkDamage(); }
+            if (damageType == DamageTypes.PureDamage) { return stats.PureDamage(); }
             return 0;
         }
     }
