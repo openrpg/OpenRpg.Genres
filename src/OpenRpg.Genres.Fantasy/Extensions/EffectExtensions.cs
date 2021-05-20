@@ -35,7 +35,7 @@ namespace OpenRpg.Genres.Fantasy.Extensions
             return DamageTypes.UnknownDamage;
         }
         
-        public static int GetDamageTypeFor(this Effect effect)
+        public static int GetApplicableDamageType(this Effect effect)
         { return GetDamageTypeFrom(effect.EffectType); }
         
         public static int GetBonusDamageEffectTypeFrom(int damageType)
