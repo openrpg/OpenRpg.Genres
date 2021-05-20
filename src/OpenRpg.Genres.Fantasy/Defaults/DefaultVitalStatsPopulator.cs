@@ -25,8 +25,8 @@ namespace OpenRpg.Genres.Fantasy.Defaults
             var additionalHealth = maxHealthStat * effectBonusPercentage;
             maxHealthStat += additionalHealth;
 
-            stats.Health(maxHealthStat);
             stats.MaxHealth(maxHealthStat);
+            stats.Health(maxHealthStat);
         }
         
         public void PopulateMP(IStatsVariables stats, IReadOnlyCollection<Effect> activeEffects)
@@ -38,8 +38,8 @@ namespace OpenRpg.Genres.Fantasy.Defaults
             var additionalMagic = maxMagicStat * effectBonusPercentage;
             maxMagicStat += additionalMagic;
 
-            stats.Magic(maxMagicStat);
             stats.MaxMagic(maxMagicStat);
+            stats.Magic(maxMagicStat);
         }
     }
 }
