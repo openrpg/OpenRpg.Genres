@@ -75,8 +75,11 @@ namespace OpenRpg.Genres.Fantasy.Extensions
 
         public static bool IsBeneficialEffect(this ActiveEffect effect)
         {
-            if (effect.Effect.IsDamagingEffect())
-            { return false; }
+            if(effect.Effect.EffectType != EffectTypes.LightBonusAmount)
+            {
+                if (effect.Effect.IsDamagingEffect())
+                { return false; }
+            }
 
             return effect.Effect.Potency >= 0;
         }

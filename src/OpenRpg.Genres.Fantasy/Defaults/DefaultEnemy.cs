@@ -8,6 +8,6 @@ namespace OpenRpg.Genres.Fantasy.Defaults
     /// </summary>
     public class DefaultEnemy : DefaultCharacter, IEnemy
     {
-        public ILootTable LootTable { get; set;  }
+        public ILootTable LootTable { get; set; } = new DefaultLootTable();
     }
 }

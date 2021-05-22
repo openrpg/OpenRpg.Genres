@@ -4,19 +4,12 @@ using OpenRpg.Core.Effects;
 using OpenRpg.Genres.Fantasy.Equipment;
 using OpenRpg.Items;
 using OpenRpg.Items.Equipment;
+using OpenRpg.Items.Extensions;
 
 namespace OpenRpg.Genres.Fantasy.Extensions
 {
     public static class EquipmentExtensions
     {
-        public static IEnumerable<Effect> GetItemEffects(this IItem item)
-        {
-            if(!item.Modifications.Any())
-            { return item.ItemTemplate.Effects; }
-         
-            return item.ItemTemplate.Effects.Union(item.Modifications.SelectMany(x => x.Effects));
-        }
-
         public static IEnumerable<IEquipmentSlot<IItem>> GetEquipmentSlots(this IEquipment equipment)
         {
             yield return equipment.BackSlot;
@@ -35,7 +28,7 @@ namespace OpenRpg.Genres.Fantasy.Extensions
         private static void ProcessEquipmentSlot(IEquipmentSlot<IItem> equipmentSlot, List<Effect> effectList)
         {
             if(equipmentSlot?.SlottedItem == null) { return; }
-            var effects = GetItemEffects(equipmentSlot.SlottedItem);
+            var effects = equipmentSlot.SlottedItem.GetItemEffects();
             effectList.AddRange(effects);
         }
         
