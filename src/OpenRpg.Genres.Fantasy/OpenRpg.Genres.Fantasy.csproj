@@ -12,10 +12,10 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="OpenRpg.Combat" Version="0.17.105" />
-      <PackageReference Include="OpenRpg.Core" Version="0.17.105" />
-      <PackageReference Include="OpenRpg.Items" Version="0.17.105" />
-      <PackageReference Include="OpenRpg.Quests" Version="0.17.105" />
+      <PackageReference Include="OpenRpg.Combat" Version="0.17.107" />
+      <PackageReference Include="OpenRpg.Core" Version="0.17.107" />
+      <PackageReference Include="OpenRpg.Items" Version="0.17.107" />
+      <PackageReference Include="OpenRpg.Quests" Version="0.17.107" />
     </ItemGroup>
 
 </Project>
