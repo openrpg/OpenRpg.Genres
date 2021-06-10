@@ -8,7 +8,7 @@ using OpenRpg.Quests.States;
 
 namespace OpenRpg.Genres.Fantasy.Defaults
 {
-    public class DefaultRequirementChecker : IRequirementChecker
+    public class DefaultCharacterRequirementChecker : ICharacterRequirementChecker
     {
         public bool IsRequirementMet(ICharacter character, Requirement requirement)
         {

@@ -8,19 +8,19 @@ namespace OpenRpg.Genres.Fantasy.Extensions
 {
     public static class RequirementExtensions
     {
-        public static bool AreRequirementsMet(this IRequirementChecker requirementChecker, ICharacter character, IHasRequirements hasRequirements)
-        { return hasRequirements.Requirements.All(x => requirementChecker.IsRequirementMet(character, x)); }
+        public static bool AreRequirementsMet(this ICharacterRequirementChecker characterRequirementChecker, ICharacter character, IHasRequirements hasRequirements)
+        { return hasRequirements.Requirements.All(x => characterRequirementChecker.IsRequirementMet(character, x)); }
         
-        public static bool AreRequirementsMet(this IRequirementChecker requirementChecker, IGameState state, IHasRequirements hasRequirements)
-        { return hasRequirements.Requirements.All(x => requirementChecker.IsRequirementMet(state, x)); }
+        public static bool AreRequirementsMet(this ICharacterRequirementChecker characterRequirementChecker, IGameState state, IHasRequirements hasRequirements)
+        { return hasRequirements.Requirements.All(x => characterRequirementChecker.IsRequirementMet(state, x)); }
 
-        public static bool AreRequirementsMet(this IRequirementChecker requirementChecker, IGameState state,
+        public static bool AreRequirementsMet(this ICharacterRequirementChecker characterRequirementChecker, IGameState state,
             ICharacter character, IHasRequirements hasRequirements)
         {
-            var characterRequirementsMet = AreRequirementsMet(requirementChecker, character, hasRequirements);
+            var characterRequirementsMet = AreRequirementsMet(characterRequirementChecker, character, hasRequirements);
             if(characterRequirementsMet == false) { return false; }
 
-            return AreRequirementsMet(requirementChecker, state, hasRequirements);
+            return AreRequirementsMet(characterRequirementChecker, state, hasRequirements);
         }
     }
 }
