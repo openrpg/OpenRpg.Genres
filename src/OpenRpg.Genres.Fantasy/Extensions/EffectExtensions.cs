@@ -72,6 +72,9 @@ namespace OpenRpg.Genres.Fantasy.Extensions
 
         public static bool IsDamagingEffect(this Effect effect)
         {  return EffectTypeGroups.DamageEffectTypes.Contains(effect.EffectType); }
+        
+        public static bool IsDefensiveEffect(this Effect effect)
+        {  return EffectTypeGroups.DefenseEffectTypes.Contains(effect.EffectType); }
 
         public static bool IsBeneficialEffect(this ActiveEffect effect)
         {
