@@ -1,6 +1,6 @@
-# OpenRpg.Fantasy
+# OpenRpg.Genres
 
-This builds on top of the `OpenRpg` core library and adds common fantasy game related functionality.
+This builds on top of the `OpenRpg` core library and adds common genres infrastructure as well as fantasy and scifi related game related functionality.
 
 [![Build Status][build-status-image]][build-status-url]
 [![Nuget Version][nuget-image]][nuget-url]
