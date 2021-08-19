@@ -1,7 +1,4 @@
-using System.Collections.Generic;
 using OpenRpg.Combat.Attacks;
-using OpenRpg.Core.Effects;
-using OpenRpg.Core.Extensions;
 using OpenRpg.Genres.Fantasy.Types;
 
 namespace OpenRpg.Genres.Fantasy.Extensions

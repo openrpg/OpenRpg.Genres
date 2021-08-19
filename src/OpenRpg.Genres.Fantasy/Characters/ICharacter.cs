@@ -7,13 +7,11 @@ using OpenRpg.Genres.Fantasy.Variables;
 
 namespace OpenRpg.Genres.Fantasy.Characters
 {
-    public interface ICharacter : IHasDataId, IHasLocaleDescription
+    public interface ICharacter : IHasDataId, IHasLocaleDescription, IHasStats, IHasClass
     {
         byte GenderType { get; }
-        IClass Class { get; }
         IRaceTemplate Race { get; }
         IEquipment Equipment { get; }
-        IStatsVariables Stats { get; }
         ICharacterVariables Variables { get; }
     }
 }
