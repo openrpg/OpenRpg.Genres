@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenRpg.Genres.Fantasy", "O
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenRpg.Genres", "OpenRpg.Genres\OpenRpg.Genres.csproj", "{2E807C6D-06C6-45AB-9FFC-86797C4A631B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenRpg.Genres.Scifi", "OpenRpg.Genres.Scifi\OpenRpg.Genres.Scifi.csproj", "{682855A0-F455-4C44-B444-FEFADA0754DD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,6 +20,10 @@ Global
 		{2E807C6D-06C6-45AB-9FFC-86797C4A631B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E807C6D-06C6-45AB-9FFC-86797C4A631B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2E807C6D-06C6-45AB-9FFC-86797C4A631B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{682855A0-F455-4C44-B444-FEFADA0754DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{682855A0-F455-4C44-B444-FEFADA0754DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{682855A0-F455-4C44-B444-FEFADA0754DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{682855A0-F455-4C44-B444-FEFADA0754DD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 	EndGlobalSection

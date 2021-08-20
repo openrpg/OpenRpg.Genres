@@ -6,7 +6,8 @@ This builds on top of the `OpenRpg` core library and adds common genres infrastr
 [![Nuget Version][nuget-image]][nuget-url]
 [![Join Discord Chat][discord-image]][discord-url]
 
-This contains common fantasy related helpers, i.e providing helpers for str, dex, con, int, wis, cha releated stats and 
+## Summary
+This contains common helpers for various genres, such as fantasy or scifi, i.e providing helpers for str, dex, con, int, wis, cha releated stats and 
 common item qualities and damage types which all adhere to common fantasy settings.
 
 As with all layers on top of OpenRpg feel free to use parts or all of this as well as augment it to fit your needs.
