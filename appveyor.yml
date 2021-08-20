@@ -1,4 +1,4 @@
-version: 0.19.{build}
+version: 0.20.{build}
 branches:
   only:
   - master
@@ -14,9 +14,9 @@ dotnet_csproj:
   file_version: '{version}'
   informational_version: '{version}'
 before_build:
-- cmd: nuget restore src/OpenRpg.Genres.Fantasy.sln
+- cmd: nuget restore src/OpenRpg.Genres.sln
 build:
-  project: src/OpenRpg.Genres.Fantasy.sln
+  project: src/OpenRpg.Genres.sln
   publish_nuget: true
   verbosity: minimal
 artifacts:

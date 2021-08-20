@@ -1,16 +1,16 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
         <Version>0.0.0</Version>
         <TargetFrameworks>netstandard2.0;net46</TargetFrameworks>
-        <Title>OpenRpg.Genres.Fantasy</Title>
+        <Title>OpenRpg.Genres.Scifi</Title>
         <Authors>Grofit (LP)</Authors>
         <PackageLicenseUrl>https://github.com/openrpg/OpenRpg.Genres/blob/master/LICENSE</PackageLicenseUrl>
         <PackageProjectUrl>https://github.com/openrpg/OpenRpg.Genres</PackageProjectUrl>
-        <Description>Adds common types and classes for fantasy style settings</Description>
+        <Description>Adds common types and classes for scifi/space ship related game types</Description>
         <PackageTags>rpg game-development xna monogame unity godot</PackageTags>
     </PropertyGroup>
-    
+
     <ItemGroup>
       <ProjectReference Include="..\OpenRpg.Genres\OpenRpg.Genres.csproj" />
     </ItemGroup>
