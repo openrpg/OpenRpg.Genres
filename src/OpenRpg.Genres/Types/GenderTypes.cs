@@ -1,4 +1,4 @@
-namespace OpenRpg.Genres.Fantasy.Types
+namespace OpenRpg.Genres.Types
 {
     public class GenderTypes
     {

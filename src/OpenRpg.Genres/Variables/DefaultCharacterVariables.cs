@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using OpenRpg.Core.Variables;
 
-namespace OpenRpg.Genres.Fantasy.Variables
+namespace OpenRpg.Genres.Variables
 {
     public class DefaultCharacterVariables : DefaultVariables<object>, ICharacterVariables
     {

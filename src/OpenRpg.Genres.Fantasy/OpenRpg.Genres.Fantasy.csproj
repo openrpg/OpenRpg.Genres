@@ -5,17 +5,21 @@
         <TargetFrameworks>netstandard2.0;net46</TargetFrameworks>
         <Title>OpenRpg.Genres.Fantasy</Title>
         <Authors>Grofit (LP)</Authors>
-        <PackageLicenseUrl>https://github.com/openrpg/OpenRpg.Fantasy/blob/master/LICENSE</PackageLicenseUrl>
-        <PackageProjectUrl>https://github.com/openrpg/OpenRpg.Fantasy</PackageProjectUrl>
+        <PackageLicenseUrl>https://github.com/openrpg/OpenRpg.Genres/blob/master/LICENSE</PackageLicenseUrl>
+        <PackageProjectUrl>https://github.com/openrpg/OpenRpg.Genres</PackageProjectUrl>
         <Description>Adds common types and classes for fantasy style settings</Description>
         <PackageTags>rpg game-development xna monogame unity godot</PackageTags>
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="OpenRpg.Combat" Version="0.17.139" />
-      <PackageReference Include="OpenRpg.Core" Version="0.17.139" />
-      <PackageReference Include="OpenRpg.Items" Version="0.17.139" />
-      <PackageReference Include="OpenRpg.Quests" Version="0.17.139" />
+      <PackageReference Include="OpenRpg.Combat" Version="0.18.143" />
+      <PackageReference Include="OpenRpg.Core" Version="0.18.143" />
+      <PackageReference Include="OpenRpg.Items" Version="0.18.143" />
+      <PackageReference Include="OpenRpg.Quests" Version="0.18.143" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\OpenRpg.Genres\OpenRpg.Genres.csproj" />
     </ItemGroup>
 
 </Project>

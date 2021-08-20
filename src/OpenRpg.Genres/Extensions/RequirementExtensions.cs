@@ -1,10 +1,10 @@
 using System.Linq;
 using OpenRpg.Core.Requirements;
-using OpenRpg.Genres.Fantasy.Characters;
-using OpenRpg.Genres.Fantasy.Requirements;
+using OpenRpg.Genres.Characters;
+using OpenRpg.Genres.Requirements;
 using OpenRpg.Quests.States;
 
-namespace OpenRpg.Genres.Fantasy.Extensions
+namespace OpenRpg.Genres.Extensions
 {
     public static class RequirementExtensions
     {
@@ -18,9 +18,7 @@ namespace OpenRpg.Genres.Fantasy.Extensions
             ICharacter character, IHasRequirements hasRequirements)
         {
             var characterRequirementsMet = AreRequirementsMet(characterRequirementChecker, character, hasRequirements);
-            if(characterRequirementsMet == false) { return false; }
-
-            return AreRequirementsMet(characterRequirementChecker, state, hasRequirements);
+            return characterRequirementsMet && AreRequirementsMet(characterRequirementChecker, state, hasRequirements);
         }
     }
 }

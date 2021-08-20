@@ -1,16 +1,14 @@
 using System.Linq;
 using OpenRpg.Core.Requirements;
-using OpenRpg.Genres.Fantasy.Characters;
-using OpenRpg.Genres.Fantasy.Extensions;
-using OpenRpg.Genres.Fantasy.Requirements;
-using OpenRpg.Genres.Fantasy.Types;
+using OpenRpg.Genres.Characters;
+using OpenRpg.Genres.Types;
 using OpenRpg.Quests.States;
 
-namespace OpenRpg.Genres.Fantasy.Defaults
+namespace OpenRpg.Genres.Requirements
 {
     public class DefaultCharacterRequirementChecker : ICharacterRequirementChecker
     {
-        public bool IsRequirementMet(ICharacter character, Requirement requirement)
+        public virtual bool IsRequirementMet(ICharacter character, Requirement requirement)
         {
             if (requirement.RequirementType == RequirementTypes.RaceRequirement)
             { return character.Race.Id == requirement.AssociatedId; }
@@ -24,33 +22,9 @@ namespace OpenRpg.Genres.Fantasy.Defaults
             if(requirement.RequirementType == RequirementTypes.GenderRequirement)
             { return character.GenderType == requirement.AssociatedId; }
             
-            if(requirement.RequirementType == RequirementTypes.StrengthRequirement)
-            { return character.Stats.Strength() >= requirement.AssociatedValue; }
-            
-            if(requirement.RequirementType == RequirementTypes.DexterityRequirement)
-            { return character.Stats.Dexterity() >= requirement.AssociatedValue; }
-            
-            if(requirement.RequirementType == RequirementTypes.IntelligenceRequirement)
-            { return character.Stats.Intelligence() >= requirement.AssociatedValue; }
-            
-            if(requirement.RequirementType == RequirementTypes.ConstitutionRequirement)
-            { return character.Stats.Constitution() >= requirement.AssociatedValue; }
-            
-            if(requirement.RequirementType == RequirementTypes.WisdomRequirement)
-            { return character.Stats.Wisdom() >= requirement.AssociatedValue; }
-            
-            if(requirement.RequirementType == RequirementTypes.CharismaRequirement)
-            { return character.Stats.Charisma() >= requirement.AssociatedValue; }
-            
-            if(requirement.RequirementType == RequirementTypes.MaxMagicRequirement)
-            { return character.Stats.MaxMagic() >= requirement.AssociatedValue; }
-            
-            if(requirement.RequirementType == RequirementTypes.MaxHealthRequirement)
-            { return character.Stats.MaxHealth() >= requirement.AssociatedValue; }
-
             if (requirement.RequirementType == RequirementTypes.EquipmentItemRequirement)
             {
-                return character.Equipment.GetEquipmentSlots().Any(x =>
+                return character.Equipment.Slots.Values.Any(x =>
                     x.SlotType == requirement.AssociatedId &&
                     x.SlottedItem.ItemTemplate.Id == requirement.AssociatedValue);
             }
@@ -58,7 +32,7 @@ namespace OpenRpg.Genres.Fantasy.Defaults
             return true;
         }
 
-        public bool IsRequirementMet(IGameState state, Requirement requirement)
+        public virtual bool IsRequirementMet(IGameState state, Requirement requirement)
         {
             if (requirement.RequirementType == RequirementTypes.TriggerRequirement)
             {

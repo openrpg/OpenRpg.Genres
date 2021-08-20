@@ -6,12 +6,12 @@ namespace OpenRpg.Genres.Fantasy.Extensions
 {
     public static class StatExtensions
     {
-        public static int Strength(this IStatsVariables stats) => (int)stats.GetVariable(StatsVariableTypes.Strength);
-        public static int Dexterity(this IStatsVariables stats) => (int)stats.GetVariable(StatsVariableTypes.Dexterity);
-        public static int Constitution(this IStatsVariables stats) => (int)stats.GetVariable(StatsVariableTypes.Constitution);
-        public static int Intelligence(this IStatsVariables stats) => (int)stats.GetVariable(StatsVariableTypes.Intelligence);
-        public static int Wisdom(this IStatsVariables stats) => (int)stats.GetVariable(StatsVariableTypes.Wisdom);
-        public static int Charisma(this IStatsVariables stats) => (int)stats.GetVariable(StatsVariableTypes.Charisma);
+        public static int Strength(this IStatsVariables stats) => (int)stats.Get(StatsVariableTypes.Strength);
+        public static int Dexterity(this IStatsVariables stats) => (int)stats.Get(StatsVariableTypes.Dexterity);
+        public static int Constitution(this IStatsVariables stats) => (int)stats.Get(StatsVariableTypes.Constitution);
+        public static int Intelligence(this IStatsVariables stats) => (int)stats.Get(StatsVariableTypes.Intelligence);
+        public static int Wisdom(this IStatsVariables stats) => (int)stats.Get(StatsVariableTypes.Wisdom);
+        public static int Charisma(this IStatsVariables stats) => (int)stats.Get(StatsVariableTypes.Charisma);
         public static void Strength(this IStatsVariables stats, int value) => stats[StatsVariableTypes.Strength] = value;
         public static void Dexterity(this IStatsVariables stats, int value) => stats[StatsVariableTypes.Dexterity] = value;
         public static void Constitution(this IStatsVariables stats, int value) => stats[StatsVariableTypes.Constitution] = value;
@@ -19,17 +19,17 @@ namespace OpenRpg.Genres.Fantasy.Extensions
         public static void Wisdom(this IStatsVariables stats, int value) => stats[StatsVariableTypes.Wisdom] = value;
         public static void Charisma(this IStatsVariables stats, int value) => stats[StatsVariableTypes.Charisma] = value;
         
-        public static int Health(this IStatsVariables stats) => (int)stats.GetVariable(StatsVariableTypes.Health);
-        public static int MaxHealth(this IStatsVariables stats) => (int)stats.GetVariable(StatsVariableTypes.MaxHealth);
-        public static int Magic(this IStatsVariables stats) => (int)stats.GetVariable(StatsVariableTypes.Magic);
-        public static int MaxMagic(this IStatsVariables stats) => (int)stats.GetVariable(StatsVariableTypes.MaxMagic);
+        public static int Health(this IStatsVariables stats) => (int)stats.Get(StatsVariableTypes.Health);
+        public static int MaxHealth(this IStatsVariables stats) => (int)stats.Get(StatsVariableTypes.MaxHealth);
+        public static int Magic(this IStatsVariables stats) => (int)stats.Get(StatsVariableTypes.Magic);
+        public static int MaxMagic(this IStatsVariables stats) => (int)stats.Get(StatsVariableTypes.MaxMagic);
 
         public static void Health(this IStatsVariables stats, int value) => stats[StatsVariableTypes.Health] = value;
         
         public static void HealthWithCheck(this IStatsVariables stats, int value)
         {
-            if(value > stats.GetVariable(StatsVariableTypes.MaxHealth))
-            { stats[StatsVariableTypes.Health] = stats.GetVariable(StatsVariableTypes.MaxHealth); }
+            if(value > stats.Get(StatsVariableTypes.MaxHealth))
+            { stats[StatsVariableTypes.Health] = stats.Get(StatsVariableTypes.MaxHealth); }
             else if(value <= 0)
             { stats[StatsVariableTypes.Health] = 0; }
             else
@@ -41,8 +41,8 @@ namespace OpenRpg.Genres.Fantasy.Extensions
         public static void Magic(this IStatsVariables stats, int value) => stats[StatsVariableTypes.Magic] = value;
         public static void MagicWithCheck(this IStatsVariables stats, int value)
         {
-            if(value > stats.GetVariable(StatsVariableTypes.MaxMagic))
-            { stats[StatsVariableTypes.Magic] = stats.GetVariable(StatsVariableTypes.MaxMagic); }
+            if(value > stats.Get(StatsVariableTypes.MaxMagic))
+            { stats[StatsVariableTypes.Magic] = stats.Get(StatsVariableTypes.MaxMagic); }
             else if(value <= 0)
             { stats[StatsVariableTypes.Magic] = 0; }
             else
@@ -56,17 +56,17 @@ namespace OpenRpg.Genres.Fantasy.Extensions
         public static void AddHealth(this IStatsVariables stats, int change) => stats.HealthWithCheck(stats.Health() + change);
         public static void DeductHealth(this IStatsVariables stats, int change) => stats.HealthWithCheck(stats.Health() - change);
         
-        public static float IceDamage(this IStatsVariables stats) => stats.GetVariable(StatsVariableTypes.IceDamage);
-        public static float FireDamage(this IStatsVariables stats) => stats.GetVariable(StatsVariableTypes.FireDamage);
-        public static float WindDamage(this IStatsVariables stats) => stats.GetVariable(StatsVariableTypes.WindDamage);
-        public static float EarthDamage(this IStatsVariables stats) => stats.GetVariable(StatsVariableTypes.EarthDamage);
-        public static float LightDamage(this IStatsVariables stats) => stats.GetVariable(StatsVariableTypes.LightDamage);
-        public static float DarkDamage(this IStatsVariables stats) => stats.GetVariable(StatsVariableTypes.DarkDamage);
-        public static float SlashingDamage(this IStatsVariables stats) => stats.GetVariable(StatsVariableTypes.SlashingDamage);
-        public static float BluntDamage(this IStatsVariables stats) => stats.GetVariable(StatsVariableTypes.BluntDamage);
-        public static float PiercingDamage(this IStatsVariables stats) => stats.GetVariable(StatsVariableTypes.PiercingDamage);
-        public static float UnarmedDamage(this IStatsVariables stats) => stats.GetVariable(StatsVariableTypes.UnarmedDamage);
-        public static float PureDamage(this IStatsVariables stats) => stats.GetVariable(StatsVariableTypes.PureDamage);
+        public static float IceDamage(this IStatsVariables stats) => stats.Get(StatsVariableTypes.IceDamage);
+        public static float FireDamage(this IStatsVariables stats) => stats.Get(StatsVariableTypes.FireDamage);
+        public static float WindDamage(this IStatsVariables stats) => stats.Get(StatsVariableTypes.WindDamage);
+        public static float EarthDamage(this IStatsVariables stats) => stats.Get(StatsVariableTypes.EarthDamage);
+        public static float LightDamage(this IStatsVariables stats) => stats.Get(StatsVariableTypes.LightDamage);
+        public static float DarkDamage(this IStatsVariables stats) => stats.Get(StatsVariableTypes.DarkDamage);
+        public static float SlashingDamage(this IStatsVariables stats) => stats.Get(StatsVariableTypes.SlashingDamage);
+        public static float BluntDamage(this IStatsVariables stats) => stats.Get(StatsVariableTypes.BluntDamage);
+        public static float PiercingDamage(this IStatsVariables stats) => stats.Get(StatsVariableTypes.PiercingDamage);
+        public static float UnarmedDamage(this IStatsVariables stats) => stats.Get(StatsVariableTypes.UnarmedDamage);
+        public static float PureDamage(this IStatsVariables stats) => stats.Get(StatsVariableTypes.PureDamage);
         public static void IceDamage(this IStatsVariables stats, float value) => stats[StatsVariableTypes.IceDamage] = value;
         public static void FireDamage(this IStatsVariables stats, float value) => stats[StatsVariableTypes.FireDamage] = value;
         public static void WindDamage(this IStatsVariables stats, float value) => stats[StatsVariableTypes.WindDamage] = value;
@@ -79,17 +79,17 @@ namespace OpenRpg.Genres.Fantasy.Extensions
         public static void UnarmedDamage(this IStatsVariables stats, float value) => stats[StatsVariableTypes.UnarmedDamage] = value;
         public static void PureDamage(this IStatsVariables stats, float value) => stats[StatsVariableTypes.PureDamage] = value;
         
-        public static float IceDefense(this IStatsVariables stats) => stats.GetVariable(StatsVariableTypes.IceDefense);
-        public static float FireDefense(this IStatsVariables stats) => stats.GetVariable(StatsVariableTypes.FireDefense);
-        public static float WindDefense(this IStatsVariables stats) => stats.GetVariable(StatsVariableTypes.WindDefense);
-        public static float EarthDefense(this IStatsVariables stats) => stats.GetVariable(StatsVariableTypes.EarthDefense);
-        public static float LightDefense(this IStatsVariables stats) => stats.GetVariable(StatsVariableTypes.LightDefense);
-        public static float DarkDefense(this IStatsVariables stats) => stats.GetVariable(StatsVariableTypes.DarkDefense);
-        public static float SlashingDefense(this IStatsVariables stats) => stats.GetVariable(StatsVariableTypes.SlashingDefense);
-        public static float BluntDefense(this IStatsVariables stats) => stats.GetVariable(StatsVariableTypes.BluntDefense);
-        public static float PiercingDefense(this IStatsVariables stats) => stats.GetVariable(StatsVariableTypes.PiercingDefense);
-        public static float UnarmedDefense(this IStatsVariables stats) => stats.GetVariable(StatsVariableTypes.UnarmedDefense);
-        public static float PureDefense(this IStatsVariables stats) => stats.GetVariable(StatsVariableTypes.PureDefense);
+        public static float IceDefense(this IStatsVariables stats) => stats.Get(StatsVariableTypes.IceDefense);
+        public static float FireDefense(this IStatsVariables stats) => stats.Get(StatsVariableTypes.FireDefense);
+        public static float WindDefense(this IStatsVariables stats) => stats.Get(StatsVariableTypes.WindDefense);
+        public static float EarthDefense(this IStatsVariables stats) => stats.Get(StatsVariableTypes.EarthDefense);
+        public static float LightDefense(this IStatsVariables stats) => stats.Get(StatsVariableTypes.LightDefense);
+        public static float DarkDefense(this IStatsVariables stats) => stats.Get(StatsVariableTypes.DarkDefense);
+        public static float SlashingDefense(this IStatsVariables stats) => stats.Get(StatsVariableTypes.SlashingDefense);
+        public static float BluntDefense(this IStatsVariables stats) => stats.Get(StatsVariableTypes.BluntDefense);
+        public static float PiercingDefense(this IStatsVariables stats) => stats.Get(StatsVariableTypes.PiercingDefense);
+        public static float UnarmedDefense(this IStatsVariables stats) => stats.Get(StatsVariableTypes.UnarmedDefense);
+        public static float PureDefense(this IStatsVariables stats) => stats.Get(StatsVariableTypes.PureDefense);
         public static void IceDefense(this IStatsVariables stats, float value) => stats[StatsVariableTypes.IceDefense] = value;
         public static void FireDefense(this IStatsVariables stats, float value) => stats[StatsVariableTypes.FireDefense] = value;
         public static void WindDefense(this IStatsVariables stats, float value) => stats[StatsVariableTypes.WindDefense] = value;

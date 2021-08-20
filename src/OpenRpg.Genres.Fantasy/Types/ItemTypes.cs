@@ -1,23 +1,18 @@
 namespace OpenRpg.Genres.Fantasy.Types
 {
-    public class ItemTypes
+    public class ItemTypes : Genres.Types.ItemTypes
     {
-        public static int UnknownItem = 0;
+        public static int HeadItem = 30;
+        public static int UpperBodyArmour = 31;
+        public static int LowerBodyArmour = 32;
+        public static int BackArmour = 33;
+        public static int FootArmour = 34;
+        public static int WristItem = 35;
+        public static int NeckItem = 36;
+        public static int RingItem = 37;
+        
+        public static int OffhandItem = 50;
 
-        public static int QuestItem = 1;
-        public static int HeadItem = 2;
-        public static int UpperBodyArmour = 3;
-        public static int LowerBodyArmour = 4;
-        public static int BackArmour = 5;
-        public static int FootArmour = 6;
-        public static int WristItem = 7;
-        public static int NeckItem = 8;
-        public static int RingItem = 9;
-        public static int Potions = 10;
-        public static int GenericWeapon = 11;
-        public static int OffhandItem = 12;
-        public static int GenericItem = 13;
-        public static int CraftingMaterial = 14;
-
+        public static int Potions = 60;
     }
 }
