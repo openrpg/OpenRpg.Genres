@@ -13,5 +13,7 @@ namespace OpenRpg.Genres.Types
         public static int EquipmentItemRequirement = 7;
         public static int GenderRequirement = 8;
         public static int ActiveEffectRequirement = 9;
+        public static int MaxHealthRequirement = 10;
+
     }
 }

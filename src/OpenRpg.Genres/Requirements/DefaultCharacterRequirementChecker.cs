@@ -1,6 +1,7 @@
 using System.Linq;
 using OpenRpg.Core.Requirements;
 using OpenRpg.Genres.Characters;
+using OpenRpg.Genres.Extensions;
 using OpenRpg.Genres.Types;
 using OpenRpg.Quests.States;
 
@@ -28,6 +29,9 @@ namespace OpenRpg.Genres.Requirements
                     x.SlotType == requirement.AssociatedId &&
                     x.SlottedItem.ItemTemplate.Id == requirement.AssociatedValue);
             }
+
+            if(requirement.RequirementType == RequirementTypes.MaxHealthRequirement)
+            { return character.Stats.MaxHealth() >= requirement.AssociatedValue; }
             
             return true;
         }

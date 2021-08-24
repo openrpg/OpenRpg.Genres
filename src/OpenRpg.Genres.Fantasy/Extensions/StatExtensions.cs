@@ -18,26 +18,10 @@ namespace OpenRpg.Genres.Fantasy.Extensions
         public static void Intelligence(this IStatsVariables stats, int value) => stats[StatsVariableTypes.Intelligence] = value;
         public static void Wisdom(this IStatsVariables stats, int value) => stats[StatsVariableTypes.Wisdom] = value;
         public static void Charisma(this IStatsVariables stats, int value) => stats[StatsVariableTypes.Charisma] = value;
-        
-        public static int Health(this IStatsVariables stats) => (int)stats.Get(StatsVariableTypes.Health);
-        public static int MaxHealth(this IStatsVariables stats) => (int)stats.Get(StatsVariableTypes.MaxHealth);
+
         public static int Magic(this IStatsVariables stats) => (int)stats.Get(StatsVariableTypes.Magic);
         public static int MaxMagic(this IStatsVariables stats) => (int)stats.Get(StatsVariableTypes.MaxMagic);
-
-        public static void Health(this IStatsVariables stats, int value) => stats[StatsVariableTypes.Health] = value;
         
-        public static void HealthWithCheck(this IStatsVariables stats, int value)
-        {
-            if(value > stats.Get(StatsVariableTypes.MaxHealth))
-            { stats[StatsVariableTypes.Health] = stats.Get(StatsVariableTypes.MaxHealth); }
-            else if(value <= 0)
-            { stats[StatsVariableTypes.Health] = 0; }
-            else
-            { stats[StatsVariableTypes.Health] = value; }
-        }
-        
-        public static void MaxHealth(this IStatsVariables stats, int value) => stats[StatsVariableTypes.MaxHealth] = value;
-
         public static void Magic(this IStatsVariables stats, int value) => stats[StatsVariableTypes.Magic] = value;
         public static void MagicWithCheck(this IStatsVariables stats, int value)
         {
@@ -53,8 +37,6 @@ namespace OpenRpg.Genres.Fantasy.Extensions
         
         public static void AddMagic(this IStatsVariables stats, int change) => stats.MagicWithCheck(stats.Magic() + change);
         public static void DeductMagic(this IStatsVariables stats, int change) => stats.MagicWithCheck(stats.Magic() - change);
-        public static void AddHealth(this IStatsVariables stats, int change) => stats.HealthWithCheck(stats.Health() + change);
-        public static void DeductHealth(this IStatsVariables stats, int change) => stats.HealthWithCheck(stats.Health() - change);
         
         public static float IceDamage(this IStatsVariables stats) => stats.Get(StatsVariableTypes.IceDamage);
         public static float FireDamage(this IStatsVariables stats) => stats.Get(StatsVariableTypes.FireDamage);

@@ -30,9 +30,6 @@ namespace OpenRpg.Genres.Fantasy.Requirements
             
             if(requirement.RequirementType == RequirementTypes.MaxMagicRequirement)
             { return character.Stats.MaxMagic() >= requirement.AssociatedValue; }
-            
-            if(requirement.RequirementType == RequirementTypes.MaxHealthRequirement)
-            { return character.Stats.MaxHealth() >= requirement.AssociatedValue; }
 
             return base.IsRequirementMet(character, requirement);
         }
