@@ -12,8 +12,8 @@ common item qualities and damage types which all adhere to common fantasy settin
 
 As with all layers on top of OpenRpg feel free to use parts or all of this as well as augment it to fit your needs.
 
-[build-status-image]: https://ci.appveyor.com/api/projects/status/ffxao77sdu1v1dka?svg=true
-[build-status-url]: https://ci.appveyor.com/project/grofit/openrpg-fantasy/branch/master
+[build-status-image]: https://ci.appveyor.com/api/projects/status/ucs4qoncqfrp29f8?svg=true
+[build-status-url]: https://ci.appveyor.com/api/projects/status/ucs4qoncqfrp29f8
 [nuget-image]: https://img.shields.io/nuget/v/OpenRpg.Genres.Fantasy.svg
 [nuget-url]: https://www.nuget.org/packages/OpenRpg.Genres.Fantasy/
 [discord-image]: https://img.shields.io/discord/488609938399297536.svg
