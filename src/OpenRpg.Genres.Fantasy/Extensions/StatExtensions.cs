@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using OpenRpg.Core.Stats;
+using OpenRpg.Genres.Extensions;
 using OpenRpg.Genres.Fantasy.Types;
 
 namespace OpenRpg.Genres.Fantasy.Extensions
@@ -48,7 +49,6 @@ namespace OpenRpg.Genres.Fantasy.Extensions
         public static float BluntDamage(this IStatsVariables stats) => stats.Get(StatsVariableTypes.BluntDamage);
         public static float PiercingDamage(this IStatsVariables stats) => stats.Get(StatsVariableTypes.PiercingDamage);
         public static float UnarmedDamage(this IStatsVariables stats) => stats.Get(StatsVariableTypes.UnarmedDamage);
-        public static float PureDamage(this IStatsVariables stats) => stats.Get(StatsVariableTypes.PureDamage);
         public static void IceDamage(this IStatsVariables stats, float value) => stats[StatsVariableTypes.IceDamage] = value;
         public static void FireDamage(this IStatsVariables stats, float value) => stats[StatsVariableTypes.FireDamage] = value;
         public static void WindDamage(this IStatsVariables stats, float value) => stats[StatsVariableTypes.WindDamage] = value;
@@ -59,7 +59,6 @@ namespace OpenRpg.Genres.Fantasy.Extensions
         public static void BluntDamage(this IStatsVariables stats, float value) => stats[StatsVariableTypes.BluntDamage] = value;
         public static void PiercingDamage(this IStatsVariables stats, float value) => stats[StatsVariableTypes.PiercingDamage] = value;
         public static void UnarmedDamage(this IStatsVariables stats, float value) => stats[StatsVariableTypes.UnarmedDamage] = value;
-        public static void PureDamage(this IStatsVariables stats, float value) => stats[StatsVariableTypes.PureDamage] = value;
         
         public static float IceDefense(this IStatsVariables stats) => stats.Get(StatsVariableTypes.IceDefense);
         public static float FireDefense(this IStatsVariables stats) => stats.Get(StatsVariableTypes.FireDefense);
@@ -71,7 +70,6 @@ namespace OpenRpg.Genres.Fantasy.Extensions
         public static float BluntDefense(this IStatsVariables stats) => stats.Get(StatsVariableTypes.BluntDefense);
         public static float PiercingDefense(this IStatsVariables stats) => stats.Get(StatsVariableTypes.PiercingDefense);
         public static float UnarmedDefense(this IStatsVariables stats) => stats.Get(StatsVariableTypes.UnarmedDefense);
-        public static float PureDefense(this IStatsVariables stats) => stats.Get(StatsVariableTypes.PureDefense);
         public static void IceDefense(this IStatsVariables stats, float value) => stats[StatsVariableTypes.IceDefense] = value;
         public static void FireDefense(this IStatsVariables stats, float value) => stats[StatsVariableTypes.FireDefense] = value;
         public static void WindDefense(this IStatsVariables stats, float value) => stats[StatsVariableTypes.WindDefense] = value;
@@ -82,7 +80,6 @@ namespace OpenRpg.Genres.Fantasy.Extensions
         public static void BluntDefense(this IStatsVariables stats, float value) => stats[StatsVariableTypes.BluntDefense] = value;
         public static void PiercingDefense(this IStatsVariables stats, float value) => stats[StatsVariableTypes.PiercingDefense] = value;
         public static void UnarmedDefense(this IStatsVariables stats, float value) => stats[StatsVariableTypes.UnarmedDefense] = value;
-        public static void PureDefense(this IStatsVariables stats, float value) => stats[StatsVariableTypes.PureDefense] = value;
         
         public static ICollection<StatReference> GetDamageReferences(this IStatsVariables stats)
         {
