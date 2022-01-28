@@ -14,8 +14,8 @@ namespace OpenRpg.Genres.Characters
         public int Id { get; set; }
         public string NameLocaleId { get; set; }
         public string DescriptionLocaleId { get; set; }
-        public IStatsVariables Stats { get; set; }
-        public IClass Class { get; set; }
+        public IStatsVariables Stats { get; set; } = new DefaultStatsVariables();
+        public IClass Class { get; set; } = new DefaultClass();
         public byte GenderType { get; set; }
         public IRaceTemplate Race { get; set; } = new DefaultRaceTemplate();
         public IEquipment Equipment { get; set; } = new DefaultEquipment();
