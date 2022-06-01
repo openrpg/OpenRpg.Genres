@@ -36,7 +36,7 @@ namespace OpenRpg.Genres.Requirements
             return true;
         }
 
-        public virtual bool IsRequirementMet(IGameState state, Requirement requirement)
+        public virtual bool IsRequirementMet(IQuestStates state, Requirement requirement)
         {
             if (requirement.RequirementType == RequirementTypes.TriggerRequirement)
             {

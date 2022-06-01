@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <Version>0.0.0</Version>
-        <TargetFrameworks>netstandard2.0;net46</TargetFrameworks>
+        <TargetFramework>netstandard2.0</TargetFramework>
         <Title>OpenRpg.Genres</Title>
         <Authors>Grofit (LP)</Authors>
         <PackageLicenseUrl>https://github.com/openrpg/OpenRpg.Genres/blob/master/LICENSE</PackageLicenseUrl>
@@ -12,11 +12,11 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="OpenRpg.Combat" Version="0.19.152" />
-        <PackageReference Include="OpenRpg.Core" Version="0.19.152" />
-        <PackageReference Include="OpenRpg.CurveFunctions" Version="0.19.152" />
-        <PackageReference Include="OpenRpg.Items" Version="0.19.152" />
-        <PackageReference Include="OpenRpg.Quests" Version="0.19.152" />
+        <PackageReference Include="OpenRpg.Combat" Version="0.21.163" />
+        <PackageReference Include="OpenRpg.Core" Version="0.21.163" />
+        <PackageReference Include="OpenRpg.CurveFunctions" Version="0.21.163" />
+        <PackageReference Include="OpenRpg.Items" Version="0.21.163" />
+        <PackageReference Include="OpenRpg.Quests" Version="0.21.163" />
     </ItemGroup>
 
 </Project>

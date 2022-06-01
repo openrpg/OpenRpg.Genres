@@ -6,6 +6,6 @@ namespace OpenRpg.Genres.Requirements
 {
     public interface ICharacterRequirementChecker : IRequirementChecker<ICharacter>
     {
-        bool IsRequirementMet(IGameState state, Requirement requirement);
+        bool IsRequirementMet(IQuestStates state, Requirement requirement);
     }
 }
