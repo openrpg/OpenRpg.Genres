@@ -15,6 +15,7 @@ namespace OpenRpg.Genres.Characters
         byte GenderType { get; }
         IRaceTemplate Race { get; }
         IEquipment Equipment { get; }
+        ICharacterStateVariables State { get; }
         ICharacterVariables Variables { get; }
     }
 }

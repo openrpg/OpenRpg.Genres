@@ -2,7 +2,7 @@ using System.Linq;
 using OpenRpg.Core.Requirements;
 using OpenRpg.Genres.Characters;
 using OpenRpg.Genres.Requirements;
-using OpenRpg.Quests.States;
+using OpenRpg.Quests.Variables;
 
 namespace OpenRpg.Genres.Extensions
 {
@@ -11,14 +11,18 @@ namespace OpenRpg.Genres.Extensions
         public static bool AreRequirementsMet(this ICharacterRequirementChecker characterRequirementChecker, ICharacter character, IHasRequirements hasRequirements)
         { return hasRequirements.Requirements.All(x => characterRequirementChecker.IsRequirementMet(character, x)); }
         
-        public static bool AreRequirementsMet(this ICharacterRequirementChecker characterRequirementChecker, IQuestStates state, IHasRequirements hasRequirements)
-        { return hasRequirements.Requirements.All(x => characterRequirementChecker.IsRequirementMet(state, x)); }
+        public static bool AreRequirementsMet(this ICharacterRequirementChecker characterRequirementChecker, IQuestStateVariables questState, IHasRequirements hasRequirements)
+        { return hasRequirements.Requirements.All(x => characterRequirementChecker.IsRequirementMet(questState, x)); }
+        
+        public static bool AreRequirementsMet(this ICharacterRequirementChecker characterRequirementChecker, ITriggerStateVariables triggerState, IHasRequirements hasRequirements)
+        { return hasRequirements.Requirements.All(x => characterRequirementChecker.IsRequirementMet(triggerState, x)); }
 
-        public static bool AreRequirementsMet(this ICharacterRequirementChecker characterRequirementChecker, IQuestStates state,
+        public static bool AreRequirementsMet(this ICharacterRequirementChecker characterRequirementChecker, IQuestStateVariables questState, ITriggerStateVariables triggerState,
             ICharacter character, IHasRequirements hasRequirements)
         {
-            var characterRequirementsMet = AreRequirementsMet(characterRequirementChecker, character, hasRequirements);
-            return characterRequirementsMet && AreRequirementsMet(characterRequirementChecker, state, hasRequirements);
+            return AreRequirementsMet(characterRequirementChecker, character, hasRequirements) &&
+                   AreRequirementsMet(characterRequirementChecker, questState, hasRequirements) &&
+                   AreRequirementsMet(characterRequirementChecker, triggerState, hasRequirements);
         }
     }
 }

@@ -5,7 +5,7 @@ namespace OpenRpg.Genres.Variables
 {
     public class DefaultCharacterVariables : DefaultVariables<object>, ICharacterVariables
     {
-        public DefaultCharacterVariables(IDictionary<int, object> internalVariables = null) : base(internalVariables)
+        public DefaultCharacterVariables(IDictionary<int, object> internalVariables = null) : base(GenreVariableTypes.CharacterVariables, internalVariables)
         {
         }
     }

@@ -3,7 +3,8 @@ using OpenRpg.Core.Requirements;
 using OpenRpg.Genres.Characters;
 using OpenRpg.Genres.Extensions;
 using OpenRpg.Genres.Types;
-using OpenRpg.Quests.States;
+using OpenRpg.Quests.Types;
+using OpenRpg.Quests.Variables;
 
 namespace OpenRpg.Genres.Requirements
 {
@@ -36,23 +37,29 @@ namespace OpenRpg.Genres.Requirements
             return true;
         }
 
-        public virtual bool IsRequirementMet(IQuestStates state, Requirement requirement)
+        public virtual bool IsRequirementMet(IQuestStateVariables state, Requirement requirement)
+        {
+            if (requirement.RequirementType == RequirementTypes.QuestStateRequirement)
+            {
+                var hasQuestState = state.ContainsKey(requirement.AssociatedId);
+                if(requirement.AssociatedValue == QuestStateTypes.QuestNotStarted && !hasQuestState) 
+                { return true; }
+
+                return state[requirement.AssociatedId] == requirement.AssociatedValue;
+            }
+            
+            return true;
+        }
+    
+        public virtual bool IsRequirementMet(ITriggerStateVariables state, Requirement requirement)
         {
             if (requirement.RequirementType == RequirementTypes.TriggerRequirement)
             {
-                var hasTrigger = state.Triggers.ContainsKey(requirement.AssociatedId);
+                var hasTrigger = state.ContainsKey(requirement.AssociatedId);
                 var triggerState = (requirement.AssociatedValue == 1);
                 if(requirement.AssociatedValue == 0 && !hasTrigger) { return true; }
                 
-                return state.Triggers[requirement.AssociatedId] == triggerState;
-            }
-
-            if (requirement.RequirementType == RequirementTypes.QuestStateRequirement)
-            {
-                var hasQuestState = state.QuestStates.ContainsKey(requirement.AssociatedId);
-                if(requirement.AssociatedValue == QuestStateTypes.QuestNotStarted && !hasQuestState) { return true; }
-
-                return state.QuestStates[requirement.AssociatedId] == requirement.AssociatedValue;
+                return state[requirement.AssociatedId] == triggerState;
             }
             
             return true;

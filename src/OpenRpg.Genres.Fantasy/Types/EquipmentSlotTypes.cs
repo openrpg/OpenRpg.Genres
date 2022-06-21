@@ -1,6 +1,6 @@
 namespace OpenRpg.Genres.Fantasy.Types
 {
-    public class EquipmentSlotTypes
+    public interface EquipmentSlotTypes
     {
         public static int UnknownSlot = 0;
         

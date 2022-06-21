@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using OpenRpg.Core.Effects;
 using OpenRpg.Core.Extensions;
-using OpenRpg.Core.Stats;
-using OpenRpg.Genres.Extensions;
+using OpenRpg.Core.Stats.Variables;
+using OpenRpg.Core.Variables;
 using OpenRpg.Genres.Fantasy.Extensions;
 using OpenRpg.Genres.Fantasy.Stats;
 using OpenRpg.Genres.Fantasy.Types;
@@ -11,7 +11,7 @@ namespace OpenRpg.Genres.Fantasy.Defaults
 {
     public class DefaultAttributeStatPopulator : IAttributeStatPopulator
     {
-        public void PopulateStats(IStatsVariables stats, IReadOnlyCollection<Effect> activeEffects)
+        public void Populate(IStatsVariables stats, IReadOnlyCollection<Effect> activeEffects, IReadOnlyCollection<IVariables> relatedVars)
         {
             var strengthValue = (int)activeEffects.CalculateBonusFor(EffectTypes.StrengthBonusAmount, EffectTypes.StrengthBonusPercentage);
             var dexterityValue = (int)activeEffects.CalculateBonusFor(EffectTypes.DexterityBonusAmount, EffectTypes.DexterityBonusPercentage);

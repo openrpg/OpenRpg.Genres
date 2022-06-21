@@ -1,9 +1,9 @@
 namespace OpenRpg.Genres.Types
 {
-    public class DamageTypes
+    public interface DamageTypes
     {
         public static int UnknownDamage = 0;
         
-        public static int PureDamage = 1;
+        public static int Damage = 1;
     }
 }

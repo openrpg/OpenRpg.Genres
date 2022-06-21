@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using OpenRpg.Combat.Attacks;
 using OpenRpg.Combat.Processors;
-using OpenRpg.Core.Stats;
+using OpenRpg.Core.Stats.Variables;
 using OpenRpg.Genres.Fantasy.Extensions;
 
 namespace OpenRpg.Genres.Fantasy.Combat

@@ -1,6 +1,6 @@
 namespace OpenRpg.Genres.Types
 {
-    public class ItemTypes
+    public interface ItemTypes
     {
         public static int UnknownItem = 0;
 

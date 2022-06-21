@@ -1,6 +1,6 @@
 namespace OpenRpg.Genres.Scifi.Types
 {
-    public class CharacterEquipmentSlotTypes
+    public interface CharacterEquipmentSlotTypes
     {
         public static int UnknownSlot = 0;
         

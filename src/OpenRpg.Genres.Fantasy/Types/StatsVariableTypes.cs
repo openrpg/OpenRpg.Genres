@@ -1,9 +1,8 @@
 namespace OpenRpg.Genres.Fantasy.Types
 {
-    public class StatsVariableTypes : Genres.Types.StatsVariableTypes
+    public interface StatsVariableTypes : Genres.Types.StatsVariableTypes
     {
         public static int MaxMagic = 50;
-        public static int Magic = 51;
         
         // Base stats
         public static int Strength = 60;

@@ -1,6 +1,6 @@
 namespace OpenRpg.Genres.Types
 {
-    public class ModificationTypes
+    public interface ModificationTypes
     {
         public static int UnknownModification = 0;
     }

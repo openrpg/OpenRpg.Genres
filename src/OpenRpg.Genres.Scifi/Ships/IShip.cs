@@ -10,6 +10,6 @@ namespace OpenRpg.Genres.Scifi.Ships
         IShipTemplate ShipTemplate { get; }
         IShipEquipment Equipment { get; }
         IInventory Inventory { get; }
-        IShipStats Stats { get; }
+        IShipStatVariables StatVariables { get; }
     }
 }

@@ -1,6 +1,6 @@
 namespace OpenRpg.Genres.Types
 {
-    public class RewardTypes
+    public interface RewardTypes
     {
         public static int UnknownReward = 0;
        

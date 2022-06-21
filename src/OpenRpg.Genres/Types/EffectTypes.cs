@@ -1,14 +1,14 @@
 namespace OpenRpg.Genres.Types
 {
-    public class EffectTypes
+    public interface EffectTypes
     {
         public static int UnknownBonus = 0;
         
         // Pure Damage Types
-        public static int PureDamageAmount = 1;
-        public static int PureDamagePercentage = 2;
+        public static int DamageBonusAmount = 1;
+        public static int DamageBonusPercentage = 2;
         
-        public static int PureDefenseAmount = 10;
-        public static int PureDefensePercentage = 11;
+        public static int DefenseBonusAmount = 10;
+        public static int DefenseBonusPercentage = 11;
     }
 }

@@ -1,6 +1,6 @@
 ﻿using OpenRpg.Core.Classes;
 using OpenRpg.Core.Races;
-using OpenRpg.Core.Stats;
+using OpenRpg.Core.Stats.Variables;
 using OpenRpg.Genres.Variables;
 using OpenRpg.Items.Equipment;
 
@@ -15,6 +15,7 @@ namespace OpenRpg.Genres.Characters
         public string NameLocaleId { get; set; }
         public string DescriptionLocaleId { get; set; }
         public IStatsVariables Stats { get; set; } = new DefaultStatsVariables();
+        public ICharacterStateVariables State { get; set; } = new DefaultCharacterStateVariables();
         public IClass Class { get; set; } = new DefaultClass();
         public byte GenderType { get; set; }
         public IRaceTemplate Race { get; set; } = new DefaultRaceTemplate();

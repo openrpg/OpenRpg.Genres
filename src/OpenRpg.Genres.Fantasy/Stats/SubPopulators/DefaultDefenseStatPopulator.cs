@@ -3,7 +3,8 @@ using OpenRpg.Combat.Attacks;
 using OpenRpg.Combat.Extensions;
 using OpenRpg.Core.Effects;
 using OpenRpg.Core.Extensions;
-using OpenRpg.Core.Stats;
+using OpenRpg.Core.Stats.Variables;
+using OpenRpg.Core.Variables;
 using OpenRpg.Genres.Extensions;
 using OpenRpg.Genres.Fantasy.Effects;
 using OpenRpg.Genres.Fantasy.Extensions;
@@ -50,8 +51,8 @@ namespace OpenRpg.Genres.Fantasy.Defaults
         
         public float ComputePureDefense(IStatsVariables stats, IReadOnlyCollection<Effect> effects)
         {
-            var amount = effects.GetPotencyFor(EffectTypes.PureDefenseAmount);
-            var percentage = effects.GetPotencyFor(EffectTypes.PureDefensePercentage);
+            var amount = effects.GetPotencyFor(EffectTypes.DefenseBonusAmount);
+            var percentage = effects.GetPotencyFor(EffectTypes.DefenseBonusPercentage);
 
             if (percentage == 0)
             { return amount; }
@@ -98,7 +99,7 @@ namespace OpenRpg.Genres.Fantasy.Defaults
             return ComputeMeleeDefense(strengthBonus + dexterityBonus, EffectRelationships.UnarmedDefenseRelationship, effects);
         }       
 
-        public void PopulateStats(IStatsVariables stats, IReadOnlyCollection<Effect> activeEffects)
+        public void Populate(IStatsVariables stats, IReadOnlyCollection<Effect> activeEffects, IReadOnlyCollection<IVariables> relatedVars)
         {
             var iceDefense = ComputeIceDefense(stats, activeEffects);
             var fireDefense = ComputeFireDefense(stats, activeEffects);

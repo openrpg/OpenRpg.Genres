@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using OpenRpg.Core.Stats;
+using OpenRpg.Core.Stats.Variables;
 using OpenRpg.Genres.Extensions;
 using OpenRpg.Genres.Fantasy.Types;
 
@@ -20,24 +21,8 @@ namespace OpenRpg.Genres.Fantasy.Extensions
         public static void Wisdom(this IStatsVariables stats, int value) => stats[StatsVariableTypes.Wisdom] = value;
         public static void Charisma(this IStatsVariables stats, int value) => stats[StatsVariableTypes.Charisma] = value;
 
-        public static int Magic(this IStatsVariables stats) => (int)stats.Get(StatsVariableTypes.Magic);
-        public static int MaxMagic(this IStatsVariables stats) => (int)stats.Get(StatsVariableTypes.MaxMagic);
-        
-        public static void Magic(this IStatsVariables stats, int value) => stats[StatsVariableTypes.Magic] = value;
-        public static void MagicWithCheck(this IStatsVariables stats, int value)
-        {
-            if(value > stats.Get(StatsVariableTypes.MaxMagic))
-            { stats[StatsVariableTypes.Magic] = stats.Get(StatsVariableTypes.MaxMagic); }
-            else if(value <= 0)
-            { stats[StatsVariableTypes.Magic] = 0; }
-            else
-            { stats[StatsVariableTypes.Magic] = value; }
-        }
-        
         public static void MaxMagic(this IStatsVariables stats, int value) => stats[StatsVariableTypes.MaxMagic] = value;
-        
-        public static void AddMagic(this IStatsVariables stats, int change) => stats.MagicWithCheck(stats.Magic() + change);
-        public static void DeductMagic(this IStatsVariables stats, int change) => stats.MagicWithCheck(stats.Magic() - change);
+        public static int MaxMagic(this IStatsVariables stats) => (int)stats.Get(StatsVariableTypes.MaxMagic);
         
         public static float IceDamage(this IStatsVariables stats) => stats.Get(StatsVariableTypes.IceDamage);
         public static float FireDamage(this IStatsVariables stats) => stats.Get(StatsVariableTypes.FireDamage);
@@ -95,7 +80,7 @@ namespace OpenRpg.Genres.Fantasy.Extensions
                 new StatReference(DamageTypes.BluntDamage, stats.BluntDamage()),
                 new StatReference(DamageTypes.PiercingDamage, stats.PiercingDamage()),
                 new StatReference(DamageTypes.UnarmedDamage, stats.UnarmedDamage()),
-                new StatReference(DamageTypes.PureDamage, stats.PureDamage())
+                new StatReference(DamageTypes.Damage, stats.PureDamage())
             };
         }
         
@@ -113,7 +98,7 @@ namespace OpenRpg.Genres.Fantasy.Extensions
                 new StatReference(DamageTypes.BluntDamage, stats.BluntDefense()),
                 new StatReference(DamageTypes.PiercingDamage, stats.PiercingDefense()),
                 new StatReference(DamageTypes.UnarmedDamage, stats.UnarmedDefense()),
-                new StatReference(DamageTypes.PureDamage, stats.PureDefense())
+                new StatReference(DamageTypes.Damage, stats.PureDefense())
             };
         }
         
@@ -142,7 +127,7 @@ namespace OpenRpg.Genres.Fantasy.Extensions
                        stats.BluntDefense() + stats.UnarmedDefense();
             }
 
-            if (effectType == EffectTypes.PureDamageAmount)
+            if (effectType == EffectTypes.DamageBonusAmount)
             { return stats.PureDefense(); }
 
             return 0;
@@ -160,7 +145,7 @@ namespace OpenRpg.Genres.Fantasy.Extensions
             if (damageType == DamageTypes.EarthDamage) { return stats.EarthDefense(); }
             if (damageType == DamageTypes.LightDamage) { return stats.LightDefense(); }
             if (damageType == DamageTypes.DarkDamage) { return stats.DarkDefense(); }
-            if (damageType == DamageTypes.PureDamage) { return stats.PureDefense(); }
+            if (damageType == DamageTypes.Damage) { return stats.PureDefense(); }
             return 0;
         }
 
@@ -189,7 +174,7 @@ namespace OpenRpg.Genres.Fantasy.Extensions
                        stats.BluntDamage() + stats.UnarmedDamage();
             }
 
-            if (effectType == EffectTypes.PureDamageAmount)
+            if (effectType == EffectTypes.DamageBonusAmount)
             { return stats.PureDamage(); }
 
             return 0;
@@ -207,7 +192,7 @@ namespace OpenRpg.Genres.Fantasy.Extensions
             if (damageType == DamageTypes.EarthDamage) { return stats.EarthDamage(); }
             if (damageType == DamageTypes.LightDamage) { return stats.LightDamage(); }
             if (damageType == DamageTypes.DarkDamage) { return stats.DarkDamage(); }
-            if (damageType == DamageTypes.PureDamage) { return stats.PureDamage(); }
+            if (damageType == DamageTypes.Damage) { return stats.PureDamage(); }
             return 0;
         }
     }

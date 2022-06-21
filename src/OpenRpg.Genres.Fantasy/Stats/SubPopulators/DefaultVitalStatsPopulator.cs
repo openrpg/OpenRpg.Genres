@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using OpenRpg.Core.Effects;
-using OpenRpg.Core.Stats;
+using OpenRpg.Core.Stats.Variables;
+using OpenRpg.Core.Variables;
 using OpenRpg.Genres.Extensions;
 using OpenRpg.Genres.Fantasy.Extensions;
 using OpenRpg.Genres.Fantasy.Stats;
@@ -10,7 +11,7 @@ namespace OpenRpg.Genres.Fantasy.Defaults
 {
     public class DefaultVitalStatsPopulator : IVitalStatsPopulator
     {
-        public void PopulateStats(IStatsVariables stats, IReadOnlyCollection<Effect> activeEffects)
+        public void Populate(IStatsVariables stats, IReadOnlyCollection<Effect> activeEffects, IReadOnlyCollection<IVariables> relatedVars)
         {
             PopulateHP(stats, activeEffects);
             PopulateMP(stats, activeEffects);
@@ -23,7 +24,6 @@ namespace OpenRpg.Genres.Fantasy.Defaults
                 EffectTypes.HealthBonusPercentage, constitutionBonus);
 
             stats.MaxHealth(maxHealthStat);
-            stats.Health(maxHealthStat);
         }
         
         public void PopulateMP(IStatsVariables stats, IReadOnlyCollection<Effect> activeEffects)
@@ -33,7 +33,6 @@ namespace OpenRpg.Genres.Fantasy.Defaults
                 EffectTypes.MagicBonusPercentage, intelligenceBonus);
             
             stats.MaxMagic(maxMagicStat);
-            stats.Magic(maxMagicStat);
         }
     }
 }

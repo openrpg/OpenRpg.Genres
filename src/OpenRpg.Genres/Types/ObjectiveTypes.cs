@@ -1,17 +1,9 @@
 namespace OpenRpg.Genres.Types
 {
-    public class ObjectiveTypes
+    public interface ObjectiveTypes
     {
-        public static int UnknownObjective = 0;
-       
-        public static int ItemObjective = 1;
-        public static int CurrencyObjective = 2;
-        public static int TriggerObjective = 3;
-        public static int LevelObjective = 4;
-        public static int ClassObjective = 5;
-        public static int EffectObjective = 6;
-        public static int QuestObjective = 7;
-        public static int EnemyDefeatedObjective = 8;
-        public static int EnemySightedObjective = 9;
+        public static int CurrencyObjective = 30;
+        public static int EnemyDefeatedObjective = 31;
+        public static int EnemySightedObjective = 32;
     }
 }

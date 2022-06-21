@@ -1,6 +1,6 @@
 namespace OpenRpg.Genres.Types
 {
-    public class RequirementTypes
+    public interface RequirementTypes
     {
         public static int UnknownRequirement = 0;
         
@@ -14,6 +14,5 @@ namespace OpenRpg.Genres.Types
         public static int GenderRequirement = 8;
         public static int ActiveEffectRequirement = 9;
         public static int MaxHealthRequirement = 10;
-
     }
 }

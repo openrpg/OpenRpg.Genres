@@ -1,6 +1,6 @@
 namespace OpenRpg.Genres.Scifi.Types
 {
-    public class ItemTypes : Genres.Types.ItemTypes
+    public interface ItemTypes : Genres.Types.ItemTypes
     {
         public static int Armour = 30;
         
