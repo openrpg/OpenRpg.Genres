@@ -80,7 +80,7 @@ namespace OpenRpg.Genres.Fantasy.Extensions
                 new StatReference(DamageTypes.BluntDamage, stats.BluntDamage()),
                 new StatReference(DamageTypes.PiercingDamage, stats.PiercingDamage()),
                 new StatReference(DamageTypes.UnarmedDamage, stats.UnarmedDamage()),
-                new StatReference(DamageTypes.Damage, stats.PureDamage())
+                new StatReference(DamageTypes.Damage, stats.Damage())
             };
         }
         
@@ -98,7 +98,7 @@ namespace OpenRpg.Genres.Fantasy.Extensions
                 new StatReference(DamageTypes.BluntDamage, stats.BluntDefense()),
                 new StatReference(DamageTypes.PiercingDamage, stats.PiercingDefense()),
                 new StatReference(DamageTypes.UnarmedDamage, stats.UnarmedDefense()),
-                new StatReference(DamageTypes.Damage, stats.PureDefense())
+                new StatReference(DamageTypes.Damage, stats.Defense())
             };
         }
         
@@ -128,7 +128,7 @@ namespace OpenRpg.Genres.Fantasy.Extensions
             }
 
             if (effectType == EffectTypes.DamageBonusAmount)
-            { return stats.PureDefense(); }
+            { return stats.Defense(); }
 
             return 0;
         }
@@ -145,7 +145,7 @@ namespace OpenRpg.Genres.Fantasy.Extensions
             if (damageType == DamageTypes.EarthDamage) { return stats.EarthDefense(); }
             if (damageType == DamageTypes.LightDamage) { return stats.LightDefense(); }
             if (damageType == DamageTypes.DarkDamage) { return stats.DarkDefense(); }
-            if (damageType == DamageTypes.Damage) { return stats.PureDefense(); }
+            if (damageType == DamageTypes.Damage) { return stats.Defense(); }
             return 0;
         }
 
@@ -175,7 +175,7 @@ namespace OpenRpg.Genres.Fantasy.Extensions
             }
 
             if (effectType == EffectTypes.DamageBonusAmount)
-            { return stats.PureDamage(); }
+            { return stats.Damage(); }
 
             return 0;
         }
@@ -192,7 +192,7 @@ namespace OpenRpg.Genres.Fantasy.Extensions
             if (damageType == DamageTypes.EarthDamage) { return stats.EarthDamage(); }
             if (damageType == DamageTypes.LightDamage) { return stats.LightDamage(); }
             if (damageType == DamageTypes.DarkDamage) { return stats.DarkDamage(); }
-            if (damageType == DamageTypes.Damage) { return stats.PureDamage(); }
+            if (damageType == DamageTypes.Damage) { return stats.Damage(); }
             return 0;
         }
     }

@@ -51,7 +51,7 @@ namespace OpenRpg.Genres.Fantasy.Defaults
             return totalDamage + modifierBonus;
         }
         
-        public float ComputePureDamage(IStatsVariables stats, IReadOnlyCollection<Effect> effects)
+        public float ComputeDamage(IStatsVariables stats, IReadOnlyCollection<Effect> effects)
         {
             var amount = effects.GetPotencyFor(EffectTypes.DamageBonusAmount);
             var percentage = effects.GetPotencyFor(EffectTypes.DamageBonusPercentage);
@@ -113,7 +113,7 @@ namespace OpenRpg.Genres.Fantasy.Defaults
             var bluntDamage = ComputeBluntDamage(stats, activeEffects);
             var piercingDamage = ComputePiercingDamage(stats, activeEffects);
             var unarmedDamage = ComputeUnarmedDamage(stats, activeEffects);
-            var pureDamage = ComputePureDamage(stats, activeEffects);
+            var pureDamage = ComputeDamage(stats, activeEffects);
 
             stats.IceDamage(iceDamage);
             stats.FireDamage(fireDamage);
@@ -125,7 +125,7 @@ namespace OpenRpg.Genres.Fantasy.Defaults
             stats.BluntDamage(bluntDamage);
             stats.PiercingDamage(piercingDamage);
             stats.UnarmedDamage(unarmedDamage);
-            stats.PureDamage(pureDamage);
+            stats.Damage(pureDamage);
         }
     }
 }

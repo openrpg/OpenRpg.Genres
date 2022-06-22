@@ -123,7 +123,7 @@ namespace OpenRpg.Genres.Fantasy.Defaults
             stats.BluntDefense(bluntDefense);
             stats.PiercingDefense(piercingDefense);
             stats.UnarmedDefense(unarmedDefense);
-            stats.PureDefense(pureDefense);
+            stats.Defense(pureDefense);
         }
     }
 }
