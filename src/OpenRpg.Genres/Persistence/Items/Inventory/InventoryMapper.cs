@@ -3,7 +3,7 @@ using OpenRpg.Items.Inventory;
 
 namespace OpenRpg.Genres.Persistence.Items.Inventory
 {
-    public abstract class InventoryMapper : IInventoryMapper
+    public class InventoryMapper : IInventoryMapper
     {
         public ItemMapper ItemMapper { get; }
 
