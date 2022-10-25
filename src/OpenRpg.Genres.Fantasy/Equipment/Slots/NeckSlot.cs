@@ -5,8 +5,12 @@ using OpenRpg.Items.Equipment;
 
 namespace OpenRpg.Genres.Fantasy.Equipment.Slots
 {
-    public class NeckSlot : DefaultEquipmentSlot<IItem>
+    public class NeckSlot : DefaultEquipmentSlot
     {
-        public override int SlotType => ItemTypes.NeckItem;
+        public NeckSlot(IItem slottedItem = null) : base(slottedItem)
+        {}
+
+        public override bool CanEquipItemType(int itemType)
+        { return itemType == ItemTypes.NeckItem; }
     }
 }

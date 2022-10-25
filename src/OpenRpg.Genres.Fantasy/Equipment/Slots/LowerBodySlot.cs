@@ -5,8 +5,12 @@ using OpenRpg.Items.Equipment;
 
 namespace OpenRpg.Genres.Fantasy.Equipment.Slots
 {
-    public class LowerBodySlot : DefaultEquipmentSlot<IItem>
+    public class LowerBodySlot : DefaultEquipmentSlot
     {
-        public override int SlotType => ItemTypes.LowerBodyArmour;
+        public LowerBodySlot(IItem slottedItem = null) : base(slottedItem)
+        {}
+
+        public override bool CanEquipItemType(int itemType)
+        { return itemType == ItemTypes.LowerBodyArmour; }
     }
 }

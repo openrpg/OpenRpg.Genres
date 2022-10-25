@@ -4,8 +4,12 @@ using OpenRpg.Items.Equipment;
 
 namespace OpenRpg.Genres.Fantasy.Equipment.Slots
 {
-    public class BackSlot : DefaultEquipmentSlot<IItem>
+    public class BackSlot : DefaultEquipmentSlot
     {
-        public override int SlotType => ItemTypes.BackArmour;
+        public BackSlot(IItem slottedItem = null) : base(slottedItem)
+        {}
+
+        public override bool CanEquipItemType(int itemType)
+        { return itemType == ItemTypes.BackArmour; }
     }
 }

@@ -1,12 +1,15 @@
 using OpenRpg.Genres.Fantasy.Types;
 using OpenRpg.Items;
-
 using OpenRpg.Items.Equipment;
 
 namespace OpenRpg.Genres.Fantasy.Equipment.Slots
 {
-    public class FootSlot : DefaultEquipmentSlot<IItem>
+    public class FootSlot : DefaultEquipmentSlot
     {
-        public override int SlotType => ItemTypes.FootArmour;
+        public FootSlot(IItem slottedItem = null) : base(slottedItem)
+        {}
+
+        public override bool CanEquipItemType(int itemType)
+        { return itemType == ItemTypes.FootArmour; }
     }
 }

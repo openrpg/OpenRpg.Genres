@@ -1,12 +1,15 @@
 using OpenRpg.Genres.Fantasy.Types;
 using OpenRpg.Items;
-
 using OpenRpg.Items.Equipment;
 
 namespace OpenRpg.Genres.Fantasy.Equipment.Slots
 {
-    public class UpperBodySlot : DefaultEquipmentSlot<IItem>
+    public class UpperBodySlot : DefaultEquipmentSlot
     {
-        public override int SlotType => ItemTypes.UpperBodyArmour;
+        public UpperBodySlot(IItem slottedItem = null) : base(slottedItem)
+        {}
+
+        public override bool CanEquipItemType(int itemType)
+        { return itemType == ItemTypes.UpperBodyArmour; }
     }
 }

@@ -10,7 +10,7 @@ namespace OpenRpg.Genres.Characters
     /// <summary>
     /// Barebones character for extending elsewhere
     /// </summary>
-    public interface ICharacter : IHasDataId, IHasLocaleDescription, IHasStats, IHasClass
+    public interface ICharacter : IIsUnique, IHasLocaleDescription, IHasStats, IHasClass
     {
         byte GenderType { get; }
         IRaceTemplate Race { get; }

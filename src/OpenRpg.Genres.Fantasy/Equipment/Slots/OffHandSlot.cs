@@ -1,12 +1,15 @@
 using OpenRpg.Genres.Fantasy.Types;
 using OpenRpg.Items;
-
 using OpenRpg.Items.Equipment;
 
 namespace OpenRpg.Genres.Fantasy.Equipment.Slots
 {
-    public class OffHandSlot : DefaultEquipmentSlot<IItem>
+    public class OffHandSlot : DefaultEquipmentSlot
     {
-        public override int SlotType => ItemTypes.OffhandItem;
+        public OffHandSlot(IItem slottedItem = null) : base(slottedItem)
+        {}
+
+        public override bool CanEquipItemType(int itemType)
+        { return itemType == ItemTypes.OffhandItem; }
     }
 }

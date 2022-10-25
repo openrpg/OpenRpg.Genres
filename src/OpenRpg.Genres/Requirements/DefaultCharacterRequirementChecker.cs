@@ -26,9 +26,8 @@ namespace OpenRpg.Genres.Requirements
             
             if (requirement.RequirementType == RequirementTypes.EquipmentItemRequirement)
             {
-                return character.Equipment.Slots.Values.Any(x =>
-                    x.SlotType == requirement.AssociatedId &&
-                    x.SlottedItem.ItemTemplate.Id == requirement.AssociatedValue);
+                return character.Equipment.Slots.Values
+                    .Any(x => x.SlottedItem?.ItemTemplate.Id == requirement.AssociatedId);
             }
 
             if(requirement.RequirementType == RequirementTypes.MaxHealthRequirement)

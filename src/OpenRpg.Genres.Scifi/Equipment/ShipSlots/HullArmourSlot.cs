@@ -4,8 +4,12 @@ using OpenRpg.Items.Equipment;
 
 namespace OpenRpg.Genres.Scifi.Equipment.ShipSlots
 {
-    public class HullArmourSlot : DefaultEquipmentSlot<IItem>
+    public class HullArmourSlot : DefaultEquipmentSlot
     {
-        public override int SlotType => ShipItemTypes.HullArmour;
+        public HullArmourSlot(IItem slottedItem = null) : base(slottedItem)
+        {}
+
+        public override bool CanEquipItemType(int itemType)
+        { return itemType == ShipItemTypes.HullArmour; }
     }
 }
