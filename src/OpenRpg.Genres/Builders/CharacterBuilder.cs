@@ -16,10 +16,10 @@ namespace OpenRpg.Genres.Builders
         public CharacterMapper CharacterMapper { get; }
         public IRandomizer Randomizer { get; }
 
-        private int _raceId, _classId, _classLevels, _genderId;
-        private string _name, _description;
-        private Dictionary<int, IUniqueItem> _equipment;
-        private Dictionary<int, float> _state;
+        protected int _raceId, _classId, _classLevels, _genderId;
+        protected string _name, _description;
+        protected Dictionary<int, IUniqueItem> _equipment;
+        protected Dictionary<int, float> _state;
         
         protected CharacterBuilder(CharacterMapper characterMapper, IRandomizer randomizer)
         {
