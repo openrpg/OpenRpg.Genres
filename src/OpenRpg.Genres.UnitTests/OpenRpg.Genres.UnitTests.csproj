@@ -1,8 +1,19 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>netstandard2.1</TargetFramework>
-        <Nullable>enable</Nullable>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
     </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\OpenRpg.Genres.Fantasy\OpenRpg.Genres.Fantasy.csproj" />
+      <ProjectReference Include="..\OpenRpg.Genres\OpenRpg.Genres.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.2.0" />
+        <PackageReference Include="Moq" Version="4.18.1" />
+        <PackageReference Include="xunit" Version="2.4.1" />
+    </ItemGroup>
 
 </Project>

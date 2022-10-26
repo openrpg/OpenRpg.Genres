@@ -21,6 +21,8 @@ namespace OpenRpg.Genres.Persistence.Items.Equipment
             Slots = equipment.Slots
                 .ToDictionary(x => x.Key,
                     x => new ItemData(x.Value.SlottedItem as IUniqueItem));
+
+            Variables = equipment.Variables;
         }
     }
 }
