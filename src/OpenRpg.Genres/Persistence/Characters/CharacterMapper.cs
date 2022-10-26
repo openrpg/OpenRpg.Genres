@@ -28,24 +28,24 @@ namespace OpenRpg.Genres.Persistence.Characters
             StatsPopulator = statsPopulator;
         }
 
-        public ICharacter Map(PersistedCharacter persistedData)
+        public ICharacter Map(CharacterData data)
         {
-            var characterVariables = new DefaultCharacterVariables(persistedData.Variables
+            var characterVariables = new DefaultCharacterVariables(data.Variables
                 .ToDictionary(x => x.Key, x => x.Value));
 
-            var characterState = new DefaultCharacterStateVariables(persistedData.StateVariables.ToDictionary(x => x.Key, x => x.Value));
+            var characterState = new DefaultCharacterStateVariables(data.StateVariables.ToDictionary(x => x.Key, x => x.Value));
             
             var character = new DefaultCharacter
             {
-                NameLocaleId = persistedData.NameLocaleId,
-                DescriptionLocaleId = persistedData.DescriptionLocaleId,
-                UniqueId = persistedData.Id,
+                NameLocaleId = data.NameLocaleId,
+                DescriptionLocaleId = data.DescriptionLocaleId,
+                UniqueId = data.Id,
                 Variables = characterVariables,
-                Class = ClassMapper.Map(persistedData.Class),
-                Race = GetRaceTemplateFor(persistedData.RaceTemplateId),
-                Equipment = EquipmentMapper.Map(persistedData.Equipment),
+                Class = ClassMapper.Map(data.ClassData),
+                Race = GetRaceTemplateFor(data.RaceTemplateId),
+                Equipment = EquipmentMapper.Map(data.EquipmentData),
                 State = characterState,
-                GenderType = persistedData.GenderType
+                GenderType = data.GenderType
             };
             
             StatsPopulator.Populate(character.Stats, character.GetEffects().ToArray(), null);

@@ -15,9 +15,9 @@ namespace OpenRpg.Genres.Scifi.Persistence.Items.Equipment
         public SciFiShipEquipmentMapper(IItemMapper itemMapper)
         { ItemMapper = itemMapper; }
         
-        public override IEquipmentSlot GetSlotFor(int slotType, PersistedItem slottedItem)
+        public override IEquipmentSlot GetSlotFor(int slotType, ItemData slottedItemData)
         {
-            var item = ItemMapper.Map(slottedItem);
+            var item = ItemMapper.Map(slottedItemData);
             if(slotType == ShipEquipmentSlotTypes.EngineSlot) { return new EngineSlot(item); }
             if(slotType == ShipEquipmentSlotTypes.MiscSlot1) { return new MiscSlot(item); }
             if(slotType == ShipEquipmentSlotTypes.MiscSlot2) { return new MiscSlot(item); }

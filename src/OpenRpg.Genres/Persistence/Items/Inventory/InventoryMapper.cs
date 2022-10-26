@@ -12,12 +12,12 @@ namespace OpenRpg.Genres.Persistence.Items.Inventory
             ItemMapper = itemMapper;
         }
 
-        public IInventory Map(PersistedInventory persistedData)
+        public IInventory Map(InventoryData data)
         {
-            var inventoryVariables = new DefaultInventoryVariables(persistedData.Variables
+            var inventoryVariables = new DefaultInventoryVariables(data.Variables
                 .ToDictionary(x => x.Key, x => x.Value));
 
-            var items = persistedData.Items.Select(ItemMapper.Map);
+            var items = data.Items.Select(ItemMapper.Map);
             return new DefaultInventory(items)
             {
                 Variables = inventoryVariables

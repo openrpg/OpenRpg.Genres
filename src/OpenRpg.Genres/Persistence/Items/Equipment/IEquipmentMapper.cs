@@ -3,6 +3,6 @@ using OpenRpg.Items.Equipment;
 
 namespace OpenRpg.Genres.Persistence.Items.Equipment
 {
-    public interface IEquipmentMapper : IMapper<PersistedEquipment, IEquipment>
+    public interface IEquipmentMapper : IMapper<EquipmentData, IEquipment>
     {}
 }

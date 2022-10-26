@@ -101,11 +101,18 @@ namespace OpenRpg.Genres.Builders
             _state[stateTypeId] = value;
             return this;
         }
+
+        public T As<T>() where T : CharacterBuilder
+        { return this as T; }
         
         protected virtual void RandomizeDefaults()
         {
             if (_genderId == 0) { _genderId = Randomizer.Random(1,2); }
             if (_classLevels == 0) { _classLevels = Randomizer.Random(1,5); }
+        }
+        
+        protected virtual void PostProcessCharacter(ICharacter character)
+        {
         }
         
         public ICharacter Build()
@@ -115,16 +122,19 @@ namespace OpenRpg.Genres.Builders
             if (string.IsNullOrEmpty(_name))
             { _name = "Unknown Name"; }
 
-            var persistedClass = new PersistedClass(_classId, _classLevels);
+            var persistedClass = new ClassData(_classId, _classLevels);
             var persistedEquipmentData = _equipment
-                .ToDictionary(x => x.Key, x => new PersistedItem(x.Value));
+                .ToDictionary(x => x.Key, x => new ItemData(x.Value));
             
-            var persistedEquipment = new PersistedEquipment(persistedEquipmentData);
+            var persistedEquipment = new EquipmentData(persistedEquipmentData);
             
-            var character = new PersistedCharacter(Guid.NewGuid(), _name, _description, (byte)_genderId, 
+            var characterData = new CharacterData(Guid.NewGuid(), _name, _description, (byte)_genderId, 
                 _raceId, persistedClass, _state, persistedEquipment);
 
-            return CharacterMapper.Map(character);
+            var character = CharacterMapper.Map(characterData);
+            PostProcessCharacter(character);
+
+            return character;
         }
     }
 }

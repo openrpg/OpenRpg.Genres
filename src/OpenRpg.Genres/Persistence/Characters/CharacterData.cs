@@ -6,41 +6,41 @@ using OpenRpg.Genres.Persistence.Items.Equipment;
 
 namespace OpenRpg.Genres.Persistence.Characters
 {
-    public class PersistedCharacter
+    public class CharacterData
     {
         public Guid Id { get; }
         public string NameLocaleId { get; }
         public string DescriptionLocaleId { get; }
         public byte GenderType { get; }
         public int RaceTemplateId { get; }
-        public PersistedClass Class { get; }
+        public ClassData ClassData { get; }
         public IReadOnlyDictionary<int, float> StateVariables { get; }
-        public PersistedEquipment Equipment { get; }
+        public EquipmentData EquipmentData { get; }
         public IReadOnlyDictionary<int, object> Variables { get; }
 
-        public PersistedCharacter(Guid id, string nameLocaleId, string descriptionLocaleId, byte genderType, int raceTemplateId, PersistedClass @class, IReadOnlyDictionary<int, float> stateVariables, PersistedEquipment equipment, IReadOnlyDictionary<int, object> variables = null)
+        public CharacterData(Guid id, string nameLocaleId, string descriptionLocaleId, byte genderType, int raceTemplateId, ClassData classData, IReadOnlyDictionary<int, float> stateVariables, EquipmentData equipmentData, IReadOnlyDictionary<int, object> variables = null)
         {
             Id = id;
             NameLocaleId = nameLocaleId;
             DescriptionLocaleId = descriptionLocaleId;
             GenderType = genderType;
             RaceTemplateId = raceTemplateId;
-            Class = @class;
+            ClassData = classData;
             StateVariables = stateVariables;
-            Equipment = equipment;
+            EquipmentData = equipmentData;
             Variables = variables ?? new Dictionary<int, object>();
         }
 
-        public PersistedCharacter(ICharacter character)
+        public CharacterData(ICharacter character)
         {
             Id = character.UniqueId;
             NameLocaleId = character.NameLocaleId;
             DescriptionLocaleId = character.DescriptionLocaleId;
             StateVariables = character.State;
-            Class = new PersistedClass(character.Class);
+            ClassData = new ClassData(character.Class);
             GenderType = character.GenderType;
             RaceTemplateId = character.Race.Id;
-            Equipment = new PersistedEquipment(character.Equipment);
+            EquipmentData = new EquipmentData(character.Equipment);
             Variables = character.Variables;
         }
     }

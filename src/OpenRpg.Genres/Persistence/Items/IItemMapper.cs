@@ -3,6 +3,6 @@ using OpenRpg.Items;
 
 namespace OpenRpg.Genres.Persistence.Items
 {
-    public interface IItemMapper : IMapper<PersistedItem, IItem>
+    public interface IItemMapper : IMapper<ItemData, IItem>
     {}
 }

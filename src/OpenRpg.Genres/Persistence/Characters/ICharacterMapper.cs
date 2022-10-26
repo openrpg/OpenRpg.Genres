@@ -3,6 +3,6 @@ using OpenRpg.Genres.Characters;
 
 namespace OpenRpg.Genres.Persistence.Characters
 {
-    public interface ICharacterMapper : IMapper<PersistedCharacter, ICharacter>
+    public interface ICharacterMapper : IMapper<CharacterData, ICharacter>
     {}
 }

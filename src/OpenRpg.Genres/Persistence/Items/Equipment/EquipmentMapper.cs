@@ -6,12 +6,12 @@ namespace OpenRpg.Genres.Persistence.Items.Equipment
 {
     public abstract class EquipmentMapper : IEquipmentMapper
     {
-        public IEquipment Map(PersistedEquipment persistedData)
+        public IEquipment Map(EquipmentData data)
         {
-            var equipmentVariables = new DefaultEquipmentVariables(persistedData.Variables
+            var equipmentVariables = new DefaultEquipmentVariables(data.Variables
                 .ToDictionary(x => x.Key, x => x.Value));
 
-            var slots = new DefaultEquipmentSlots(persistedData.Slots
+            var slots = new DefaultEquipmentSlots(data.Slots
                 .ToDictionary(x => x.Key, x => GetSlotFor(x.Key, x.Value)));
             
             return new DefaultEquipment
@@ -21,6 +21,6 @@ namespace OpenRpg.Genres.Persistence.Items.Equipment
             };
         }
 
-        public abstract IEquipmentSlot GetSlotFor(int slotType, PersistedItem slottedItem);
+        public abstract IEquipmentSlot GetSlotFor(int slotType, ItemData slottedItemData);
     }
 }

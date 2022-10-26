@@ -8,17 +8,17 @@ namespace OpenRpg.Genres.Persistence.Items
 {
     public abstract class ItemMapper : IItemMapper
     {
-        public IItem Map(PersistedItem persistedData)
+        public IItem Map(ItemData data)
         {
-            var itemVariables = new DefaultItemVariables(persistedData.Variables
+            var itemVariables = new DefaultItemVariables(data.Variables
                 .ToDictionary(x => x.Key, x => x.Value));
 
             return new DefaultItem
             {
-                UniqueId = persistedData.Id,
+                UniqueId = data.Id,
                 Variables = itemVariables,
-                ItemTemplate = GetItemTemplateFor(persistedData.ItemTemplateId),
-                Modifications = persistedData.ModificationTypes.Select(GetModificationsFor)
+                ItemTemplate = GetItemTemplateFor(data.ItemTemplateId),
+                Modifications = data.ModificationTypes.Select(GetModificationsFor)
             };
         }
 

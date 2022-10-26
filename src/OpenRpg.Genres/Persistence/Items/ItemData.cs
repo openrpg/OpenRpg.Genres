@@ -5,14 +5,14 @@ using OpenRpg.Items;
 
 namespace OpenRpg.Genres.Persistence.Items
 {
-    public class PersistedItem
+    public class ItemData
     {
         public Guid Id { get; }
         public int ItemTemplateId { get; }
         public int[] ModificationTypes { get; }
         public IReadOnlyDictionary<int, object> Variables { get; }
 
-        public PersistedItem(Guid id, int itemTemplateId, int[] modificationTypes, Dictionary<int, object> variables = null)
+        public ItemData(Guid id, int itemTemplateId, int[] modificationTypes, Dictionary<int, object> variables = null)
         {
             Id = id;
             ItemTemplateId = itemTemplateId;
@@ -20,7 +20,7 @@ namespace OpenRpg.Genres.Persistence.Items
             Variables = variables ?? new Dictionary<int, object>();
         }
         
-        public PersistedItem(IUniqueItem item)
+        public ItemData(IUniqueItem item)
         {
             Id = item.UniqueId;
             ItemTemplateId = item.ItemTemplate.Id;

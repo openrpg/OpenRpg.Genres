@@ -6,16 +6,16 @@ namespace OpenRpg.Genres.Persistence.Classes
 {
     public abstract class ClassMapper : IClassMapper
     {
-        public IClass Map(PersistedClass persistedData)
+        public IClass Map(ClassData data)
         {
-            var characterVariables = new DefaultClassVariables(persistedData.Variables
+            var characterVariables = new DefaultClassVariables(data.Variables
                 .ToDictionary(x => x.Key, x => x.Value));
 
             return new DefaultClass
             {
                 Variables = characterVariables,
-                ClassTemplate = GetClassTemplateFor(persistedData.ClassTemplateId),
-                Level = persistedData.ClassLevel
+                ClassTemplate = GetClassTemplateFor(data.ClassTemplateId),
+                Level = data.ClassLevel
             };
         }
 

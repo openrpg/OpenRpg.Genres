@@ -5,22 +5,22 @@ using OpenRpg.Items.Equipment;
 
 namespace OpenRpg.Genres.Persistence.Items.Equipment
 {
-    public class PersistedEquipment
+    public class EquipmentData
     {
-        public IReadOnlyDictionary<int, PersistedItem> Slots { get; }
+        public IReadOnlyDictionary<int, ItemData> Slots { get; }
         public IReadOnlyDictionary<int, object> Variables { get; }
 
-        public PersistedEquipment(IReadOnlyDictionary<int, PersistedItem> slots, IReadOnlyDictionary<int, object> variables = null)
+        public EquipmentData(IReadOnlyDictionary<int, ItemData> slots, IReadOnlyDictionary<int, object> variables = null)
         {
             Slots = slots;
             Variables = variables ?? new Dictionary<int, object>();
         }
 
-        public PersistedEquipment(IEquipment equipment)
+        public EquipmentData(IEquipment equipment)
         {
             Slots = equipment.Slots
                 .ToDictionary(x => x.Key,
-                    x => new PersistedItem(x.Value.SlottedItem as IUniqueItem));
+                    x => new ItemData(x.Value.SlottedItem as IUniqueItem));
         }
     }
 }
