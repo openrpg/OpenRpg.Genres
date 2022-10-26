@@ -5,9 +5,9 @@ namespace OpenRpg.Genres.Persistence.Items.Inventory
 {
     public class InventoryMapper : IInventoryMapper
     {
-        public ItemMapper ItemMapper { get; }
+        public IItemMapper ItemMapper { get; }
 
-        protected InventoryMapper(ItemMapper itemMapper)
+        protected InventoryMapper(IItemMapper itemMapper)
         {
             ItemMapper = itemMapper;
         }

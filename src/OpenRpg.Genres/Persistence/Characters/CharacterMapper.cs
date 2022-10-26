@@ -13,13 +13,13 @@ namespace OpenRpg.Genres.Persistence.Characters
 {
     public abstract class CharacterMapper : ICharacterMapper
     {
-        public ItemMapper ItemMapper { get; }
+        public IItemMapper ItemMapper { get; }
         public IClassMapper ClassMapper { get; }
         public IEquipmentMapper EquipmentMapper { get; }
-        public InventoryMapper InventoryMapper { get; }
+        public IInventoryMapper InventoryMapper { get; }
         public IStatPopulator StatsPopulator { get; }
 
-        protected CharacterMapper(ItemMapper itemMapper, IClassMapper classMapper, IEquipmentMapper equipmentMapper, InventoryMapper inventoryMapper, IStatPopulator statsPopulator)
+        protected CharacterMapper(IItemMapper itemMapper, IClassMapper classMapper, IEquipmentMapper equipmentMapper, IInventoryMapper inventoryMapper, IStatPopulator statsPopulator)
         {
             ItemMapper = itemMapper;
             ClassMapper = classMapper;
