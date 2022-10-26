@@ -33,13 +33,19 @@ namespace OpenRpg.Genres.Persistence.Characters
             var characterVariables = new DefaultCharacterVariables(persistedData.Variables
                 .ToDictionary(x => x.Key, x => x.Value));
 
+            var characterState = new DefaultCharacterStateVariables(persistedData.StateVariables.ToDictionary(x => x.Key, x => x.Value));
+            
             var character = new DefaultCharacter
             {
+                NameLocaleId = persistedData.NameLocaleId,
+                DescriptionLocaleId = persistedData.DescriptionLocaleId,
                 UniqueId = persistedData.Id,
                 Variables = characterVariables,
                 Class = ClassMapper.Map(persistedData.Class),
                 Race = GetRaceTemplateFor(persistedData.RaceTemplateId),
-                Equipment = EquipmentMapper.Map(persistedData.Equipment)
+                Equipment = EquipmentMapper.Map(persistedData.Equipment),
+                State = characterState,
+                GenderType = persistedData.GenderType
             };
             
             StatsPopulator.Populate(character.Stats, character.GetEffects().ToArray(), null);
