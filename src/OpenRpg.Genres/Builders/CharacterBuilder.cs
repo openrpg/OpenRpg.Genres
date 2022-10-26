@@ -102,7 +102,7 @@ namespace OpenRpg.Genres.Builders
             return this;
         }
         
-        public virtual void RandomzieDefaults()
+        protected virtual void RandomizeDefaults()
         {
             if (_genderId == 0) { _genderId = Randomizer.Random(1,2); }
             if (_classLevels == 0) { _classLevels = Randomizer.Random(1,5); }
@@ -110,7 +110,7 @@ namespace OpenRpg.Genres.Builders
         
         public ICharacter Build()
         {
-            RandomzieDefaults();
+            RandomizeDefaults();
             
             if (string.IsNullOrEmpty(_name))
             { _name = "Unknown Name"; }
