@@ -21,7 +21,7 @@ namespace OpenRpg.Genres.Builders
         protected Dictionary<int, IUniqueItem> _equipment;
         protected Dictionary<int, float> _state;
         
-        protected CharacterBuilder(ICharacterMapper characterMapper, IRandomizer randomizer)
+        public CharacterBuilder(ICharacterMapper characterMapper, IRandomizer randomizer)
         {
             CharacterMapper = characterMapper;
             Randomizer = randomizer;
