@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using OpenRpg.Genres.Characters;
+using OpenRpg.Genres.Extensions;
 using OpenRpg.Genres.Persistence.Classes;
 using OpenRpg.Genres.Persistence.Items.Equipment;
 
@@ -29,19 +30,6 @@ namespace OpenRpg.Genres.Persistence.Characters
             StateVariables = stateVariables;
             EquipmentData = equipmentData;
             Variables = variables ?? new Dictionary<int, object>();
-        }
-
-        public CharacterData(ICharacter character)
-        {
-            Id = character.UniqueId;
-            NameLocaleId = character.NameLocaleId;
-            DescriptionLocaleId = character.DescriptionLocaleId;
-            StateVariables = character.State;
-            ClassData = new ClassData(character.Class);
-            GenderType = character.GenderType;
-            RaceTemplateId = character.Race.Id;
-            EquipmentData = new EquipmentData(character.Equipment);
-            Variables = character.Variables;
         }
     }
 }

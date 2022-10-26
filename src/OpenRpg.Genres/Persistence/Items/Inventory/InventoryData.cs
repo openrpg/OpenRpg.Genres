@@ -1,7 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
-using OpenRpg.Items;
-using OpenRpg.Items.Inventory;
 
 namespace OpenRpg.Genres.Persistence.Items.Inventory
 {
@@ -14,12 +11,6 @@ namespace OpenRpg.Genres.Persistence.Items.Inventory
         {
             Items = items;
             Variables = variables;
-        }
-
-        public InventoryData(IInventory inventory)
-        {
-            Items = inventory.Items.Select(x => new ItemData(x as IUniqueItem)).ToArray();
-            Variables = inventory.Variables;
         }
     }
 }

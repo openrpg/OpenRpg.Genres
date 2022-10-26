@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using OpenRpg.Core.Utils;
 using OpenRpg.Genres.Characters;
+using OpenRpg.Genres.Extensions;
 using OpenRpg.Genres.Persistence.Characters;
 using OpenRpg.Genres.Persistence.Classes;
 using OpenRpg.Genres.Persistence.Items;
@@ -124,7 +125,7 @@ namespace OpenRpg.Genres.Builders
 
             var persistedClass = new ClassData(_classId, _classLevels);
             var persistedEquipmentData = _equipment
-                .ToDictionary(x => x.Key, x => new ItemData(x.Value));
+                .ToDictionary(x => x.Key, x => x.Value.ToDataModel());
             
             var persistedEquipment = new EquipmentData(persistedEquipmentData);
             

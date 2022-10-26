@@ -1,7 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
-using OpenRpg.Items;
-using OpenRpg.Items.Equipment;
 
 namespace OpenRpg.Genres.Persistence.Items.Equipment
 {
@@ -14,15 +11,6 @@ namespace OpenRpg.Genres.Persistence.Items.Equipment
         {
             Slots = slots;
             Variables = variables ?? new Dictionary<int, object>();
-        }
-
-        public EquipmentData(IEquipment equipment)
-        {
-            Slots = equipment.Slots
-                .ToDictionary(x => x.Key,
-                    x => new ItemData(x.Value.SlottedItem as IUniqueItem));
-
-            Variables = equipment.Variables;
         }
     }
 }
