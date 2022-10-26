@@ -13,7 +13,7 @@ namespace OpenRpg.Genres.Builders
 {
     public class CharacterBuilder
     {
-        public CharacterMapper CharacterMapper { get; }
+        public ICharacterMapper CharacterMapper { get; }
         public IRandomizer Randomizer { get; }
 
         protected int _raceId, _classId, _classLevels, _genderId;
@@ -21,7 +21,7 @@ namespace OpenRpg.Genres.Builders
         protected Dictionary<int, IUniqueItem> _equipment;
         protected Dictionary<int, float> _state;
         
-        protected CharacterBuilder(CharacterMapper characterMapper, IRandomizer randomizer)
+        protected CharacterBuilder(ICharacterMapper characterMapper, IRandomizer randomizer)
         {
             CharacterMapper = characterMapper;
             Randomizer = randomizer;
