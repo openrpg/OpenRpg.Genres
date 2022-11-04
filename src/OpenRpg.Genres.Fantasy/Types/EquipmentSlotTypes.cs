@@ -2,18 +2,18 @@ namespace OpenRpg.Genres.Fantasy.Types
 {
     public interface EquipmentSlotTypes
     {
-        public static int UnknownSlot = 0;
+        public static readonly int UnknownSlot = 0;
         
-        public static int HeadSlot = 50;
-        public static int BackSlot = 51;
-        public static int UpperBodySlot = 52;
-        public static int WristSlot = 53;
-        public static int MainHandSlot = 54;
-        public static int OffHandSlot = 55;
-        public static int LowerBodySlot = 56;
-        public static int FootSlot = 57;
-        public static int NeckSlot = 58;
-        public static int Ring1Slot = 59;
-        public static int Ring2Slot = 60;
+        public static readonly int HeadSlot = 50;
+        public static readonly int BackSlot = 51;
+        public static readonly int UpperBodySlot = 52;
+        public static readonly int WristSlot = 53;
+        public static readonly int MainHandSlot = 54;
+        public static readonly int OffHandSlot = 55;
+        public static readonly int LowerBodySlot = 56;
+        public static readonly int FootSlot = 57;
+        public static readonly int NeckSlot = 58;
+        public static readonly int Ring1Slot = 59;
+        public static readonly int Ring2Slot = 60;
     }
 }

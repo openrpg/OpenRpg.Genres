@@ -2,8 +2,8 @@ namespace OpenRpg.Genres.Types
 {
     public interface CharacterStateVariableTypes
     {
-        public static int Unknown = 0;
+        public static readonly int Unknown = 0;
         
-        public static int Health = 1;
+        public static readonly int Health = 1;
     }
 }

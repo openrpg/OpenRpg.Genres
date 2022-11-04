@@ -2,17 +2,17 @@ namespace OpenRpg.Genres.Types
 {
     public interface RequirementTypes
     {
-        public static int UnknownRequirement = 0;
+        public static readonly int UnknownRequirement = 0;
         
-        public static int RaceRequirement = 1;
-        public static int ClassRequirement = 2;
-        public static int LevelRequirement = 3;
-        public static int TriggerRequirement = 4;
-        public static int QuestStateRequirement = 5;
-        public static int InventoryItemRequirement = 6;
-        public static int EquipmentItemRequirement = 7;
-        public static int GenderRequirement = 8;
-        public static int ActiveEffectRequirement = 9;
-        public static int MaxHealthRequirement = 10;
+        public static readonly int RaceRequirement = 1;
+        public static readonly int ClassRequirement = 2;
+        public static readonly int LevelRequirement = 3;
+        public static readonly int TriggerRequirement = 4;
+        public static readonly int QuestStateRequirement = 5;
+        public static readonly int InventoryItemRequirement = 6;
+        public static readonly int EquipmentItemRequirement = 7;
+        public static readonly int GenderRequirement = 8;
+        public static readonly int ActiveEffectRequirement = 9;
+        public static readonly int MaxHealthRequirement = 10;
     }
 }

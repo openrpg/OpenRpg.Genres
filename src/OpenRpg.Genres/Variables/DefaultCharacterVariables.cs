@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using OpenRpg.Core.Variables;
+using OpenRpg.Genres.Types;
 
 namespace OpenRpg.Genres.Variables
 {

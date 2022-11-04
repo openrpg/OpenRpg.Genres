@@ -1,3 +1,4 @@
+using OpenRpg.Genres.Types;
 using OpenRpg.Genres.Variables;
 
 namespace OpenRpg.Genres.Scifi.Types

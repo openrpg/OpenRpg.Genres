@@ -2,9 +2,9 @@ namespace OpenRpg.Genres.Fantasy.Types
 {
     public interface ItemQualityTypes : Genres.Types.ItemQualityTypes
     {
-        public static int UncommonQuality = 10;
-        public static int MagicalQuality = 11;
-        public static int EpicQuality = 12;
-        public static int MythicalQuality = 13;
+        public static readonly int UncommonQuality = 10;
+        public static readonly int MagicalQuality = 11;
+        public static readonly int EpicQuality = 12;
+        public static readonly int MythicalQuality = 13;
     }
 }

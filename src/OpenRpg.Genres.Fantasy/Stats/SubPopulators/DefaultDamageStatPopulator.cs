@@ -3,16 +3,14 @@ using OpenRpg.Combat.Attacks;
 using OpenRpg.Combat.Extensions;
 using OpenRpg.Core.Effects;
 using OpenRpg.Core.Extensions;
-using OpenRpg.Core.Stats;
 using OpenRpg.Core.Stats.Variables;
 using OpenRpg.Core.Variables;
 using OpenRpg.Genres.Extensions;
 using OpenRpg.Genres.Fantasy.Effects;
 using OpenRpg.Genres.Fantasy.Extensions;
-using OpenRpg.Genres.Fantasy.Stats;
 using OpenRpg.Genres.Fantasy.Types;
 
-namespace OpenRpg.Genres.Fantasy.Defaults
+namespace OpenRpg.Genres.Fantasy.Stats.SubPopulators
 {
     public class DefaultDamageStatPopulator : IDamageStatPopulator
     {

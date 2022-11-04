@@ -2,10 +2,10 @@ namespace OpenRpg.Genres.Types
 {
     public interface ItemTypes
     {
-        public static int UnknownItem = 0;
+        public static readonly int UnknownItem = 0;
 
-        public static int QuestItem = 1;
-        public static int GenericWeapon = 2;
-        public static int GenericItem = 3;
+        public static readonly int QuestItem = 1;
+        public static readonly int GenericWeapon = 2;
+        public static readonly int GenericItem = 3;
     }
 }
