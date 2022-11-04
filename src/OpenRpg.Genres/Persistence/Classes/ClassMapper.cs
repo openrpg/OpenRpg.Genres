@@ -8,13 +8,20 @@ namespace OpenRpg.Genres.Persistence.Classes
     {
         public IClass Map(ClassData data)
         {
-            var characterVariables = new DefaultClassVariables(data.Variables
+            var classVars = new DefaultClassVariables(data.Variables
                 .ToDictionary(x => x.Key, x => x.Value));
 
+            var classTemplate = GetClassTemplateFor(data.ClassTemplateId);
+
+            return InitializeClass(data, classVars, classTemplate);
+        }
+
+        public virtual IClass InitializeClass(ClassData data, IClassVariables variables, IClassTemplate template)
+        {
             return new DefaultClass
             {
-                Variables = characterVariables,
-                ClassTemplate = GetClassTemplateFor(data.ClassTemplateId),
+                Variables = variables,
+                ClassTemplate = template,
                 Level = data.ClassLevel
             };
         }

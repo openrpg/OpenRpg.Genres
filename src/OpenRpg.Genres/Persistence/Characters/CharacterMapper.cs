@@ -1,4 +1,5 @@
 using System.Linq;
+using OpenRpg.Core.Classes;
 using OpenRpg.Core.Races;
 using OpenRpg.Core.Stats.Variables;
 using OpenRpg.Genres.Characters;
@@ -8,6 +9,7 @@ using OpenRpg.Genres.Persistence.Items;
 using OpenRpg.Genres.Persistence.Items.Equipment;
 using OpenRpg.Genres.Persistence.Items.Inventory;
 using OpenRpg.Genres.Variables;
+using OpenRpg.Items.Equipment;
 
 namespace OpenRpg.Genres.Persistence.Characters
 {
@@ -33,25 +35,34 @@ namespace OpenRpg.Genres.Persistence.Characters
             var characterVariables = new DefaultCharacterVariables(data.Variables
                 .ToDictionary(x => x.Key, x => x.Value));
 
-            var characterState = new DefaultCharacterStateVariables(data.StateVariables.ToDictionary(x => x.Key, x => x.Value));
+            var characterState = new DefaultCharacterStateVariables(data.StateVariables
+                .ToDictionary(x => x.Key, x => x.Value));
+
+            var raceTemplate = GetRaceTemplateFor(data.RaceTemplateId);
+            var characterClass = ClassMapper.Map(data.ClassData);
+            var equipment = EquipmentMapper.Map(data.EquipmentData);
             
-            var character = new DefaultCharacter
-            {
-                NameLocaleId = data.NameLocaleId,
-                DescriptionLocaleId = data.DescriptionLocaleId,
-                UniqueId = data.Id,
-                Variables = characterVariables,
-                Class = ClassMapper.Map(data.ClassData),
-                Race = GetRaceTemplateFor(data.RaceTemplateId),
-                Equipment = EquipmentMapper.Map(data.EquipmentData),
-                State = characterState,
-                GenderType = data.GenderType
-            };
-            
+            var character = InitializeCharacter(data, characterState, characterVariables, raceTemplate, characterClass, equipment);
             StatsPopulator.Populate(character.Stats, character.GetEffects().ToArray(), null);
             return character;
         }
 
+        public virtual ICharacter InitializeCharacter(CharacterData data, ICharacterStateVariables state, ICharacterVariables variables, IRaceTemplate raceTemplate, IClass @class, IEquipment equipment)
+        {
+            return new DefaultCharacter
+            {
+                NameLocaleId = data.NameLocaleId,
+                DescriptionLocaleId = data.DescriptionLocaleId,
+                UniqueId = data.Id,
+                Variables = variables,
+                Class = @class,
+                Race = raceTemplate,
+                Equipment = equipment,
+                State = state,
+                GenderType = data.GenderType
+            };
+        }
+        
         public abstract IRaceTemplate GetRaceTemplateFor(int raceTemplateId);
     }
 }

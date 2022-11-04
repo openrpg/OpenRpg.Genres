@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using System.Linq;
+using OpenRpg.Items;
 using OpenRpg.Items.Inventory;
 
 namespace OpenRpg.Genres.Persistence.Items.Inventory
@@ -18,9 +20,14 @@ namespace OpenRpg.Genres.Persistence.Items.Inventory
                 .ToDictionary(x => x.Key, x => x.Value));
 
             var items = data.Items.Select(ItemMapper.Map);
+            return InitializeInventory(data, inventoryVariables, items);
+        }
+
+        public virtual IInventory InitializeInventory(InventoryData data, IInventoryVariables variables, IEnumerable<IItem> items)
+        {
             return new DefaultInventory(items)
             {
-                Variables = inventoryVariables
+                Variables = variables
             };
         }
     }

@@ -13,10 +13,15 @@ namespace OpenRpg.Genres.Persistence.Items.Equipment
 
             var slots = new DefaultEquipmentSlots(data.Slots
                 .ToDictionary(x => x.Key, x => GetSlotFor(x.Key, x.Value)));
-            
+
+            return InitializeEquipment(data, slots, equipmentVariables);
+        }
+
+        public virtual IEquipment InitializeEquipment(EquipmentData data, IEquipmentSlots slots, IEquipmentVariables variables)
+        {
             return new DefaultEquipment
             {
-                Variables = equipmentVariables,
+                Variables = variables,
                 Slots = slots
             };
         }
