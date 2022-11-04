@@ -28,7 +28,7 @@ namespace OpenRpg.Genres.Builders
             Randomizer = randomizer;
         }
 
-        public CharacterBuilder CreateNew()
+        public virtual CharacterBuilder CreateNew()
         {
             _raceId = _classId = _classLevels = _genderId = 0;
             _name = _description = string.Empty;
