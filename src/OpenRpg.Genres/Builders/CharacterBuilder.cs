@@ -116,6 +116,12 @@ namespace OpenRpg.Genres.Builders
         {
         }
         
+        public virtual CharacterData CreateCharacterData(ClassData classData, EquipmentData equipmentData)
+        {
+            return new CharacterData(Guid.NewGuid(), _name, _description, (byte)_genderId, 
+                _raceId, classData, _state, equipmentData);
+        }
+        
         public ICharacter Build()
         {
             RandomizeDefaults();
@@ -128,10 +134,7 @@ namespace OpenRpg.Genres.Builders
                 .ToDictionary(x => x.Key, x => x.Value.ToDataModel());
             
             var persistedEquipment = new EquipmentData(persistedEquipmentData);
-            
-            var characterData = new CharacterData(Guid.NewGuid(), _name, _description, (byte)_genderId, 
-                _raceId, persistedClass, _state, persistedEquipment);
-
+            var characterData = CreateCharacterData(persistedClass, persistedEquipment);
             var character = CharacterMapper.Map(characterData);
             PostProcessCharacter(character);
 

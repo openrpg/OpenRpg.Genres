@@ -1,5 +1,4 @@
 using System;
-using System.Linq;
 using OpenRpg.Genres.Fantasy.Equipment.Slots;
 using OpenRpg.Genres.Fantasy.Types;
 using OpenRpg.Genres.Persistence.Items;
