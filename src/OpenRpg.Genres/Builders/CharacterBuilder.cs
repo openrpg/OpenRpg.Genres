@@ -6,7 +6,6 @@ using OpenRpg.Genres.Characters;
 using OpenRpg.Genres.Extensions;
 using OpenRpg.Genres.Persistence.Characters;
 using OpenRpg.Genres.Persistence.Classes;
-using OpenRpg.Genres.Persistence.Items;
 using OpenRpg.Genres.Persistence.Items.Equipment;
 using OpenRpg.Items;
 
@@ -115,6 +114,10 @@ namespace OpenRpg.Genres.Builders
         protected virtual void PostProcessCharacter(ICharacter character)
         {
         }
+
+        protected virtual void PreCreateCharacterData()
+        {
+        }
         
         public virtual CharacterData CreateCharacterData(ClassData classData, EquipmentData equipmentData)
         {
@@ -129,9 +132,10 @@ namespace OpenRpg.Genres.Builders
             if (string.IsNullOrEmpty(_name))
             { _name = "Unknown Name"; }
 
+            PreCreateCharacterData();
             var persistedClass = new ClassData(_classId, _classLevels);
             var persistedEquipmentData = _equipment
-                .ToDictionary(x => x.Key, x => x.Value.ToDataModel());
+                .ToDictionary(x => x.Key, x => x.Value?.ToDataModel() ?? null);
             
             var persistedEquipment = new EquipmentData(persistedEquipmentData);
             var characterData = CreateCharacterData(persistedClass, persistedEquipment);
