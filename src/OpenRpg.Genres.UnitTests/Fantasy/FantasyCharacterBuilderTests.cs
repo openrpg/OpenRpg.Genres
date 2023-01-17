@@ -1,5 +1,6 @@
 using Moq;
 using OpenRpg.Core.Utils;
+using OpenRpg.Genres.Characters;
 using OpenRpg.Genres.Fantasy.Builders;
 using OpenRpg.Genres.Fantasy.Extensions;
 using OpenRpg.Genres.Fantasy.Types;
@@ -15,6 +16,10 @@ namespace OpenRpg.Genres.UnitTests.Fantasy
         {
             var mockRandomizer = new Mock<IRandomizer>();
             var mockCharacterMapper = new Mock<ICharacterMapper>();
+            mockCharacterMapper
+                .Setup(x => x.Map(It.IsAny<CharacterData>()))
+                .Returns(new DefaultCharacter());
+            
             var characterBuilder = new FantasyCharacterBuilder(mockCharacterMapper.Object, mockRandomizer.Object);
 
             characterBuilder.CreateNew().Build();

@@ -1,5 +1,8 @@
 ﻿using OpenRpg.Core.Utils;
 using OpenRpg.Genres.Builders;
+using OpenRpg.Genres.Characters;
+using OpenRpg.Genres.Extensions;
+using OpenRpg.Genres.Fantasy.Extensions;
 using OpenRpg.Genres.Fantasy.Types;
 using OpenRpg.Genres.Persistence.Characters;
 
@@ -24,7 +27,17 @@ namespace OpenRpg.Genres.Fantasy.Builders
             if(!_equipment.ContainsKey(EquipmentSlotTypes.Ring1Slot)) { _equipment.Add(EquipmentSlotTypes.Ring1Slot, null); }
             if(!_equipment.ContainsKey(EquipmentSlotTypes.Ring2Slot)) { _equipment.Add(EquipmentSlotTypes.Ring2Slot, null); }
             if(!_equipment.ContainsKey(EquipmentSlotTypes.WristSlot)) { _equipment.Add(EquipmentSlotTypes.WristSlot, null); }
+        }
+
+        protected override void PostProcessCharacter(ICharacter character)
+        {
+            if (!character.State.ContainsKey(CharacterStateVariableTypes.Health))
+            { character.State.Health(character.Stats.MaxHealth()); }
             
+            if (!character.State.ContainsKey(CharacterStateVariableTypes.Magic))
+            { character.State.Magic(character.Stats.MaxMagic()); }
+            
+            base.PostProcessCharacter(character);
         }
     }
 }

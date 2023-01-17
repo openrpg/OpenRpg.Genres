@@ -16,7 +16,7 @@ namespace OpenRpg.Genres.Fantasy.Persistence.Items.Equipment
         
         public override IEquipmentSlot GetSlotFor(int slotType, ItemData slottedItemData)
         {
-            var item = ItemMapper.Map(slottedItemData);
+            var item = slottedItemData != null ? ItemMapper.Map(slottedItemData) : null;
             if(slotType == EquipmentSlotTypes.BackSlot) { return new BackSlot(item); }
             if(slotType == EquipmentSlotTypes.FootSlot) { return new FootSlot(item); }
             if(slotType == EquipmentSlotTypes.HeadSlot) { return new HeadSlot(item); }

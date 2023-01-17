@@ -24,6 +24,7 @@ namespace OpenRpg.Genres.Extensions
 
         public static ItemData ToDataModel(this IUniqueItem item)
         {
+            if (item == null) { return null; }
             return new ItemData(item.UniqueId,
                 item.ItemTemplate.Id,
                 item.Modifications.Select(x => x.Id).ToArray(),
