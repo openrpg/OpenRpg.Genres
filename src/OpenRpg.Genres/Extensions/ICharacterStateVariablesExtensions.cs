@@ -1,3 +1,6 @@
+using System;
+using System.Linq;
+using OpenRpg.Combat.Processors;
 using OpenRpg.Genres.Types;
 using OpenRpg.Genres.Variables;
 
@@ -11,6 +14,8 @@ namespace OpenRpg.Genres.Extensions
         public static void AddHealth(this ICharacterStateVariables state, int change, int? maxHealth = null)
         {
             var newValue = state.Health() + change;
+            if(newValue <= 0) { newValue = 0; }
+            
             if(maxHealth == null) 
             { state.Health(newValue); }
             else 
@@ -20,6 +25,8 @@ namespace OpenRpg.Genres.Extensions
         public static void DeductHealth(this ICharacterStateVariables state, int change, int? maxHealth = null)
         {
             var newValue = state.Health() - change;
+            if(newValue <= 0) { newValue = 0; }
+            
             if(maxHealth == null) 
             { state.Health(newValue); }
             else 
@@ -35,5 +42,16 @@ namespace OpenRpg.Genres.Extensions
             else
             { state[CharacterStateVariableTypes.Health] = value; }
         }
+        
+        public static void ApplyDamageToTarget(this ICharacterStateVariables state, ProcessedAttack attack)
+        {
+            var summedAttack = attack.DamageDone.Sum(x => x.Value);
+            var totalDamage = (int)Math.Round(summedAttack);
+            if (totalDamage < 0) { totalDamage = 0; }
+            state.DeductHealth(totalDamage);
+        }
+        
+        public static bool IsDead(this ICharacterStateVariables state)
+        { return state.Health() <= 0; }
     }
 }
