@@ -10,15 +10,6 @@ namespace OpenRpg.Genres.Fantasy.Extensions
 {
     public static class EffectExtensions
     {
-        public static float CalculateBonusFor(this IReadOnlyCollection<Effect> activeEffects, int amountBonusType, int percentageBonusType, int miscBonus = 0)
-        {
-            var totalAmount = activeEffects.GetPotencyFor(amountBonusType) + miscBonus;
-            var totalGenericAmount = activeEffects.GetPotencyFor(EffectTypes.AllAttributeBonusAmount);
-            var percentageBonus = activeEffects.GetPotencyFor(percentageBonusType);
-            var totalBonus = (totalAmount + totalGenericAmount) * percentageBonus;
-            return totalAmount + totalBonus;
-        }
-
         public static int GetDamageTypeFrom(int effectType)
         {
             if (effectType == EffectTypes.PiercingBonusAmount) { return DamageTypes.PiercingDamage; }
