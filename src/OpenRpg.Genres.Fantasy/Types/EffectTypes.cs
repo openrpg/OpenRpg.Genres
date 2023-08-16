@@ -5,7 +5,6 @@ namespace OpenRpg.Genres.Fantasy.Types
         // Generic Melee/Magic
         public static readonly int AllMeleeAttackBonusAmount = 50;
         public static readonly int AllMeleeDefenseBonusAmount = 51;
-        public static readonly int AllAttributeBonusAmount = 52;
         public static readonly int AllElementDamageBonusAmount = 53;
         public static readonly int AllElementDefenseBonusAmount = 54;
         public static readonly int AllMeleeAttackBonusPercentage = 55;

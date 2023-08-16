@@ -1,4 +1,4 @@
-using OpenRpg.Core.Stats.Variables;
+using OpenRpg.Core.Stats.Populators;
 using OpenRpg.Genres.Persistence.Characters;
 using OpenRpg.Genres.Persistence.Classes;
 using OpenRpg.Genres.Persistence.Items;
@@ -9,7 +9,8 @@ namespace OpenRpg.Genres.Scifi.Persistence.Character
 {
     public abstract class SciFiCharacterMapper : CharacterMapper, ISciFiCharacterMapper
     {
-        protected SciFiCharacterMapper(ItemMapper itemMapper, IClassMapper classMapper, ISciFiCharacterEquipmentMapper equipmentMapper, InventoryMapper inventoryMapper, IStatPopulator statsPopulator) : base(itemMapper, classMapper, equipmentMapper, inventoryMapper, statsPopulator)
+        protected SciFiCharacterMapper(ItemMapper itemMapper, IClassMapper classMapper, ISciFiCharacterEquipmentMapper equipmentMapper, InventoryMapper inventoryMapper, IStatPopulator statsPopulator) 
+            : base(itemMapper, classMapper, equipmentMapper, inventoryMapper, statsPopulator)
         {
         }
     }

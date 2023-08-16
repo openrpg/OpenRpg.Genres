@@ -1,6 +1,7 @@
 using System.Linq;
 using OpenRpg.Core.Classes;
 using OpenRpg.Core.Races;
+using OpenRpg.Core.Stats.Populators;
 using OpenRpg.Core.Stats.Variables;
 using OpenRpg.Genres.Characters;
 using OpenRpg.Genres.Extensions;
