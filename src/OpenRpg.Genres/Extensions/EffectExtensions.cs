@@ -16,7 +16,7 @@ namespace OpenRpg.Genres.Extensions
         /// <param name="percentageBonusType">The effect type signifying the percentage amount</param>
         /// <param name="miscBonus">Any misc bonus to apply to the calculation (calculated before percentage applied)</param>
         /// <returns>The total value based off effects of the given types</returns>
-        public static float GetPotencyFor(this IReadOnlyCollection<Effect> effects, int amountBonusType, int percentageBonusType, int miscBonus = 0)
+        public static float CalculateStatValueFor(this IReadOnlyCollection<Effect> effects, int amountBonusType, int percentageBonusType, int miscBonus = 0)
         {
             var totalAmount = effects.GetPotencyFor(amountBonusType) + miscBonus;
             if(totalAmount == 0) { return 0; }
@@ -26,18 +26,20 @@ namespace OpenRpg.Genres.Extensions
             return totalAmount + totalBonus;
         }
         
-        public static float CalculateAttributeValueFor(this IReadOnlyCollection<Effect> activeEffects, int amountBonusType, int percentageBonusType, int miscBonus = 0)
+        /// <summary>
+        /// Calculates the attribute value based off the underlying attribute amount with all attributes factored in
+        /// </summary>
+        /// <param name="activeEffects"></param>
+        /// <param name="attributeAmountType"></param>
+        /// <param name="attributePercentageType"></param>
+        /// <param name="miscBonus"></param>
+        /// <returns></returns>
+        public static float CalculateAttributeValueFor(this IReadOnlyCollection<Effect> activeEffects, int attributeAmountType, int attributePercentageType, int miscBonus = 0)
         {
-            var totalAmount = activeEffects.GetPotencyFor(amountBonusType, EffectTypes.AllAttributeBonusAmount) + miscBonus;
-            var percentageBonus = activeEffects.GetPotencyFor(percentageBonusType, EffectTypes.AllAttributeBonusPercentage);
-            var totalBonus = totalAmount * percentageBonus;
-            return totalAmount + totalBonus;
-        }
-        
-        public static float CalculateStatValueFor(this IReadOnlyCollection<Effect> activeEffects, int amountBonusType, int percentageBonusType, int miscBonus = 0)
-        {
-            var totalAmount = activeEffects.GetPotencyFor(amountBonusType) + miscBonus;
-            var percentageBonus = activeEffects.GetPotencyFor(percentageBonusType);
+            var totalAmount = activeEffects.GetPotencyFor(attributeAmountType, EffectTypes.AllAttributeBonusAmount) + miscBonus;
+            if(totalAmount == 0) { return 0; }
+            
+            var percentageBonus = activeEffects.GetPotencyFor(attributePercentageType, EffectTypes.AllAttributeBonusPercentage);
             var totalBonus = totalAmount * percentageBonus;
             return totalAmount + totalBonus;
         }
