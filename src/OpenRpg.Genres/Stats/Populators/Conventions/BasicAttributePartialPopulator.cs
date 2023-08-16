@@ -8,7 +8,7 @@ using OpenRpg.Genres.Extensions;
 
 namespace OpenRpg.Genres.Stats.Populators.Conventions
 {
-    public class BasicStatPartialPopulator : IPartialStatPopulator
+    public class BasicAttributePartialPopulator : IPartialStatPopulator
     {
         public int Priority { get; }
         public int EffectBonusAmountType { get; }
@@ -16,7 +16,7 @@ namespace OpenRpg.Genres.Stats.Populators.Conventions
         public int StatType { get; }
         public Func<IStatsVariables, IReadOnlyCollection<Effect>, IReadOnlyCollection<IVariables>, int> MiscGetter { get; } = null;
 
-        public BasicStatPartialPopulator(int effectBonusAmountType, int effectBonusPercentageType, int statType, int priority = 100)
+        public BasicAttributePartialPopulator(int effectBonusAmountType, int effectBonusPercentageType, int statType, int priority = 100)
         {
             Priority = priority;
             EffectBonusAmountType = effectBonusAmountType;
@@ -24,7 +24,7 @@ namespace OpenRpg.Genres.Stats.Populators.Conventions
             StatType = statType;
         }
         
-        public BasicStatPartialPopulator(int effectBonusAmountType, int effectBonusPercentageType, int statType,
+        public BasicAttributePartialPopulator(int effectBonusAmountType, int effectBonusPercentageType, int statType,
             Func<IStatsVariables, IReadOnlyCollection<Effect>, IReadOnlyCollection<IVariables>, int> miscGetter,  
             int priority = 100)
             : this(effectBonusAmountType, effectBonusPercentageType, statType)
@@ -35,7 +35,7 @@ namespace OpenRpg.Genres.Stats.Populators.Conventions
         public void Populate(IStatsVariables stats, IReadOnlyCollection<Effect> activeEffects, IReadOnlyCollection<IVariables> relatedVars)
         {
             var miscBonus = MiscGetter?.Invoke(stats, activeEffects, relatedVars) ?? 0;
-            var attributeValue = (int)activeEffects.CalculateStatValueFor(EffectBonusAmountType, EffectBonusPercentageType, miscBonus);
+            var attributeValue = (int)activeEffects.CalculateAttributeValueFor(EffectBonusAmountType, EffectBonusPercentageType, miscBonus);
             stats[StatType] = attributeValue;
         }
     }

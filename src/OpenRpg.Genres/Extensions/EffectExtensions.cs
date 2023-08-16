@@ -26,12 +26,19 @@ namespace OpenRpg.Genres.Extensions
             return totalAmount + totalBonus;
         }
         
-        public static float CalculateBonusFor(this IReadOnlyCollection<Effect> activeEffects, int amountBonusType, int percentageBonusType, int miscBonus = 0)
+        public static float CalculateAttributeValueFor(this IReadOnlyCollection<Effect> activeEffects, int amountBonusType, int percentageBonusType, int miscBonus = 0)
+        {
+            var totalAmount = activeEffects.GetPotencyFor(amountBonusType, EffectTypes.AllAttributeBonusAmount) + miscBonus;
+            var percentageBonus = activeEffects.GetPotencyFor(percentageBonusType, EffectTypes.AllAttributeBonusPercentage);
+            var totalBonus = totalAmount * percentageBonus;
+            return totalAmount + totalBonus;
+        }
+        
+        public static float CalculateStatValueFor(this IReadOnlyCollection<Effect> activeEffects, int amountBonusType, int percentageBonusType, int miscBonus = 0)
         {
             var totalAmount = activeEffects.GetPotencyFor(amountBonusType) + miscBonus;
-            var totalGenericAmount = activeEffects.GetPotencyFor(EffectTypes.AllAttributeBonusAmount);
             var percentageBonus = activeEffects.GetPotencyFor(percentageBonusType);
-            var totalBonus = (totalAmount + totalGenericAmount) * percentageBonus;
+            var totalBonus = totalAmount * percentageBonus;
             return totalAmount + totalBonus;
         }
     }

@@ -14,5 +14,6 @@ namespace OpenRpg.Genres.Types
         
         // All Attributes
         public static readonly int AllAttributeBonusAmount = 20;
+        public static readonly int AllAttributeBonusPercentage = 21;
     }
 }
