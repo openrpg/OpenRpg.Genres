@@ -18,12 +18,11 @@ namespace OpenRpg.Genres.UnitTests.Fantasy
         [Fact]
         public void should_build_and_map_correctly()
         {
-            var mockStatsPopulator = new Mock<IStatPopulator>();
             var mockRandomizer = new Mock<IRandomizer>();
             
             var itemMapper = new TestItemMapper();
             var characterMapper = new TestCharacterMapper(new TestItemMapper(), new TestClassMapper(),
-                new FantasyEquipmentMapper(itemMapper), new InventoryMapper(itemMapper), mockStatsPopulator.Object);
+                new FantasyEquipmentMapper(itemMapper), new InventoryMapper(itemMapper));
             
             var characterBuilder = new FantasyCharacterBuilder(characterMapper, mockRandomizer.Object);
             var character = characterBuilder
