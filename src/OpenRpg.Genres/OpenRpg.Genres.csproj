@@ -13,11 +13,11 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="OpenRpg.Combat" Version="0.27.203" />
-        <PackageReference Include="OpenRpg.Core" Version="0.27.203" />
-        <PackageReference Include="OpenRpg.CurveFunctions" Version="0.27.203" />
-        <PackageReference Include="OpenRpg.Items" Version="0.27.203" />
-        <PackageReference Include="OpenRpg.Quests" Version="0.27.203" />
+        <PackageReference Include="OpenRpg.Combat" Version="0.28.205" />
+        <PackageReference Include="OpenRpg.Core" Version="0.28.205" />
+        <PackageReference Include="OpenRpg.CurveFunctions" Version="0.28.205" />
+        <PackageReference Include="OpenRpg.Items" Version="0.28.205" />
+        <PackageReference Include="OpenRpg.Quests" Version="0.28.205" />
     </ItemGroup>
 
 </Project>
