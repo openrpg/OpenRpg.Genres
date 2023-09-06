@@ -1,6 +1,6 @@
 using System;
 using System.Linq;
-using OpenRpg.Combat.Processors;
+using OpenRpg.Combat.Processors.Attacks;
 using OpenRpg.Genres.Types;
 using OpenRpg.Genres.Variables;
 
