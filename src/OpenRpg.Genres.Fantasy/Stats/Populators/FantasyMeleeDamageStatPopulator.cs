@@ -19,16 +19,16 @@ namespace OpenRpg.Genres.Fantasy.Stats.Populators
             PartialPopulators = new[]
             {
                 new DamageOrDefenseStatPartialPopulator(EffectTypes.AllMeleeAttackBonusAmount, EffectTypes.AllMeleeAttackBonusPercentage, 
-                    StatsVariableTypes.BluntDamage, EffectRelationships.BluntDamageRelationship, GetBluntModBonus, Priority),
+                    IGenreStatsVariableTypes.BluntDamage, EffectRelationships.BluntDamageRelationship, GetBluntModBonus, Priority),
                 
                 new DamageOrDefenseStatPartialPopulator(EffectTypes.AllMeleeAttackBonusAmount, EffectTypes.AllMeleeAttackBonusPercentage, 
-                    StatsVariableTypes.PiercingDamage, EffectRelationships.PiercingDamageRelationship, GetPiercingModBonus, Priority),
+                    IGenreStatsVariableTypes.PiercingDamage, EffectRelationships.PiercingDamageRelationship, GetPiercingModBonus, Priority),
                 
                 new DamageOrDefenseStatPartialPopulator(EffectTypes.AllMeleeAttackBonusAmount, EffectTypes.AllMeleeAttackBonusPercentage, 
-                    StatsVariableTypes.SlashingDamage, EffectRelationships.SlashingDamageRelationship, GetSlashingOrUnarmedModBonus, Priority),
+                    IGenreStatsVariableTypes.SlashingDamage, EffectRelationships.SlashingDamageRelationship, GetSlashingOrUnarmedModBonus, Priority),
                 
                 new DamageOrDefenseStatPartialPopulator(EffectTypes.AllMeleeAttackBonusAmount, EffectTypes.AllMeleeAttackBonusPercentage, 
-                    StatsVariableTypes.UnarmedDamage, EffectRelationships.UnarmedDamageRelationship, GetSlashingOrUnarmedModBonus, Priority),
+                    IGenreStatsVariableTypes.UnarmedDamage, EffectRelationships.UnarmedDamageRelationship, GetSlashingOrUnarmedModBonus, Priority),
             };
         }
 

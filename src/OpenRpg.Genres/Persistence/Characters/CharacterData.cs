@@ -16,10 +16,9 @@ namespace OpenRpg.Genres.Persistence.Characters
         public int RaceTemplateId { get; }
         public ClassData ClassData { get; }
         public IReadOnlyDictionary<int, float> StateVariables { get; }
-        public EquipmentData EquipmentData { get; }
         public IReadOnlyDictionary<int, object> Variables { get; }
 
-        public CharacterData(Guid id, string nameLocaleId, string descriptionLocaleId, byte genderType, int raceTemplateId, ClassData classData, IReadOnlyDictionary<int, float> stateVariables, EquipmentData equipmentData, IReadOnlyDictionary<int, object> variables = null)
+        public CharacterData(Guid id, string nameLocaleId, string descriptionLocaleId, byte genderType, int raceTemplateId, ClassData classData, IReadOnlyDictionary<int, float> stateVariables, IReadOnlyDictionary<int, object> variables = null)
         {
             Id = id;
             NameLocaleId = nameLocaleId;
@@ -28,7 +27,6 @@ namespace OpenRpg.Genres.Persistence.Characters
             RaceTemplateId = raceTemplateId;
             ClassData = classData;
             StateVariables = stateVariables;
-            EquipmentData = equipmentData;
             Variables = variables ?? new Dictionary<int, object>();
         }
     }

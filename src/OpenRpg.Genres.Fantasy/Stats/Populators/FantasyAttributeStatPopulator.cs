@@ -12,12 +12,12 @@ namespace OpenRpg.Genres.Fantasy.Stats.Populators
         {
             PartialPopulators = new[]
             {
-                new BasicAttributePartialPopulator(EffectTypes.StrengthBonusAmount, EffectTypes.StrengthBonusPercentage, StatsVariableTypes.Strength, Priority),
-                new BasicAttributePartialPopulator(EffectTypes.DexterityBonusAmount, EffectTypes.DexterityBonusPercentage, StatsVariableTypes.Dexterity, Priority),
-                new BasicAttributePartialPopulator(EffectTypes.ConstitutionBonusAmount, EffectTypes.ConstitutionBonusPercentage, StatsVariableTypes.Constitution, Priority),
-                new BasicAttributePartialPopulator(EffectTypes.IntelligenceBonusAmount, EffectTypes.IntelligenceBonusPercentage, StatsVariableTypes.Intelligence, Priority),
-                new BasicAttributePartialPopulator(EffectTypes.WisdomBonusAmount, EffectTypes.WisdomBonusPercentage, StatsVariableTypes.Wisdom, Priority),
-                new BasicAttributePartialPopulator(EffectTypes.CharismaBonusAmount, EffectTypes.CharismaBonusPercentage, StatsVariableTypes.Charisma, Priority),
+                new BasicAttributePartialPopulator(EffectTypes.StrengthBonusAmount, EffectTypes.StrengthBonusPercentage, IGenreStatsVariableTypes.Strength, Priority),
+                new BasicAttributePartialPopulator(EffectTypes.DexterityBonusAmount, EffectTypes.DexterityBonusPercentage, IGenreStatsVariableTypes.Dexterity, Priority),
+                new BasicAttributePartialPopulator(EffectTypes.ConstitutionBonusAmount, EffectTypes.ConstitutionBonusPercentage, IGenreStatsVariableTypes.Constitution, Priority),
+                new BasicAttributePartialPopulator(EffectTypes.IntelligenceBonusAmount, EffectTypes.IntelligenceBonusPercentage, IGenreStatsVariableTypes.Intelligence, Priority),
+                new BasicAttributePartialPopulator(EffectTypes.WisdomBonusAmount, EffectTypes.WisdomBonusPercentage, IGenreStatsVariableTypes.Wisdom, Priority),
+                new BasicAttributePartialPopulator(EffectTypes.CharismaBonusAmount, EffectTypes.CharismaBonusPercentage, IGenreStatsVariableTypes.Charisma, Priority),
             };
         }
     }

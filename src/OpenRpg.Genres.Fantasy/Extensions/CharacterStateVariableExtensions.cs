@@ -1,14 +1,14 @@
+using OpenRpg.Core.State.Entity;
 using OpenRpg.Genres.Fantasy.Types;
-using OpenRpg.Genres.Variables;
 
 namespace OpenRpg.Genres.Fantasy.Extensions
 {
     public static class CharacterStateVariableExtensions
     {
-        public static int Magic(this ICharacterStateVariables state) => (int)state.Get(CharacterStateVariableTypes.Magic);
-        public static void Magic(this ICharacterStateVariables state, int value) => state[CharacterStateVariableTypes.Magic] = value;
+        public static int Magic(this IEntityStateVariables state) => (int)state.Get(FantasyEntityStateVariableTypes.Magic);
+        public static void Magic(this IEntityStateVariables state, int value) => state[FantasyEntityStateVariableTypes.Magic] = value;
         
-        public static void AddMagic(this ICharacterStateVariables state, int change, int? maxMagic = null)
+        public static void AddMagic(this IEntityStateVariables state, int change, int? maxMagic = null)
         {
             var newValue = state.Magic() + change;
             if (maxMagic.HasValue)
@@ -17,7 +17,7 @@ namespace OpenRpg.Genres.Fantasy.Extensions
             { state.Magic(newValue); }
         }
 
-        public static void DeductMagic(this ICharacterStateVariables state, int change, int? maxMagic = null)
+        public static void DeductMagic(this IEntityStateVariables state, int change, int? maxMagic = null)
         {
             var newValue = state.Magic() - change;
             if (maxMagic.HasValue)
@@ -26,14 +26,14 @@ namespace OpenRpg.Genres.Fantasy.Extensions
             { state.Magic(newValue); }
         }
 
-        public static void EnsureMagicInBounds(this ICharacterStateVariables state, int value, int maxMagic)
+        public static void EnsureMagicInBounds(this IEntityStateVariables state, int value, int maxMagic)
         {
             if(value > maxMagic)
-            { state[CharacterStateVariableTypes.Magic] = maxMagic; }
+            { state[FantasyEntityStateVariableTypes.Magic] = maxMagic; }
             else if(value <= 0)
-            { state[CharacterStateVariableTypes.Magic] = 0; }
+            { state[FantasyEntityStateVariableTypes.Magic] = 0; }
             else
-            { state[CharacterStateVariableTypes.Magic] = value; }
+            { state[FantasyEntityStateVariableTypes.Magic] = value; }
         }
     }
 }

@@ -1,21 +1,15 @@
 using OpenRpg.Core.Classes;
-using OpenRpg.Core.Common;
+using OpenRpg.Core.Entity;
 using OpenRpg.Core.Races;
-using OpenRpg.Core.Stats;
-using OpenRpg.Genres.Variables;
-using OpenRpg.Items.Equipment;
 
 namespace OpenRpg.Genres.Characters
 {
     /// <summary>
-    /// Barebones character for extending elsewhere
+    /// A slightly more specific character notion built on top of the generic IEntity notion
     /// </summary>
-    public interface ICharacter : IIsUnique, IHasLocaleDescription, IHasStats, IHasClass
+    public interface ICharacter : IEntity, IHasClass
     {
         byte GenderType { get; }
         IRaceTemplate Race { get; }
-        IEquipment Equipment { get; }
-        ICharacterStateVariables State { get; }
-        ICharacterVariables Variables { get; }
     }
 }

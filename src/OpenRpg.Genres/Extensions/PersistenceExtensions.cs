@@ -1,13 +1,17 @@
+using System.Collections.Generic;
 using System.Linq;
 using OpenRpg.Core.Classes;
+using OpenRpg.Core.Types;
 using OpenRpg.Genres.Characters;
 using OpenRpg.Genres.Persistence.Characters;
 using OpenRpg.Genres.Persistence.Classes;
 using OpenRpg.Genres.Persistence.Items;
 using OpenRpg.Genres.Persistence.Items.Equipment;
 using OpenRpg.Genres.Persistence.Items.Inventory;
+using OpenRpg.Genres.Types;
 using OpenRpg.Items;
 using OpenRpg.Items.Equipment;
+using OpenRpg.Items.Extensions;
 using OpenRpg.Items.Inventory;
 
 namespace OpenRpg.Genres.Extensions
@@ -16,10 +20,23 @@ namespace OpenRpg.Genres.Extensions
     {
         public static CharacterData ToDataModel(this ICharacter character)
         {
+            var variables = new Dictionary<int, object>();
+
+            if (character.Variables.HasEquipment())
+            {
+                var equipmentData = character.Variables.Equipment().ToDataModel();
+                variables.Add(GenreEntityVariableTypes.Equipment, equipmentData);
+            }
+            
+            if (character.Variables.HasInventory())
+            {
+                var inventoryData = character.Variables.Inventory().ToDataModel();
+                variables.Add(GenreEntityVariableTypes.Inventory, inventoryData);
+            }
+            
             return new CharacterData(character.UniqueId,
                 character.NameLocaleId, character.DescriptionLocaleId, character.GenderType,
-                character.Race.Id, character.Class.ToDataModel(), character.State,
-                character.Equipment.ToDataModel(), character.Variables);
+                character.Race.Id, character.Class.ToDataModel(), character.State, variables);
         }
 
         public static ItemData ToDataModel(this IUniqueItem item)

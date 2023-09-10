@@ -1,6 +1,6 @@
 namespace OpenRpg.Genres.Scifi.Types
 {
-    public interface StatsVariableTypes : Genres.Types.StatsVariableTypes
+    public interface IGenreStatsVariableTypes : Genres.Types.GenreStatsVariableTypes
     {
         public static readonly int MaxEnergy = 50;
         public static readonly int Energy = 51;

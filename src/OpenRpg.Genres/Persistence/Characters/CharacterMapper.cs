@@ -1,13 +1,15 @@
 using System.Linq;
 using OpenRpg.Core.Classes;
 using OpenRpg.Core.Races;
+using OpenRpg.Core.State.Entity;
+using OpenRpg.Core.Variables.Entity;
 using OpenRpg.Genres.Characters;
 using OpenRpg.Genres.Persistence.Classes;
 using OpenRpg.Genres.Persistence.Items;
 using OpenRpg.Genres.Persistence.Items.Equipment;
 using OpenRpg.Genres.Persistence.Items.Inventory;
-using OpenRpg.Genres.Variables;
-using OpenRpg.Items.Equipment;
+using OpenRpg.Genres.Types;
+using OpenRpg.Items.Extensions;
 
 namespace OpenRpg.Genres.Persistence.Characters
 {
@@ -28,20 +30,30 @@ namespace OpenRpg.Genres.Persistence.Characters
 
         public ICharacter Map(CharacterData data)
         {
-            var characterVariables = new DefaultCharacterVariables(data.Variables
-                .ToDictionary(x => x.Key, x => x.Value));
+            var entityVariables = new DefaultEntityVariables();
 
-            var characterState = new DefaultCharacterStateVariables(data.StateVariables
+            if (data.Variables.ContainsKey(GenreEntityVariableTypes.Equipment))
+            {
+                var equipment = EquipmentMapper.Map(data.Variables[GenreEntityVariableTypes.Equipment] as EquipmentData);
+                entityVariables.Equipment(equipment);
+            }
+            
+            if (data.Variables.ContainsKey(GenreEntityVariableTypes.Inventory))
+            {
+                var inventory = InventoryMapper.Map(data.Variables[GenreEntityVariableTypes.Inventory] as InventoryData);
+                entityVariables.Inventory(inventory);
+            }
+            
+            var characterState = new DefaultEntityStateVariables(data.StateVariables
                 .ToDictionary(x => x.Key, x => x.Value));
 
             var raceTemplate = GetRaceTemplateFor(data.RaceTemplateId);
             var characterClass = ClassMapper.Map(data.ClassData);
-            var equipment = EquipmentMapper.Map(data.EquipmentData);
             
-            return InitializeCharacter(data, characterState, characterVariables, raceTemplate, characterClass, equipment);
+            return InitializeCharacter(data, characterState, entityVariables, raceTemplate, characterClass);
         }
 
-        public virtual ICharacter InitializeCharacter(CharacterData data, ICharacterStateVariables state, ICharacterVariables variables, IRaceTemplate raceTemplate, IClass @class, IEquipment equipment)
+        public virtual ICharacter InitializeCharacter(CharacterData data, IEntityStateVariables state, IEntityVariables variables, IRaceTemplate raceTemplate, IClass @class)
         {
             return new DefaultCharacter
             {
@@ -51,7 +63,6 @@ namespace OpenRpg.Genres.Persistence.Characters
                 Variables = variables,
                 Class = @class,
                 Race = raceTemplate,
-                Equipment = equipment,
                 State = state,
                 GenderType = data.GenderType
             };

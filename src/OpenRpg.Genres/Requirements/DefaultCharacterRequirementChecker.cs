@@ -3,6 +3,7 @@ using OpenRpg.Core.Requirements;
 using OpenRpg.Genres.Characters;
 using OpenRpg.Genres.Extensions;
 using OpenRpg.Genres.Types;
+using OpenRpg.Items.Extensions;
 using OpenRpg.Quests.Types;
 using OpenRpg.Quests.Variables;
 
@@ -26,8 +27,20 @@ namespace OpenRpg.Genres.Requirements
             
             if (requirement.RequirementType == RequirementTypes.EquipmentItemRequirement)
             {
-                return character.Equipment.Slots.Values
+                if (!character.Variables.HasEquipment())
+                { return false; }
+
+                return character.Variables.Equipment().Slots.Values
                     .Any(x => x.SlottedItem?.ItemTemplate.Id == requirement.AssociatedId);
+            }
+            
+            if (requirement.RequirementType == RequirementTypes.InventoryItemRequirement)
+            {
+                if (!character.Variables.HasInventory())
+                { return false; }
+
+                return character.Variables.Inventory()
+                    .HasItem(requirement.AssociatedId, requirement.AssociatedValue);
             }
 
             if(requirement.RequirementType == RequirementTypes.MaxHealthRequirement)

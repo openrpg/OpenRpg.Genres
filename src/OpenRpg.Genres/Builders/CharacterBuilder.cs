@@ -7,7 +7,10 @@ using OpenRpg.Genres.Extensions;
 using OpenRpg.Genres.Persistence.Characters;
 using OpenRpg.Genres.Persistence.Classes;
 using OpenRpg.Genres.Persistence.Items.Equipment;
+using OpenRpg.Genres.Persistence.Items.Inventory;
+using OpenRpg.Genres.Types;
 using OpenRpg.Items;
+using OpenRpg.Items.Equipment;
 
 namespace OpenRpg.Genres.Builders
 {
@@ -18,9 +21,13 @@ namespace OpenRpg.Genres.Builders
 
         protected int _raceId, _classId, _classLevels, _genderId;
         protected string _name, _description;
-        protected Dictionary<int, IUniqueItem> _equipment;
         protected Dictionary<int, float> _state;
+
+        protected Dictionary<int, IUniqueItem> _equipment;
+        protected List<IUniqueItem> _inventory;
         
+        protected Dictionary<int,object> _variables;
+
         public CharacterBuilder(ICharacterMapper characterMapper, IRandomizer randomizer)
         {
             CharacterMapper = characterMapper;
@@ -31,8 +38,10 @@ namespace OpenRpg.Genres.Builders
         {
             _raceId = _classId = _classLevels = _genderId = 0;
             _name = _description = string.Empty;
-            _equipment = new Dictionary<int, IUniqueItem>();
             _state = new Dictionary<int, float>();
+            _equipment = new Dictionary<int, IUniqueItem>();
+            _inventory = new List<IUniqueItem>();
+            _variables = new Dictionary<int, object>();
             return this;
         }
 
@@ -96,6 +105,12 @@ namespace OpenRpg.Genres.Builders
             return this;
         }
         
+        public CharacterBuilder WithInventoryItem(IUniqueItem item)
+        {
+            _inventory.Add(item);
+            return this;
+        }
+        
         public CharacterBuilder WithState(int stateTypeId, float value)
         {
             _state[stateTypeId] = value;
@@ -113,16 +128,40 @@ namespace OpenRpg.Genres.Builders
         
         protected virtual void PostProcessCharacter(ICharacter character)
         {
+
         }
 
         protected virtual void PreCreateCharacterData()
         {
+
+        }
+
+        protected void ProcessEquipmentToVariables()
+        {
+            if (_equipment.Count == 0) { return; }
+            
+            var equipmentStore = _equipment
+                .ToDictionary(x => x.Key, x => x.Value?.ToDataModel() ?? null);
+                
+            _variables.Add(GenreEntityVariableTypes.Equipment, new EquipmentData(equipmentStore));
         }
         
-        public virtual CharacterData CreateCharacterData(ClassData classData, EquipmentData equipmentData)
+        protected void ProcessInventoryToVariables()
         {
+            if (_inventory.Count == 0) { return; }
+            
+            var persistedInventory = _inventory.Select(x => x.ToDataModel()).ToArray();
+            _variables.Add(GenreEntityVariableTypes.Inventory, new InventoryData(persistedInventory, null));
+        }
+        
+        public virtual CharacterData CreateCharacterData()
+        {
+            var persistedClass = new ClassData(_classId, _classLevels);
+            ProcessEquipmentToVariables();
+            ProcessInventoryToVariables();
+
             return new CharacterData(Guid.NewGuid(), _name, _description, (byte)_genderId, 
-                _raceId, classData, _state, equipmentData);
+                _raceId, persistedClass, _state, _variables);
         }
         
         public ICharacter Build()
@@ -133,12 +172,7 @@ namespace OpenRpg.Genres.Builders
             { _name = "Unknown Name"; }
 
             PreCreateCharacterData();
-            var persistedClass = new ClassData(_classId, _classLevels);
-            var persistedEquipmentData = _equipment
-                .ToDictionary(x => x.Key, x => x.Value?.ToDataModel() ?? null);
-            
-            var persistedEquipment = new EquipmentData(persistedEquipmentData);
-            var characterData = CreateCharacterData(persistedClass, persistedEquipment);
+            var characterData = CreateCharacterData();
             var character = CharacterMapper.Map(characterData);
             PostProcessCharacter(character);
 
