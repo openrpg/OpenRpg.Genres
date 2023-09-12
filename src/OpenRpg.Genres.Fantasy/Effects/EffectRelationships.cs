@@ -7,162 +7,162 @@ namespace OpenRpg.Genres.Fantasy.Effects
     {
         public static EffectRelationship IceDamageRelationship => new EffectRelationship
         {
-            AmountType = EffectTypes.IceDamageAmount,
-            PercentageType = EffectTypes.IceDamagePercentage,
-            BonusAmountType = EffectTypes.IceBonusAmount,
-            BonusPercentageType = EffectTypes.IceBonusPercentage
+            AmountType = FantasyEffectTypes.IceDamageAmount,
+            PercentageType = FantasyEffectTypes.IceDamagePercentage,
+            BonusAmountType = FantasyEffectTypes.IceBonusAmount,
+            BonusPercentageType = FantasyEffectTypes.IceBonusPercentage
         };
         
         public static EffectRelationship IceDefenseRelationship => new EffectRelationship
         {
-            AmountType = EffectTypes.IceDefenseAmount,
-            PercentageType = EffectTypes.IceDefensePercentage,
-            BonusAmountType = EffectTypes.IceBonusAmount,
-            BonusPercentageType = EffectTypes.IceBonusPercentage
+            AmountType = FantasyEffectTypes.IceDefenseAmount,
+            PercentageType = FantasyEffectTypes.IceDefensePercentage,
+            BonusAmountType = FantasyEffectTypes.IceBonusAmount,
+            BonusPercentageType = FantasyEffectTypes.IceBonusPercentage
         };
         
         public static EffectRelationship FireDamageRelationship => new EffectRelationship
         {
-            AmountType = EffectTypes.FireDamageAmount,
-            PercentageType = EffectTypes.FireDamagePercentage,
-            BonusAmountType = EffectTypes.FireBonusAmount,
-            BonusPercentageType = EffectTypes.FireBonusPercentage
+            AmountType = FantasyEffectTypes.FireDamageAmount,
+            PercentageType = FantasyEffectTypes.FireDamagePercentage,
+            BonusAmountType = FantasyEffectTypes.FireBonusAmount,
+            BonusPercentageType = FantasyEffectTypes.FireBonusPercentage
         };
         
         public static EffectRelationship FireDefenseRelationship => new EffectRelationship
         {
-            AmountType = EffectTypes.FireDefenseAmount,
-            PercentageType = EffectTypes.FireDefensePercentage,
-            BonusAmountType = EffectTypes.FireBonusAmount,
-            BonusPercentageType = EffectTypes.FireBonusPercentage
+            AmountType = FantasyEffectTypes.FireDefenseAmount,
+            PercentageType = FantasyEffectTypes.FireDefensePercentage,
+            BonusAmountType = FantasyEffectTypes.FireBonusAmount,
+            BonusPercentageType = FantasyEffectTypes.FireBonusPercentage
         };
         
         public static EffectRelationship WindDamageRelationship => new EffectRelationship
         {
-            AmountType = EffectTypes.WindDamageAmount,
-            PercentageType = EffectTypes.WindDamagePercentage,
-            BonusAmountType = EffectTypes.WindBonusAmount,
-            BonusPercentageType = EffectTypes.WindBonusPercentage
+            AmountType = FantasyEffectTypes.WindDamageAmount,
+            PercentageType = FantasyEffectTypes.WindDamagePercentage,
+            BonusAmountType = FantasyEffectTypes.WindBonusAmount,
+            BonusPercentageType = FantasyEffectTypes.WindBonusPercentage
         };
         
         public static EffectRelationship WindDefenseRelationship => new EffectRelationship
         {
-            AmountType = EffectTypes.WindDefenseAmount,
-            PercentageType = EffectTypes.WindDefensePercentage,
-            BonusAmountType = EffectTypes.WindBonusAmount,
-            BonusPercentageType = EffectTypes.WindBonusPercentage
+            AmountType = FantasyEffectTypes.WindDefenseAmount,
+            PercentageType = FantasyEffectTypes.WindDefensePercentage,
+            BonusAmountType = FantasyEffectTypes.WindBonusAmount,
+            BonusPercentageType = FantasyEffectTypes.WindBonusPercentage
         };
         
         public static EffectRelationship EarthDamageRelationship => new EffectRelationship
         {
-            AmountType = EffectTypes.EarthDamageAmount,
-            PercentageType = EffectTypes.EarthDamagePercentage,
-            BonusAmountType = EffectTypes.EarthBonusAmount,
-            BonusPercentageType = EffectTypes.EarthBonusPercentage
+            AmountType = FantasyEffectTypes.EarthDamageAmount,
+            PercentageType = FantasyEffectTypes.EarthDamagePercentage,
+            BonusAmountType = FantasyEffectTypes.EarthBonusAmount,
+            BonusPercentageType = FantasyEffectTypes.EarthBonusPercentage
         };
         
         public static EffectRelationship EarthDefenseRelationship => new EffectRelationship
         {
-            AmountType = EffectTypes.EarthDefenseAmount,
-            PercentageType = EffectTypes.EarthDefensePercentage,
-            BonusAmountType = EffectTypes.EarthBonusAmount,
-            BonusPercentageType = EffectTypes.EarthBonusPercentage
+            AmountType = FantasyEffectTypes.EarthDefenseAmount,
+            PercentageType = FantasyEffectTypes.EarthDefensePercentage,
+            BonusAmountType = FantasyEffectTypes.EarthBonusAmount,
+            BonusPercentageType = FantasyEffectTypes.EarthBonusPercentage
         };
         
         public static EffectRelationship DarkDamageRelationship => new EffectRelationship
         {
-            AmountType = EffectTypes.DarkDamageAmount,
-            PercentageType = EffectTypes.DarkDamagePercentage,
-            BonusAmountType = EffectTypes.DarkBonusAmount,
-            BonusPercentageType = EffectTypes.DarkBonusPercentage
+            AmountType = FantasyEffectTypes.DarkDamageAmount,
+            PercentageType = FantasyEffectTypes.DarkDamagePercentage,
+            BonusAmountType = FantasyEffectTypes.DarkBonusAmount,
+            BonusPercentageType = FantasyEffectTypes.DarkBonusPercentage
         };
         
         public static EffectRelationship DarkDefenseRelationship => new EffectRelationship
         {
-            AmountType = EffectTypes.DarkDefenseAmount,
-            PercentageType = EffectTypes.DarkDefensePercentage,
-            BonusAmountType = EffectTypes.DarkBonusAmount,
-            BonusPercentageType = EffectTypes.DarkBonusPercentage
+            AmountType = FantasyEffectTypes.DarkDefenseAmount,
+            PercentageType = FantasyEffectTypes.DarkDefensePercentage,
+            BonusAmountType = FantasyEffectTypes.DarkBonusAmount,
+            BonusPercentageType = FantasyEffectTypes.DarkBonusPercentage
         };
         
         public static EffectRelationship LightDamageRelationship => new EffectRelationship
         {
-            AmountType = EffectTypes.LightDamageAmount,
-            PercentageType = EffectTypes.LightDamagePercentage,
-            BonusAmountType = EffectTypes.LightBonusAmount,
-            BonusPercentageType = EffectTypes.LightBonusPercentage
+            AmountType = FantasyEffectTypes.LightDamageAmount,
+            PercentageType = FantasyEffectTypes.LightDamagePercentage,
+            BonusAmountType = FantasyEffectTypes.LightBonusAmount,
+            BonusPercentageType = FantasyEffectTypes.LightBonusPercentage
         };
         
         public static EffectRelationship LightDefenseRelationship => new EffectRelationship
         {
-            AmountType = EffectTypes.LightDefenseAmount,
-            PercentageType = EffectTypes.LightDefensePercentage,
-            BonusAmountType = EffectTypes.LightBonusAmount,
-            BonusPercentageType = EffectTypes.LightBonusPercentage
+            AmountType = FantasyEffectTypes.LightDefenseAmount,
+            PercentageType = FantasyEffectTypes.LightDefensePercentage,
+            BonusAmountType = FantasyEffectTypes.LightBonusAmount,
+            BonusPercentageType = FantasyEffectTypes.LightBonusPercentage
         };
         
         public static EffectRelationship SlashingDamageRelationship => new EffectRelationship
         {
-            AmountType = EffectTypes.SlashingDamageAmount,
-            PercentageType = EffectTypes.SlashingDamagePercentage,
-            BonusAmountType = EffectTypes.SlashingBonusAmount,
-            BonusPercentageType = EffectTypes.SlashingBonusPercentage
+            AmountType = FantasyEffectTypes.SlashingDamageAmount,
+            PercentageType = FantasyEffectTypes.SlashingDamagePercentage,
+            BonusAmountType = FantasyEffectTypes.SlashingBonusAmount,
+            BonusPercentageType = FantasyEffectTypes.SlashingBonusPercentage
         };
         
         public static EffectRelationship SlashingDefenseRelationship => new EffectRelationship
         {
-            AmountType = EffectTypes.SlashingDefenseAmount,
-            PercentageType = EffectTypes.SlashingDefensePercentage,
-            BonusAmountType = EffectTypes.SlashingBonusAmount,
-            BonusPercentageType = EffectTypes.SlashingBonusPercentage
+            AmountType = FantasyEffectTypes.SlashingDefenseAmount,
+            PercentageType = FantasyEffectTypes.SlashingDefensePercentage,
+            BonusAmountType = FantasyEffectTypes.SlashingBonusAmount,
+            BonusPercentageType = FantasyEffectTypes.SlashingBonusPercentage
         };
         
         public static EffectRelationship BluntDamageRelationship => new EffectRelationship
         {
-            AmountType = EffectTypes.BluntDamageAmount,
-            PercentageType = EffectTypes.BluntDamagePercentage,
-            BonusAmountType = EffectTypes.BluntBonusAmount,
-            BonusPercentageType = EffectTypes.BluntBonusPercentage
+            AmountType = FantasyEffectTypes.BluntDamageAmount,
+            PercentageType = FantasyEffectTypes.BluntDamagePercentage,
+            BonusAmountType = FantasyEffectTypes.BluntBonusAmount,
+            BonusPercentageType = FantasyEffectTypes.BluntBonusPercentage
         };
         
         public static EffectRelationship BluntDefenseRelationship => new EffectRelationship
         {
-            AmountType = EffectTypes.BluntDefenseAmount,
-            PercentageType = EffectTypes.BluntDefensePercentage,
-            BonusAmountType = EffectTypes.BluntBonusAmount,
-            BonusPercentageType = EffectTypes.BluntBonusPercentage
+            AmountType = FantasyEffectTypes.BluntDefenseAmount,
+            PercentageType = FantasyEffectTypes.BluntDefensePercentage,
+            BonusAmountType = FantasyEffectTypes.BluntBonusAmount,
+            BonusPercentageType = FantasyEffectTypes.BluntBonusPercentage
         };
         
         public static EffectRelationship PiercingDamageRelationship => new EffectRelationship
         {
-            AmountType = EffectTypes.PiercingDamageAmount,
-            PercentageType = EffectTypes.PiercingDamagePercentage,
-            BonusAmountType = EffectTypes.PiercingBonusAmount,
-            BonusPercentageType = EffectTypes.PiercingBonusPercentage
+            AmountType = FantasyEffectTypes.PiercingDamageAmount,
+            PercentageType = FantasyEffectTypes.PiercingDamagePercentage,
+            BonusAmountType = FantasyEffectTypes.PiercingBonusAmount,
+            BonusPercentageType = FantasyEffectTypes.PiercingBonusPercentage
         };
         
         public static EffectRelationship PiercingDefenseRelationship => new EffectRelationship
         {
-            AmountType = EffectTypes.PiercingDefenseAmount,
-            PercentageType = EffectTypes.PiercingDefensePercentage,
-            BonusAmountType = EffectTypes.PiercingBonusAmount,
-            BonusPercentageType = EffectTypes.PiercingBonusPercentage
+            AmountType = FantasyEffectTypes.PiercingDefenseAmount,
+            PercentageType = FantasyEffectTypes.PiercingDefensePercentage,
+            BonusAmountType = FantasyEffectTypes.PiercingBonusAmount,
+            BonusPercentageType = FantasyEffectTypes.PiercingBonusPercentage
         };
         
         public static EffectRelationship UnarmedDamageRelationship => new EffectRelationship
         {
-            AmountType = EffectTypes.UnarmedDamageAmount,
-            PercentageType = EffectTypes.UnarmedDamagePercentage,
-            BonusAmountType = EffectTypes.UnarmedBonusAmount,
-            BonusPercentageType = EffectTypes.UnarmedBonusPercentage
+            AmountType = FantasyEffectTypes.UnarmedDamageAmount,
+            PercentageType = FantasyEffectTypes.UnarmedDamagePercentage,
+            BonusAmountType = FantasyEffectTypes.UnarmedBonusAmount,
+            BonusPercentageType = FantasyEffectTypes.UnarmedBonusPercentage
         };
         
         public static EffectRelationship UnarmedDefenseRelationship => new EffectRelationship
         {
-            AmountType = EffectTypes.UnarmedDefenseAmount,
-            PercentageType = EffectTypes.UnarmedDefensePercentage,
-            BonusAmountType = EffectTypes.UnarmedBonusAmount,
-            BonusPercentageType = EffectTypes.UnarmedBonusPercentage
+            AmountType = FantasyEffectTypes.UnarmedDefenseAmount,
+            PercentageType = FantasyEffectTypes.UnarmedDefensePercentage,
+            BonusAmountType = FantasyEffectTypes.UnarmedBonusAmount,
+            BonusPercentageType = FantasyEffectTypes.UnarmedBonusPercentage
         };
     }
 }

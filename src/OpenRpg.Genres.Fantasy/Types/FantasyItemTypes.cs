@@ -1,6 +1,6 @@
 namespace OpenRpg.Genres.Fantasy.Types
 {
-    public interface ItemTypes : Genres.Types.ItemTypes
+    public interface FantasyItemTypes : Genres.Types.ItemTypes
     {
         public static readonly int HeadItem = 30;
         public static readonly int UpperBodyArmour = 31;

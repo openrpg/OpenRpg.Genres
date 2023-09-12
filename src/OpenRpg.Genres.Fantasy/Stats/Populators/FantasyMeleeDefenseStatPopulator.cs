@@ -18,17 +18,17 @@ namespace OpenRpg.Genres.Fantasy.Stats.Populators
         {
             PartialPopulators = new[]
             {
-                new DamageOrDefenseStatPartialPopulator(EffectTypes.AllMeleeDefenseBonusAmount, EffectTypes.AllMeleeDefenseBonusPercentage, 
-                    IGenreStatsVariableTypes.BluntDefense, EffectRelationships.BluntDefenseRelationship, GetBluntModBonus, Priority),
+                new DamageOrDefenseStatPartialPopulator(FantasyEffectTypes.AllMeleeDefenseBonusAmount, FantasyEffectTypes.AllMeleeDefenseBonusPercentage, 
+                    FantasyStatsVariableTypes.BluntDefense, EffectRelationships.BluntDefenseRelationship, GetBluntModBonus, Priority),
                 
-                new DamageOrDefenseStatPartialPopulator(EffectTypes.AllMeleeDefenseBonusAmount, EffectTypes.AllMeleeDefenseBonusPercentage, 
-                    IGenreStatsVariableTypes.PiercingDefense, EffectRelationships.PiercingDefenseRelationship, GetPiercingModBonus, Priority),
+                new DamageOrDefenseStatPartialPopulator(FantasyEffectTypes.AllMeleeDefenseBonusAmount, FantasyEffectTypes.AllMeleeDefenseBonusPercentage, 
+                    FantasyStatsVariableTypes.PiercingDefense, EffectRelationships.PiercingDefenseRelationship, GetPiercingModBonus, Priority),
                 
-                new DamageOrDefenseStatPartialPopulator(EffectTypes.AllMeleeDefenseBonusAmount, EffectTypes.AllMeleeDefenseBonusPercentage, 
-                    IGenreStatsVariableTypes.SlashingDefense, EffectRelationships.SlashingDefenseRelationship, GetSlashingOrUnarmedModBonus, Priority),
+                new DamageOrDefenseStatPartialPopulator(FantasyEffectTypes.AllMeleeDefenseBonusAmount, FantasyEffectTypes.AllMeleeDefenseBonusPercentage, 
+                    FantasyStatsVariableTypes.SlashingDefense, EffectRelationships.SlashingDefenseRelationship, GetSlashingOrUnarmedModBonus, Priority),
                 
-                new DamageOrDefenseStatPartialPopulator(EffectTypes.AllMeleeDefenseBonusAmount, EffectTypes.AllMeleeDefenseBonusPercentage, 
-                    IGenreStatsVariableTypes.UnarmedDefense, EffectRelationships.UnarmedDefenseRelationship, GetSlashingOrUnarmedModBonus, Priority),
+                new DamageOrDefenseStatPartialPopulator(FantasyEffectTypes.AllMeleeDefenseBonusAmount, FantasyEffectTypes.AllMeleeDefenseBonusPercentage, 
+                    FantasyStatsVariableTypes.UnarmedDefense, EffectRelationships.UnarmedDefenseRelationship, GetSlashingOrUnarmedModBonus, Priority),
             };
         }
 

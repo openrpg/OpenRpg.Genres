@@ -18,17 +18,17 @@ namespace OpenRpg.Genres.Fantasy.Builders
         {
             base.PreCreateCharacterData();
             
-            _equipment.TryAdd(EquipmentSlotTypes.HeadSlot, null);
-            _equipment.TryAdd(EquipmentSlotTypes.BackSlot, null);
-            _equipment.TryAdd(EquipmentSlotTypes.UpperBodySlot, null);
-            _equipment.TryAdd(EquipmentSlotTypes.LowerBodySlot, null);
-            _equipment.TryAdd(EquipmentSlotTypes.FootSlot, null);
-            _equipment.TryAdd(EquipmentSlotTypes.MainHandSlot, null);
-            _equipment.TryAdd(EquipmentSlotTypes.OffHandSlot, null);
-            _equipment.TryAdd(EquipmentSlotTypes.NeckSlot, null);
-            _equipment.TryAdd(EquipmentSlotTypes.Ring1Slot, null);
-            _equipment.TryAdd(EquipmentSlotTypes.Ring2Slot, null);
-            _equipment.TryAdd(EquipmentSlotTypes.WristSlot, null);
+            _equipment.TryAdd(FantasyEquipmentSlotTypes.HeadSlot, null);
+            _equipment.TryAdd(FantasyEquipmentSlotTypes.BackSlot, null);
+            _equipment.TryAdd(FantasyEquipmentSlotTypes.UpperBodySlot, null);
+            _equipment.TryAdd(FantasyEquipmentSlotTypes.LowerBodySlot, null);
+            _equipment.TryAdd(FantasyEquipmentSlotTypes.FootSlot, null);
+            _equipment.TryAdd(FantasyEquipmentSlotTypes.MainHandSlot, null);
+            _equipment.TryAdd(FantasyEquipmentSlotTypes.OffHandSlot, null);
+            _equipment.TryAdd(FantasyEquipmentSlotTypes.NeckSlot, null);
+            _equipment.TryAdd(FantasyEquipmentSlotTypes.Ring1Slot, null);
+            _equipment.TryAdd(FantasyEquipmentSlotTypes.Ring2Slot, null);
+            _equipment.TryAdd(FantasyEquipmentSlotTypes.WristSlot, null);
         }
 
         protected override void PostProcessCharacter(ICharacter character)

@@ -30,17 +30,17 @@ namespace OpenRpg.Genres.UnitTests.Fantasy
             
             mockCharacterMapper.Verify(x => x.Map(It.Is<CharacterData>(y => 
                 y.Variables.ContainsKey(GenreEntityVariableTypes.Equipment) && 
-                (y.Variables[GenreEntityVariableTypes.Equipment] as EquipmentData).Slots.ContainsKey(EquipmentSlotTypes.BackSlot) &&
-                (y.Variables[GenreEntityVariableTypes.Equipment] as EquipmentData).Slots.ContainsKey(EquipmentSlotTypes.HeadSlot) &&
-                (y.Variables[GenreEntityVariableTypes.Equipment] as EquipmentData).Slots.ContainsKey(EquipmentSlotTypes.UpperBodySlot) &&
-                (y.Variables[GenreEntityVariableTypes.Equipment] as EquipmentData).Slots.ContainsKey(EquipmentSlotTypes.LowerBodySlot) &&
-                (y.Variables[GenreEntityVariableTypes.Equipment] as EquipmentData).Slots.ContainsKey(EquipmentSlotTypes.FootSlot) &&
-                (y.Variables[GenreEntityVariableTypes.Equipment] as EquipmentData).Slots.ContainsKey(EquipmentSlotTypes.WristSlot) &&
-                (y.Variables[GenreEntityVariableTypes.Equipment] as EquipmentData).Slots.ContainsKey(EquipmentSlotTypes.MainHandSlot) &&
-                (y.Variables[GenreEntityVariableTypes.Equipment] as EquipmentData).Slots.ContainsKey(EquipmentSlotTypes.OffHandSlot) &&
-                (y.Variables[GenreEntityVariableTypes.Equipment] as EquipmentData).Slots.ContainsKey(EquipmentSlotTypes.NeckSlot) &&
-                (y.Variables[GenreEntityVariableTypes.Equipment] as EquipmentData).Slots.ContainsKey(EquipmentSlotTypes.Ring1Slot) &&
-                (y.Variables[GenreEntityVariableTypes.Equipment] as EquipmentData).Slots.ContainsKey(EquipmentSlotTypes.Ring2Slot) )));
+                (y.Variables[GenreEntityVariableTypes.Equipment] as EquipmentData).Slots.ContainsKey(FantasyEquipmentSlotTypes.BackSlot) &&
+                (y.Variables[GenreEntityVariableTypes.Equipment] as EquipmentData).Slots.ContainsKey(FantasyEquipmentSlotTypes.HeadSlot) &&
+                (y.Variables[GenreEntityVariableTypes.Equipment] as EquipmentData).Slots.ContainsKey(FantasyEquipmentSlotTypes.UpperBodySlot) &&
+                (y.Variables[GenreEntityVariableTypes.Equipment] as EquipmentData).Slots.ContainsKey(FantasyEquipmentSlotTypes.LowerBodySlot) &&
+                (y.Variables[GenreEntityVariableTypes.Equipment] as EquipmentData).Slots.ContainsKey(FantasyEquipmentSlotTypes.FootSlot) &&
+                (y.Variables[GenreEntityVariableTypes.Equipment] as EquipmentData).Slots.ContainsKey(FantasyEquipmentSlotTypes.WristSlot) &&
+                (y.Variables[GenreEntityVariableTypes.Equipment] as EquipmentData).Slots.ContainsKey(FantasyEquipmentSlotTypes.MainHandSlot) &&
+                (y.Variables[GenreEntityVariableTypes.Equipment] as EquipmentData).Slots.ContainsKey(FantasyEquipmentSlotTypes.OffHandSlot) &&
+                (y.Variables[GenreEntityVariableTypes.Equipment] as EquipmentData).Slots.ContainsKey(FantasyEquipmentSlotTypes.NeckSlot) &&
+                (y.Variables[GenreEntityVariableTypes.Equipment] as EquipmentData).Slots.ContainsKey(FantasyEquipmentSlotTypes.Ring1Slot) &&
+                (y.Variables[GenreEntityVariableTypes.Equipment] as EquipmentData).Slots.ContainsKey(FantasyEquipmentSlotTypes.Ring2Slot) )));
         }
     }
 }

@@ -1,6 +1,6 @@
 namespace OpenRpg.Genres.Fantasy.Types
 {
-    public interface DamageTypes : Genres.Types.DamageTypes
+    public interface FantasyDamageTypes : Genres.Types.DamageTypes
     {
         // Melee types
         public static readonly int SlashingDamage = 50;

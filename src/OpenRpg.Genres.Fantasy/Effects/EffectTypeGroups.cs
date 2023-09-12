@@ -6,23 +6,23 @@ namespace OpenRpg.Genres.Fantasy.Effects
     {
         public static int[] DamageEffectTypes =
         {
-            EffectTypes.SlashingDamageAmount, EffectTypes.PiercingDamageAmount, EffectTypes.BluntDamageAmount, EffectTypes.UnarmedDamageAmount,
-            EffectTypes.FireDamageAmount, EffectTypes.IceDamageAmount, EffectTypes.WindDamageAmount, EffectTypes.EarthDamageAmount,
-            EffectTypes.LightDamageAmount, EffectTypes.DarkDamageAmount, EffectTypes.AllMeleeDefenseBonusAmount, EffectTypes.AllElementDamageBonusAmount
+            FantasyEffectTypes.SlashingDamageAmount, FantasyEffectTypes.PiercingDamageAmount, FantasyEffectTypes.BluntDamageAmount, FantasyEffectTypes.UnarmedDamageAmount,
+            FantasyEffectTypes.FireDamageAmount, FantasyEffectTypes.IceDamageAmount, FantasyEffectTypes.WindDamageAmount, FantasyEffectTypes.EarthDamageAmount,
+            FantasyEffectTypes.LightDamageAmount, FantasyEffectTypes.DarkDamageAmount, FantasyEffectTypes.AllMeleeDefenseBonusAmount, FantasyEffectTypes.AllElementDamageBonusAmount
         };
         
         public static int[] DefenseEffectTypes =
         {
-            EffectTypes.SlashingDefenseAmount, EffectTypes.PiercingDefenseAmount, EffectTypes.BluntDefenseAmount, EffectTypes.UnarmedDefenseAmount,
-            EffectTypes.FireDefenseAmount, EffectTypes.IceDefenseAmount, EffectTypes.WindDefenseAmount, EffectTypes.EarthDefenseAmount,
-            EffectTypes.LightDefenseAmount, EffectTypes.DarkDefenseAmount, EffectTypes.AllMeleeDefenseBonusAmount, EffectTypes.AllElementDefenseBonusAmount
+            FantasyEffectTypes.SlashingDefenseAmount, FantasyEffectTypes.PiercingDefenseAmount, FantasyEffectTypes.BluntDefenseAmount, FantasyEffectTypes.UnarmedDefenseAmount,
+            FantasyEffectTypes.FireDefenseAmount, FantasyEffectTypes.IceDefenseAmount, FantasyEffectTypes.WindDefenseAmount, FantasyEffectTypes.EarthDefenseAmount,
+            FantasyEffectTypes.LightDefenseAmount, FantasyEffectTypes.DarkDefenseAmount, FantasyEffectTypes.AllMeleeDefenseBonusAmount, FantasyEffectTypes.AllElementDefenseBonusAmount
         };
         
         public static int[] AttributeEffectTypes =
         {
-            EffectTypes.StrengthBonusAmount, EffectTypes.DexterityBonusAmount, EffectTypes.ConstitutionBonusAmount, 
-            EffectTypes.IntelligenceBonusAmount, EffectTypes.WisdomBonusAmount, EffectTypes.CharismaBonusAmount,
-            EffectTypes.AllAttributeBonusAmount
+            FantasyEffectTypes.StrengthBonusAmount, FantasyEffectTypes.DexterityBonusAmount, FantasyEffectTypes.ConstitutionBonusAmount, 
+            FantasyEffectTypes.IntelligenceBonusAmount, FantasyEffectTypes.WisdomBonusAmount, FantasyEffectTypes.CharismaBonusAmount,
+            FantasyEffectTypes.AllAttributeBonusAmount
         };
     }
 }

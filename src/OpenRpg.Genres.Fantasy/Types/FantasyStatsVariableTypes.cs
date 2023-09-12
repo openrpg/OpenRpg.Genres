@@ -1,6 +1,6 @@
 namespace OpenRpg.Genres.Fantasy.Types
 {
-    public interface IGenreStatsVariableTypes : Genres.Types.GenreStatsVariableTypes
+    public interface FantasyStatsVariableTypes : Genres.Types.GenreStatsVariableTypes
     {
         public static readonly int MaxMagic = 50;
         
