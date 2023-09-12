@@ -6,7 +6,7 @@ using OpenRpg.Genres.Types;
 
 namespace OpenRpg.Genres.Extensions
 {
-    public static class ICharacterStateVariablesExtensions
+    public static class EntityStateVariablesExtensions
     {
         public static int Health(this IEntityStateVariables state) => (int)state.Get(GenreEntityStateVariableTypes.Health);
         public static void Health(this IEntityStateVariables state, int value) => state[GenreEntityStateVariableTypes.Health] = value;
