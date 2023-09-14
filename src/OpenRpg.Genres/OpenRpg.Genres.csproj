@@ -20,8 +20,5 @@
         <PackageReference Include="OpenRpg.Quests" Version="0.29.217" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Variables\" />
-    </ItemGroup>
 
 </Project>

@@ -1,15 +1,14 @@
-using OpenRpg.Genres.Scifi.Equipment;
+using OpenRpg.Genres.Characters;
 using OpenRpg.Genres.Scifi.Variables;
-using OpenRpg.Items.Inventory;
 
 namespace OpenRpg.Genres.Scifi.Ships
 {
     public interface IShip
     {
-        IPilot Pilot { get; }
+        ICharacter Pilot { get; }
         IShipTemplate ShipTemplate { get; }
-        IShipEquipment Equipment { get; }
-        IInventory Inventory { get; }
-        IShipStatVariables StatVariables { get; }
+        IShipStatVariables Stats { get; }
+        IShipStateVariables State { get; }
+        IShipVariables Variables { get; }
     }
 }

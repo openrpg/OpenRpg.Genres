@@ -17,8 +17,8 @@ namespace OpenRpg.Genres.Scifi.Persistence.Items.Equipment
         public override IEquipmentSlot GetSlotFor(int slotType, ItemData slottedItemData)
         {
             var item = ItemMapper.Map(slottedItemData);
-            if(slotType == CharacterEquipmentSlotTypes.ArmourSlot) { return new ArmourSlot(item); }
-            if(slotType == CharacterEquipmentSlotTypes.WeaponSlot) { return new WeaponSlot(item); }
+            if(slotType == ScifiEntityEquipmentSlotTypes.ArmourSlot) { return new ArmourSlot(item); }
+            if(slotType == ScifiEntityEquipmentSlotTypes.WeaponSlot) { return new WeaponSlot(item); }
             
             throw new Exception($"Cannot map slot type [{slotType}] as there is no known handler for it");
         }

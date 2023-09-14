@@ -1,6 +1,6 @@
 namespace OpenRpg.Genres.Scifi.Types
 {
-    public interface EffectTypes
+    public interface ScifiEffectTypes
     {
         // Generic All types
         public static readonly int AllDamageBonusAmount = 50;

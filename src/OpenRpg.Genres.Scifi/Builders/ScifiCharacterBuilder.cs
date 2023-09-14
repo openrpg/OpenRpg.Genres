@@ -13,8 +13,8 @@ namespace OpenRpg.Genres.Scifi.Builders
 
         protected override void PreCreateCharacterData()
         {
-            if(!_equipment.ContainsKey(CharacterEquipmentSlotTypes.ArmourSlot)) { _equipment.Add(CharacterEquipmentSlotTypes.ArmourSlot, null); }
-            if(!_equipment.ContainsKey(CharacterEquipmentSlotTypes.WeaponSlot)) { _equipment.Add(CharacterEquipmentSlotTypes.WeaponSlot, null); }
+            _equipment.TryAdd(ScifiEntityEquipmentSlotTypes.ArmourSlot, null);
+            _equipment.TryAdd(ScifiEntityEquipmentSlotTypes.WeaponSlot, null);
         }
     }
 }
