@@ -1,7 +1,7 @@
-using OpenRpg.Core.Variables;
+using OpenRpg.Core.State;
 
 namespace OpenRpg.Genres.Scifi.Variables
 {
-    public interface IShipStateVariables : IVariables<float>
+    public interface IShipStateVariables : IStateVariables
     {}
 }
