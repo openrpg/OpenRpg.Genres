@@ -6,7 +6,7 @@ namespace OpenRpg.Genres.Scifi.Variables
 {
     public class DefaultShipStateVariables : DefaultVariables<float>, IShipStateVariables
     {
-        public DefaultShipStateVariables(IDictionary<int, float> internalVariables = null) : base(ScifiVariableTypes.ShipStatVariables, internalVariables)
+        public DefaultShipStateVariables(IDictionary<int, float> internalVariables = null) : base(ScifiVariableTypes.ShipStatsVariables, internalVariables)
         {
         }
     }

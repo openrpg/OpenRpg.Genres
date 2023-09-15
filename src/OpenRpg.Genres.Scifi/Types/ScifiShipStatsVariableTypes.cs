@@ -1,7 +1,14 @@
 namespace OpenRpg.Genres.Scifi.Types
 {
-    public interface ScifiStatsVariableTypes : Genres.Types.GenreStatsVariableTypes
+    public interface ScifiShipStatsVariableTypes
     {
+        public static readonly int Unknown = 0;
+        
+        // Vital stats
+        public static readonly int MaxEnergy = 50;
+        public static readonly int MaxArmour = 51;
+        public static readonly int MaxShield = 52;
+        
         // Attack stats
         public static readonly int PhysicalDamage = 80;
         public static readonly int IonDamage = 81;

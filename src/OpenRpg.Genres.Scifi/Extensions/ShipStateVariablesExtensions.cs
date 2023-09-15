@@ -1,17 +1,15 @@
 using System;
 using System.Linq;
 using OpenRpg.Combat.Processors.Attacks;
-using OpenRpg.Core.State.Entity;
 using OpenRpg.Genres.Scifi.Types;
 using OpenRpg.Genres.Scifi.Variables;
-using OpenRpg.Genres.Types;
 
 namespace OpenRpg.Genres.Scifi.Extensions
 {
     public static class ShipStateVariablesExtensions
     {
-        public static int Armour(this IShipStateVariables state) => (int)state.Get(ScifiStateVariableTypes.Armour);
-        public static void Armour(this IShipStateVariables state, int value) => state[ScifiStateVariableTypes.Armour] = value;
+        public static int Armour(this IShipStateVariables state) => (int)state.Get(ScifiShipStateVariableTypes.Armour);
+        public static void Armour(this IShipStateVariables state, int value) => state[ScifiShipStateVariableTypes.Armour] = value;
         
         public static void AddArmour(this IShipStateVariables state, int change, int? max = null)
         {
@@ -38,15 +36,15 @@ namespace OpenRpg.Genres.Scifi.Extensions
         public static void EnsureArmourInBounds(this IShipStateVariables state, int value, int max)
         {
             if(value > max)
-            { state[ScifiStateVariableTypes.Armour] = max; }
+            { state[ScifiShipStateVariableTypes.Armour] = max; }
             else if(value <= 0)
-            { state[ScifiStateVariableTypes.Armour] = 0; }
+            { state[ScifiShipStateVariableTypes.Armour] = 0; }
             else
-            { state[ScifiStateVariableTypes.Armour] = value; }
+            { state[ScifiShipStateVariableTypes.Armour] = value; }
         }
         
-        public static int Shield(this IShipStateVariables state) => (int)state.Get(ScifiStateVariableTypes.Shield);
-        public static void Shield(this IShipStateVariables state, int value) => state[ScifiStateVariableTypes.Shield] = value;
+        public static int Shield(this IShipStateVariables state) => (int)state.Get(ScifiShipStateVariableTypes.Shield);
+        public static void Shield(this IShipStateVariables state, int value) => state[ScifiShipStateVariableTypes.Shield] = value;
         
         public static void AddShield(this IShipStateVariables state, int change, int? max = null)
         {
@@ -73,15 +71,15 @@ namespace OpenRpg.Genres.Scifi.Extensions
         public static void EnsureShieldInBounds(this IShipStateVariables state, int value, int max)
         {
             if(value > max)
-            { state[ScifiStateVariableTypes.Shield] = max; }
+            { state[ScifiShipStateVariableTypes.Shield] = max; }
             else if(value <= 0)
-            { state[ScifiStateVariableTypes.Shield] = 0; }
+            { state[ScifiShipStateVariableTypes.Shield] = 0; }
             else
-            { state[ScifiStateVariableTypes.Shield] = value; }
+            { state[ScifiShipStateVariableTypes.Shield] = value; }
         }
         
-        public static int Energy(this IShipStateVariables state) => (int)state.Get(ScifiStateVariableTypes.Shield);
-        public static void Energy(this IShipStateVariables state, int value) => state[ScifiStateVariableTypes.Shield] = value;
+        public static int Energy(this IShipStateVariables state) => (int)state.Get(ScifiShipStateVariableTypes.Shield);
+        public static void Energy(this IShipStateVariables state, int value) => state[ScifiShipStateVariableTypes.Shield] = value;
         
         public static void AddEnergy(this IShipStateVariables state, int change, int? max = null)
         {
@@ -108,11 +106,11 @@ namespace OpenRpg.Genres.Scifi.Extensions
         public static void EnsureEnergyInBounds(this IShipStateVariables state, int value, int max)
         {
             if(value > max)
-            { state[ScifiStateVariableTypes.Energy] = max; }
+            { state[ScifiShipStateVariableTypes.Energy] = max; }
             else if(value <= 0)
-            { state[ScifiStateVariableTypes.Energy] = 0; }
+            { state[ScifiShipStateVariableTypes.Energy] = 0; }
             else
-            { state[ScifiStateVariableTypes.Energy] = value; }
+            { state[ScifiShipStateVariableTypes.Energy] = value; }
         }
         
         public static void ApplyDamageToTarget(this IShipStateVariables state, ProcessedAttack attack)

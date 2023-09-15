@@ -1,6 +1,6 @@
 namespace OpenRpg.Genres.Scifi.Types
 {
-    public interface ScifiStateVariableTypes
+    public interface ScifiShipStateVariableTypes
     {
         // Vital state
         public static readonly int Energy = 1;

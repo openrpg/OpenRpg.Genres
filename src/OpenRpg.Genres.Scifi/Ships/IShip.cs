@@ -6,7 +6,7 @@ using OpenRpg.Genres.Scifi.Variables;
 
 namespace OpenRpg.Genres.Scifi.Ships
 {
-    public interface IShip : IHasState<IShipStateVariables>, IHasStats<IShipStatVariables>, IHasVariables<IShipVariables>
+    public interface IShip : IHasState<IShipStateVariables>, IHasStats<IShipStatsVariables>, IHasVariables<IShipVariables>
     {
         ICharacter Pilot { get; }
         IShipTemplate ShipTemplate { get; }

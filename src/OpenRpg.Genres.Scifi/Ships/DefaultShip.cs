@@ -7,7 +7,7 @@ namespace OpenRpg.Genres.Scifi.Ships
     {
         public ICharacter Pilot { get; set; }
         public IShipTemplate ShipTemplate { get; set; } = new DefaultShipTemplate();
-        public IShipStatVariables Stats { get; set; } = new DefaultShipStatVariables();
+        public IShipStatsVariables Stats { get; set; } = new DefaultShipStatsVariables();
         public IShipStateVariables State { get; set; } = new DefaultShipStateVariables();
         public IShipVariables Variables { get; set; } = new DefaultShipVariables();
     }

@@ -8,7 +8,7 @@ namespace OpenRpg.Genres.Scifi.Extensions
     /// <summary>
     /// This allows you to extend the underlying ship variables to add equipment or inventory responsibilities onto them
     /// </summary>
-    public static class ShipVariablesVariableExtensions
+    public static class ShipVariableExtensions
     {
         public static bool HasEquipment(this IShipVariables vars) 
         { return vars.ContainsKey(ShipVariableTypes.Equipment); }
