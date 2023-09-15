@@ -1,6 +1,6 @@
 namespace OpenRpg.Genres.Fantasy.Types
 {
-    public interface FantasyGenresItemQualityTypes : Genres.Types.GenresItemQualityTypes
+    public interface FantasyItemQualityTypes : Genres.Types.GenresItemQualityTypes
     {
         public static readonly int UncommonQuality = 10;
         public static readonly int MagicalQuality = 11;

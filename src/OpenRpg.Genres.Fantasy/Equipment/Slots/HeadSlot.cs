@@ -11,6 +11,6 @@ namespace OpenRpg.Genres.Fantasy.Equipment.Slots
         {}
 
         public override bool CanEquipItemType(int itemType)
-        { return itemType == FantasyGenresItemTypes.HeadItem; }
+        { return itemType == FantasyItemTypes.HeadItem; }
     }
 }

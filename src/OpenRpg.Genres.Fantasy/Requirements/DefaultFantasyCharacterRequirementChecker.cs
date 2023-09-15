@@ -10,25 +10,25 @@ namespace OpenRpg.Genres.Fantasy.Requirements
     {
         public override bool IsRequirementMet(ICharacter character, Requirement requirement)
         {
-            if(requirement.RequirementType == FantasyGenreRequirementTypes.StrengthRequirement)
+            if(requirement.RequirementType == FantasyRequirementTypes.StrengthRequirement)
             { return character.Stats.Strength() >= requirement.AssociatedValue; }
             
-            if(requirement.RequirementType == FantasyGenreRequirementTypes.DexterityRequirement)
+            if(requirement.RequirementType == FantasyRequirementTypes.DexterityRequirement)
             { return character.Stats.Dexterity() >= requirement.AssociatedValue; }
             
-            if(requirement.RequirementType == FantasyGenreRequirementTypes.IntelligenceRequirement)
+            if(requirement.RequirementType == FantasyRequirementTypes.IntelligenceRequirement)
             { return character.Stats.Intelligence() >= requirement.AssociatedValue; }
             
-            if(requirement.RequirementType == FantasyGenreRequirementTypes.ConstitutionRequirement)
+            if(requirement.RequirementType == FantasyRequirementTypes.ConstitutionRequirement)
             { return character.Stats.Constitution() >= requirement.AssociatedValue; }
             
-            if(requirement.RequirementType == FantasyGenreRequirementTypes.WisdomRequirement)
+            if(requirement.RequirementType == FantasyRequirementTypes.WisdomRequirement)
             { return character.Stats.Wisdom() >= requirement.AssociatedValue; }
             
-            if(requirement.RequirementType == FantasyGenreRequirementTypes.CharismaRequirement)
+            if(requirement.RequirementType == FantasyRequirementTypes.CharismaRequirement)
             { return character.Stats.Charisma() >= requirement.AssociatedValue; }
             
-            if(requirement.RequirementType == FantasyGenreRequirementTypes.MaxMagicRequirement)
+            if(requirement.RequirementType == FantasyRequirementTypes.MaxMagicRequirement)
             { return character.Stats.MaxMagic() >= requirement.AssociatedValue; }
 
             return base.IsRequirementMet(character, requirement);

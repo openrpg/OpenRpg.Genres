@@ -10,6 +10,6 @@ namespace OpenRpg.Genres.Fantasy.Equipment.Slots
         {}
 
         public override bool CanEquipItemType(int itemType)
-        { return itemType == FantasyGenresItemTypes.GenericWeapon; }
+        { return itemType == FantasyItemTypes.GenericWeapon; }
     }
 }

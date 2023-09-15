@@ -1,6 +1,6 @@
 namespace OpenRpg.Genres.Scifi.Types
 {
-    public interface ScifiGenreDamageTypes : Genres.Types.GenreDamageTypes
+    public interface ScifiDamageTypes : Genres.Types.GenreDamageTypes
     {
         public static readonly int Physical = 50;
         public static readonly int Ion = 51;

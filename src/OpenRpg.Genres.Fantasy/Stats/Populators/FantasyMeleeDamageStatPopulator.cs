@@ -19,16 +19,16 @@ namespace OpenRpg.Genres.Fantasy.Stats.Populators
         {
             PartialPopulators = new[]
             {
-                new DamageOrDefenseStatPartialPopulator(FantasyGenreEffectTypes.AllMeleeAttackBonusAmount, FantasyGenreEffectTypes.AllMeleeAttackBonusPercentage, 
+                new DamageOrDefenseStatPartialPopulator(FantasyEffectTypes.AllMeleeAttackBonusAmount, FantasyEffectTypes.AllMeleeAttackBonusPercentage, 
                     FantasyStatsVariableTypes.BluntDamage, EffectRelationships.BluntDamageRelationship, GetBluntModBonus, Priority),
                 
-                new DamageOrDefenseStatPartialPopulator(FantasyGenreEffectTypes.AllMeleeAttackBonusAmount, FantasyGenreEffectTypes.AllMeleeAttackBonusPercentage, 
+                new DamageOrDefenseStatPartialPopulator(FantasyEffectTypes.AllMeleeAttackBonusAmount, FantasyEffectTypes.AllMeleeAttackBonusPercentage, 
                     FantasyStatsVariableTypes.PiercingDamage, EffectRelationships.PiercingDamageRelationship, GetPiercingModBonus, Priority),
                 
-                new DamageOrDefenseStatPartialPopulator(FantasyGenreEffectTypes.AllMeleeAttackBonusAmount, FantasyGenreEffectTypes.AllMeleeAttackBonusPercentage, 
+                new DamageOrDefenseStatPartialPopulator(FantasyEffectTypes.AllMeleeAttackBonusAmount, FantasyEffectTypes.AllMeleeAttackBonusPercentage, 
                     FantasyStatsVariableTypes.SlashingDamage, EffectRelationships.SlashingDamageRelationship, GetSlashingOrUnarmedModBonus, Priority),
                 
-                new DamageOrDefenseStatPartialPopulator(FantasyGenreEffectTypes.AllMeleeAttackBonusAmount, FantasyGenreEffectTypes.AllMeleeAttackBonusPercentage, 
+                new DamageOrDefenseStatPartialPopulator(FantasyEffectTypes.AllMeleeAttackBonusAmount, FantasyEffectTypes.AllMeleeAttackBonusPercentage, 
                     FantasyStatsVariableTypes.UnarmedDamage, EffectRelationships.UnarmedDamageRelationship, GetSlashingOrUnarmedModBonus, Priority),
             };
         }

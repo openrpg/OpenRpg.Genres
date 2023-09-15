@@ -19,16 +19,16 @@ namespace OpenRpg.Genres.Fantasy.Stats.Populators
         {
             PartialPopulators = new[]
             {
-                new DamageOrDefenseStatPartialPopulator(FantasyGenreEffectTypes.AllMeleeDefenseBonusAmount, FantasyGenreEffectTypes.AllMeleeDefenseBonusPercentage, 
+                new DamageOrDefenseStatPartialPopulator(FantasyEffectTypes.AllMeleeDefenseBonusAmount, FantasyEffectTypes.AllMeleeDefenseBonusPercentage, 
                     FantasyStatsVariableTypes.BluntDefense, EffectRelationships.BluntDefenseRelationship, GetBluntModBonus, Priority),
                 
-                new DamageOrDefenseStatPartialPopulator(FantasyGenreEffectTypes.AllMeleeDefenseBonusAmount, FantasyGenreEffectTypes.AllMeleeDefenseBonusPercentage, 
+                new DamageOrDefenseStatPartialPopulator(FantasyEffectTypes.AllMeleeDefenseBonusAmount, FantasyEffectTypes.AllMeleeDefenseBonusPercentage, 
                     FantasyStatsVariableTypes.PiercingDefense, EffectRelationships.PiercingDefenseRelationship, GetPiercingModBonus, Priority),
                 
-                new DamageOrDefenseStatPartialPopulator(FantasyGenreEffectTypes.AllMeleeDefenseBonusAmount, FantasyGenreEffectTypes.AllMeleeDefenseBonusPercentage, 
+                new DamageOrDefenseStatPartialPopulator(FantasyEffectTypes.AllMeleeDefenseBonusAmount, FantasyEffectTypes.AllMeleeDefenseBonusPercentage, 
                     FantasyStatsVariableTypes.SlashingDefense, EffectRelationships.SlashingDefenseRelationship, GetSlashingOrUnarmedModBonus, Priority),
                 
-                new DamageOrDefenseStatPartialPopulator(FantasyGenreEffectTypes.AllMeleeDefenseBonusAmount, FantasyGenreEffectTypes.AllMeleeDefenseBonusPercentage, 
+                new DamageOrDefenseStatPartialPopulator(FantasyEffectTypes.AllMeleeDefenseBonusAmount, FantasyEffectTypes.AllMeleeDefenseBonusPercentage, 
                     FantasyStatsVariableTypes.UnarmedDefense, EffectRelationships.UnarmedDefenseRelationship, GetSlashingOrUnarmedModBonus, Priority),
             };
         }
