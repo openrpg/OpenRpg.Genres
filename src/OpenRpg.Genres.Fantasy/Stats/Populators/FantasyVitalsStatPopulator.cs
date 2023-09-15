@@ -18,8 +18,8 @@ namespace OpenRpg.Genres.Fantasy.Stats.Populators
         {
             PartialPopulators = new[]
             {
-                new BasicStatPartialPopulator(FantasyEffectTypes.HealthBonusAmount, FantasyEffectTypes.HealthBonusPercentage, FantasyStatsVariableTypes.MaxHealth, GetMiscHealthBonus, Priority),
-                new BasicStatPartialPopulator(FantasyEffectTypes.MagicBonusAmount, FantasyEffectTypes.MagicBonusPercentage, FantasyStatsVariableTypes.MaxMagic, GetMiscMagicBonus, Priority),
+                new BasicStatPartialPopulator(FantasyGenreEffectTypes.HealthBonusAmount, FantasyGenreEffectTypes.HealthBonusPercentage, FantasyStatsVariableTypes.MaxHealth, GetMiscHealthBonus, Priority),
+                new BasicStatPartialPopulator(FantasyGenreEffectTypes.MagicBonusAmount, FantasyGenreEffectTypes.MagicBonusPercentage, FantasyStatsVariableTypes.MaxMagic, GetMiscMagicBonus, Priority),
             };
         }
         

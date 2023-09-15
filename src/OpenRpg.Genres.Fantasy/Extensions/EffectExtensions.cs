@@ -12,18 +12,18 @@ namespace OpenRpg.Genres.Fantasy.Extensions
     {
         public static int GetDamageTypeFrom(int effectType)
         {
-            if (effectType == FantasyEffectTypes.PiercingBonusAmount) { return FantasyDamageTypes.PiercingDamage; }
-            if (effectType == FantasyEffectTypes.SlashingBonusAmount) { return FantasyDamageTypes.SlashingDamage; }
-            if (effectType == FantasyEffectTypes.BluntBonusAmount) { return FantasyDamageTypes.BluntDamage; }
-            if (effectType == FantasyEffectTypes.UnarmedBonusAmount) { return FantasyDamageTypes.UnarmedDamage; }
-            if (effectType == FantasyEffectTypes.FireBonusAmount) { return FantasyDamageTypes.FireDamage; }
-            if (effectType == FantasyEffectTypes.IceBonusAmount) { return FantasyDamageTypes.IceDamage; }
-            if (effectType == FantasyEffectTypes.WindBonusAmount) { return FantasyDamageTypes.WindDamage; }
-            if (effectType == FantasyEffectTypes.EarthBonusAmount) { return FantasyDamageTypes.EarthDamage; }
-            if (effectType == FantasyEffectTypes.LightBonusAmount) { return FantasyDamageTypes.LightDamage; }
-            if (effectType == FantasyEffectTypes.DarkBonusAmount) { return FantasyDamageTypes.DarkDamage; }
-            if (effectType == FantasyEffectTypes.DamageBonusAmount) { return FantasyDamageTypes.Damage; }
-            return FantasyDamageTypes.UnknownDamage;
+            if (effectType == FantasyGenreEffectTypes.PiercingBonusAmount) { return FantasyGenreDamageTypes.PiercingDamage; }
+            if (effectType == FantasyGenreEffectTypes.SlashingBonusAmount) { return FantasyGenreDamageTypes.SlashingDamage; }
+            if (effectType == FantasyGenreEffectTypes.BluntBonusAmount) { return FantasyGenreDamageTypes.BluntDamage; }
+            if (effectType == FantasyGenreEffectTypes.UnarmedBonusAmount) { return FantasyGenreDamageTypes.UnarmedDamage; }
+            if (effectType == FantasyGenreEffectTypes.FireBonusAmount) { return FantasyGenreDamageTypes.FireDamage; }
+            if (effectType == FantasyGenreEffectTypes.IceBonusAmount) { return FantasyGenreDamageTypes.IceDamage; }
+            if (effectType == FantasyGenreEffectTypes.WindBonusAmount) { return FantasyGenreDamageTypes.WindDamage; }
+            if (effectType == FantasyGenreEffectTypes.EarthBonusAmount) { return FantasyGenreDamageTypes.EarthDamage; }
+            if (effectType == FantasyGenreEffectTypes.LightBonusAmount) { return FantasyGenreDamageTypes.LightDamage; }
+            if (effectType == FantasyGenreEffectTypes.DarkBonusAmount) { return FantasyGenreDamageTypes.DarkDamage; }
+            if (effectType == FantasyGenreEffectTypes.DamageBonusAmount) { return FantasyGenreDamageTypes.Damage; }
+            return FantasyGenreDamageTypes.UnknownDamage;
         }
         
         public static int GetApplicableDamageType(this Effect effect)
@@ -31,34 +31,34 @@ namespace OpenRpg.Genres.Fantasy.Extensions
         
         public static int GetBonusDamageEffectTypeFrom(int damageType)
         {
-            if (damageType == FantasyDamageTypes.PiercingDamage) { return FantasyEffectTypes.PiercingDamageAmount; }
-            if (damageType == FantasyDamageTypes.SlashingDamage) { return FantasyEffectTypes.SlashingDamageAmount; }
-            if (damageType == FantasyDamageTypes.BluntDamage) { return FantasyEffectTypes.BluntDamageAmount; }
-            if (damageType == FantasyDamageTypes.UnarmedDamage) { return FantasyEffectTypes.UnarmedDamageAmount; }
-            if (damageType == FantasyDamageTypes.FireDamage) { return FantasyEffectTypes.FireDamageAmount; }
-            if (damageType == FantasyDamageTypes.IceDamage) { return FantasyEffectTypes.IceDamageAmount; }
-            if (damageType == FantasyDamageTypes.WindDamage) { return FantasyEffectTypes.WindDamageAmount; }
-            if (damageType == FantasyDamageTypes.EarthDamage) { return FantasyEffectTypes.EarthDamageAmount; }
-            if (damageType == FantasyDamageTypes.LightDamage) { return FantasyEffectTypes.LightDamageAmount; }
-            if (damageType == FantasyDamageTypes.DarkDamage) { return FantasyEffectTypes.DarkDamageAmount; }
-            if (damageType == FantasyDamageTypes.Damage) { return FantasyEffectTypes.DamageBonusAmount; }
-            return FantasyDamageTypes.UnknownDamage;
+            if (damageType == FantasyGenreDamageTypes.PiercingDamage) { return FantasyGenreEffectTypes.PiercingDamageAmount; }
+            if (damageType == FantasyGenreDamageTypes.SlashingDamage) { return FantasyGenreEffectTypes.SlashingDamageAmount; }
+            if (damageType == FantasyGenreDamageTypes.BluntDamage) { return FantasyGenreEffectTypes.BluntDamageAmount; }
+            if (damageType == FantasyGenreDamageTypes.UnarmedDamage) { return FantasyGenreEffectTypes.UnarmedDamageAmount; }
+            if (damageType == FantasyGenreDamageTypes.FireDamage) { return FantasyGenreEffectTypes.FireDamageAmount; }
+            if (damageType == FantasyGenreDamageTypes.IceDamage) { return FantasyGenreEffectTypes.IceDamageAmount; }
+            if (damageType == FantasyGenreDamageTypes.WindDamage) { return FantasyGenreEffectTypes.WindDamageAmount; }
+            if (damageType == FantasyGenreDamageTypes.EarthDamage) { return FantasyGenreEffectTypes.EarthDamageAmount; }
+            if (damageType == FantasyGenreDamageTypes.LightDamage) { return FantasyGenreEffectTypes.LightDamageAmount; }
+            if (damageType == FantasyGenreDamageTypes.DarkDamage) { return FantasyGenreEffectTypes.DarkDamageAmount; }
+            if (damageType == FantasyGenreDamageTypes.Damage) { return FantasyGenreEffectTypes.DamageBonusAmount; }
+            return FantasyGenreDamageTypes.UnknownDamage;
         }
         
         public static int GetBonusDefenseEffectTypeFrom(int damageType)
         {
-            if (damageType == FantasyDamageTypes.PiercingDamage) { return FantasyEffectTypes.PiercingDefenseAmount; }
-            if (damageType == FantasyDamageTypes.SlashingDamage) { return FantasyEffectTypes.SlashingDefenseAmount; }
-            if (damageType == FantasyDamageTypes.BluntDamage) { return FantasyEffectTypes.BluntDefenseAmount; }
-            if (damageType == FantasyDamageTypes.UnarmedDamage) { return FantasyEffectTypes.UnarmedDefenseAmount; }
-            if (damageType == FantasyDamageTypes.FireDamage) { return FantasyEffectTypes.FireDefenseAmount; }
-            if (damageType == FantasyDamageTypes.IceDamage) { return FantasyEffectTypes.IceDefenseAmount; }
-            if (damageType == FantasyDamageTypes.WindDamage) { return FantasyEffectTypes.WindDefenseAmount; }
-            if (damageType == FantasyDamageTypes.EarthDamage) { return FantasyEffectTypes.EarthDefenseAmount; }
-            if (damageType == FantasyDamageTypes.LightDamage) { return FantasyEffectTypes.LightDefenseAmount; }
-            if (damageType == FantasyDamageTypes.DarkDamage) { return FantasyEffectTypes.DarkDefenseAmount; }
-            if (damageType == FantasyDamageTypes.Damage) { return FantasyEffectTypes.DefenseBonusAmount; }
-            return FantasyDamageTypes.UnknownDamage;
+            if (damageType == FantasyGenreDamageTypes.PiercingDamage) { return FantasyGenreEffectTypes.PiercingDefenseAmount; }
+            if (damageType == FantasyGenreDamageTypes.SlashingDamage) { return FantasyGenreEffectTypes.SlashingDefenseAmount; }
+            if (damageType == FantasyGenreDamageTypes.BluntDamage) { return FantasyGenreEffectTypes.BluntDefenseAmount; }
+            if (damageType == FantasyGenreDamageTypes.UnarmedDamage) { return FantasyGenreEffectTypes.UnarmedDefenseAmount; }
+            if (damageType == FantasyGenreDamageTypes.FireDamage) { return FantasyGenreEffectTypes.FireDefenseAmount; }
+            if (damageType == FantasyGenreDamageTypes.IceDamage) { return FantasyGenreEffectTypes.IceDefenseAmount; }
+            if (damageType == FantasyGenreDamageTypes.WindDamage) { return FantasyGenreEffectTypes.WindDefenseAmount; }
+            if (damageType == FantasyGenreDamageTypes.EarthDamage) { return FantasyGenreEffectTypes.EarthDefenseAmount; }
+            if (damageType == FantasyGenreDamageTypes.LightDamage) { return FantasyGenreEffectTypes.LightDefenseAmount; }
+            if (damageType == FantasyGenreDamageTypes.DarkDamage) { return FantasyGenreEffectTypes.DarkDefenseAmount; }
+            if (damageType == FantasyGenreDamageTypes.Damage) { return FantasyGenreEffectTypes.DefenseBonusAmount; }
+            return FantasyGenreDamageTypes.UnknownDamage;
         }
 
         public static bool IsDamagingEffect(this Effect effect)
@@ -69,7 +69,7 @@ namespace OpenRpg.Genres.Fantasy.Extensions
 
         public static bool IsBeneficialEffect(this ActiveEffect effect)
         {
-            if(effect.Effect.EffectType != FantasyEffectTypes.LightBonusAmount)
+            if(effect.Effect.EffectType != FantasyGenreEffectTypes.LightBonusAmount)
             {
                 if (effect.Effect.IsDamagingEffect())
                 { return false; }

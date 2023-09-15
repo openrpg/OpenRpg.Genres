@@ -1,6 +1,6 @@
 namespace OpenRpg.Genres.Fantasy.Types
 {
-    public interface FantasyRequirementTypes : Genres.Types.RequirementTypes
+    public interface FantasyGenreRequirementTypes : Genres.Types.GenreRequirementTypes
     {
         public static readonly int StrengthRequirement = 50;
         public static readonly int DexterityRequirement = 51;

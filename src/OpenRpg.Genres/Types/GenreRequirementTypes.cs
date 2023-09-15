@@ -1,6 +1,6 @@
 namespace OpenRpg.Genres.Types
 {
-    public interface RequirementTypes
+    public interface GenreRequirementTypes
     {
         public static readonly int UnknownRequirement = 0;
         

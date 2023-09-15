@@ -1,6 +1,6 @@
 namespace OpenRpg.Genres.Scifi.Types
 {
-    public interface ScifiItemTypes : Genres.Types.ItemTypes
+    public interface ScifiGenresItemTypes : Genres.Types.GenresItemTypes
     {
         public static readonly int Armour = 30;
         

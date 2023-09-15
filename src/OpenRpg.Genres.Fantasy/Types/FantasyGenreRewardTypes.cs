@@ -1,6 +1,6 @@
 namespace OpenRpg.Genres.Fantasy.Types
 {
-    public interface FantasyRewardTypes : Genres.Types.RewardTypes
+    public interface FantasyGenreRewardTypes : Genres.Types.GenreRewardTypes
     {
         public static readonly int ExperienceReward = 50;
     }

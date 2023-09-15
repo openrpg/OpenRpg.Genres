@@ -1,6 +1,6 @@
 namespace OpenRpg.Genres.Types
 {
-    public interface GenderTypes
+    public interface GenreGenderTypes
     {
         public static readonly int UnknownGender = 0;
         

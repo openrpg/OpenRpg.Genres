@@ -1,6 +1,6 @@
 namespace OpenRpg.Genres.Types
 {
-    public interface EffectTypes
+    public interface GenreEffectTypes
     {
         public static readonly int UnknownBonus = 0;
         

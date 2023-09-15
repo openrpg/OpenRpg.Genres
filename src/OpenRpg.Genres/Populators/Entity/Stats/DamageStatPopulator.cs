@@ -15,8 +15,8 @@ namespace OpenRpg.Genres.Populators.Entity.Stats
 
         public float ComputeTotal(IReadOnlyCollection<Effect> effects)
         {
-            var amount = effects.GetPotencyFor(EffectTypes.DamageBonusAmount);
-            var percentage = effects.GetPotencyFor(EffectTypes.DamageBonusPercentage);
+            var amount = effects.GetPotencyFor(GenreEffectTypes.DamageBonusAmount);
+            var percentage = effects.GetPotencyFor(GenreEffectTypes.DamageBonusPercentage);
 
             if (percentage == 0)
             { return amount; }

@@ -1,6 +1,6 @@
 namespace OpenRpg.Genres.Types
 {
-    public interface DamageTypes
+    public interface GenreDamageTypes
     {
         public static readonly int UnknownDamage = 0;
         

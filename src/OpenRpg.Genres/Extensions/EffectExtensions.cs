@@ -36,10 +36,10 @@ namespace OpenRpg.Genres.Extensions
         /// <returns></returns>
         public static float CalculateAttributeValueFor(this IReadOnlyCollection<Effect> activeEffects, int attributeAmountType, int attributePercentageType, int miscBonus = 0)
         {
-            var totalAmount = activeEffects.GetPotencyFor(attributeAmountType, EffectTypes.AllAttributeBonusAmount) + miscBonus;
+            var totalAmount = activeEffects.GetPotencyFor(attributeAmountType, GenreEffectTypes.AllAttributeBonusAmount) + miscBonus;
             if(totalAmount == 0) { return 0; }
             
-            var percentageBonus = activeEffects.GetPotencyFor(attributePercentageType, EffectTypes.AllAttributeBonusPercentage);
+            var percentageBonus = activeEffects.GetPotencyFor(attributePercentageType, GenreEffectTypes.AllAttributeBonusPercentage);
             var totalBonus = totalAmount * percentageBonus;
             return totalAmount + totalBonus;
         }

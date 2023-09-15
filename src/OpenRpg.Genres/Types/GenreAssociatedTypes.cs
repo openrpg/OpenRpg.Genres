@@ -1,6 +1,6 @@
 namespace OpenRpg.Genres.Types
 {
-    public interface AssociatedTypes
+    public interface GenreAssociatedTypes
     {
         public static readonly int UnknownAssociation = 0;
         

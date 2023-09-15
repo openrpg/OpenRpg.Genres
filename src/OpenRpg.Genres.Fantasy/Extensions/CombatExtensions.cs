@@ -7,17 +7,17 @@ namespace OpenRpg.Genres.Fantasy.Extensions
     {
         public static string TypeToName(this Damage damage)
         {
-            if (damage.Type == FantasyDamageTypes.IceDamage) return "Ice";
-            if (damage.Type == FantasyDamageTypes.FireDamage) return "Fire";
-            if (damage.Type == FantasyDamageTypes.WindDamage) return "Wind";
-            if (damage.Type == FantasyDamageTypes.EarthDamage) return "Earth";
-            if (damage.Type == FantasyDamageTypes.DarkDamage) return "Dark";
-            if (damage.Type == FantasyDamageTypes.LightDamage) return "Light";
+            if (damage.Type == FantasyGenreDamageTypes.IceDamage) return "Ice";
+            if (damage.Type == FantasyGenreDamageTypes.FireDamage) return "Fire";
+            if (damage.Type == FantasyGenreDamageTypes.WindDamage) return "Wind";
+            if (damage.Type == FantasyGenreDamageTypes.EarthDamage) return "Earth";
+            if (damage.Type == FantasyGenreDamageTypes.DarkDamage) return "Dark";
+            if (damage.Type == FantasyGenreDamageTypes.LightDamage) return "Light";
             
-            if (damage.Type == FantasyDamageTypes.SlashingDamage) return "Slashing";
-            if (damage.Type == FantasyDamageTypes.BluntDamage) return "Blunt";
-            if (damage.Type == FantasyDamageTypes.PiercingDamage) return "Piercing";
-            if (damage.Type == FantasyDamageTypes.UnarmedDamage) return "Unarmed";
+            if (damage.Type == FantasyGenreDamageTypes.SlashingDamage) return "Slashing";
+            if (damage.Type == FantasyGenreDamageTypes.BluntDamage) return "Blunt";
+            if (damage.Type == FantasyGenreDamageTypes.PiercingDamage) return "Piercing";
+            if (damage.Type == FantasyGenreDamageTypes.UnarmedDamage) return "Unarmed";
 
             return "Unknown";
         }

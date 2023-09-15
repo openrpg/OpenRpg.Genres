@@ -1,6 +1,6 @@
 namespace OpenRpg.Genres.Types
 {
-    public interface ItemQualityTypes
+    public interface GenresItemQualityTypes
     {
         public static readonly int UnknownQuality = 0;
 

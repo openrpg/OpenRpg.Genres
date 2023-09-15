@@ -10,6 +10,6 @@ namespace OpenRpg.Genres.Scifi.Equipment.ShipSlots
         {}
 
         public override bool CanEquipItemType(int itemType)
-        { return itemType == ShipItemTypes.Shield; }
+        { return itemType == ShipGenresItemTypes.Shield; }
     }
 }

@@ -1,6 +1,6 @@
 namespace OpenRpg.Genres.Scifi.Types
 {
-    public interface ShipItemTypes : Genres.Types.ItemTypes
+    public interface ShipGenresItemTypes : Genres.Types.GenresItemTypes
     {
         public static readonly int Wings = 30;
         public static readonly int HullArmour = 31;

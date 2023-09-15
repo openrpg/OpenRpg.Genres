@@ -10,6 +10,6 @@ namespace OpenRpg.Genres.Scifi.Equipment.CharacterSlots
         {}
 
         public override bool CanEquipItemType(int itemType)
-        { return itemType == ScifiItemTypes.Armour; }
+        { return itemType == ScifiGenresItemTypes.Armour; }
     }
 }

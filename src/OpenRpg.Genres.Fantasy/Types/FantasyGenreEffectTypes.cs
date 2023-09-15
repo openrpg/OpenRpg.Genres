@@ -1,6 +1,6 @@
 namespace OpenRpg.Genres.Fantasy.Types
 {
-    public interface FantasyEffectTypes : Genres.Types.EffectTypes
+    public interface FantasyGenreEffectTypes : Genres.Types.GenreEffectTypes
     {
         // Generic Melee/Magic
         public static readonly int AllMeleeAttackBonusAmount = 50;
