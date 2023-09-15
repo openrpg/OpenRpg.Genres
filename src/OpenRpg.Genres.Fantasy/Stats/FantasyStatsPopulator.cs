@@ -1,17 +1,15 @@
 using System.Collections.Generic;
-using OpenRpg.Core.Effects;
+using OpenRpg.Core.Stats.Entity;
 using OpenRpg.Core.Stats.Populators;
-using OpenRpg.Core.Stats.Variables;
-using OpenRpg.Core.Variables;
 using OpenRpg.Genres.Fantasy.Stats.Populators;
 
 namespace OpenRpg.Genres.Fantasy.Stats
 {
-    public class FantasyStatsPopulator : CompositeStatPopulator
+    public class FantasyStatsPopulator : CompositeStatPopulator<IEntityStatsVariables>
     {
-        public FantasyStatsPopulator(IEnumerable<IPartialStatPopulator> additionalStatPopulators = null)
+        public FantasyStatsPopulator(IEnumerable<IPartialStatPopulator<IEntityStatsVariables>> additionalStatPopulators = null)
         {
-            var fantasyPopulators = new List<IPartialStatPopulator>()
+            var fantasyPopulators = new List<IPartialStatPopulator<IEntityStatsVariables>>()
             {
                 new FantasyAttributeStatPopulator(),
                 new FantasyVitalsStatPopulator(),

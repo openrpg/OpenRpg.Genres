@@ -4,23 +4,23 @@ using OpenRpg.Combat.Attacks;
 using OpenRpg.Combat.Extensions;
 using OpenRpg.Core.Effects;
 using OpenRpg.Core.Extensions;
-using OpenRpg.Core.Stats.Populators;
-using OpenRpg.Core.Stats.Variables;
+using OpenRpg.Core.Stats.Entity;
 using OpenRpg.Core.Variables;
+using OpenRpg.Genres.Populators.Entity.Stats;
 
 namespace OpenRpg.Genres.Fantasy.Stats.Populators.Conventions
 {
-    public class DamageOrDefenseStatPartialPopulator : IPartialStatPopulator
+    public class DamageOrDefenseStatPartialPopulator : IEntityPartialStatPopulator
     {
         public int Priority { get; }
         public int EffectAllBonusAmountType { get; }
         public int EffectAllBonusPercentageType { get; }
         public int StatType { get; }
         public EffectRelationship EffectRelationship { get; }
-        public Func<IStatsVariables, IReadOnlyCollection<Effect>, IReadOnlyCollection<IVariables>, float> ModBonusGetter { get; }
+        public Func<IEntityStatsVariables, IReadOnlyCollection<Effect>, IReadOnlyCollection<IVariables>, float> ModBonusGetter { get; }
         
         public DamageOrDefenseStatPartialPopulator(int effectAllBonusAmountType, int effectAllBonusPercentageType, int statType, EffectRelationship effectRelationship,
-            Func<IStatsVariables, IReadOnlyCollection<Effect>, IReadOnlyCollection<IVariables>, float> modBonusGetter, int priority = 100)
+            Func<IEntityStatsVariables, IReadOnlyCollection<Effect>, IReadOnlyCollection<IVariables>, float> modBonusGetter, int priority = 100)
         {
             Priority = priority;
             EffectAllBonusAmountType = effectAllBonusAmountType;
@@ -30,7 +30,7 @@ namespace OpenRpg.Genres.Fantasy.Stats.Populators.Conventions
             ModBonusGetter = modBonusGetter;
         }
         
-        public void Populate(IStatsVariables stats, IReadOnlyCollection<Effect> activeEffects, IReadOnlyCollection<IVariables> relatedVars)
+        public void Populate(IEntityStatsVariables stats, IReadOnlyCollection<Effect> activeEffects, IReadOnlyCollection<IVariables> relatedVars)
         {
             var baseTotal = activeEffects.CalculateTotal(EffectRelationship);
             baseTotal += activeEffects.GetPotencyFor(EffectAllBonusAmountType);

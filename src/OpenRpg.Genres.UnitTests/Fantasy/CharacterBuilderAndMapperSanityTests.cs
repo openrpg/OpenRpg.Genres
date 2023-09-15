@@ -1,9 +1,6 @@
 using Moq;
 using Newtonsoft.Json;
-using OpenRpg.Core.Stats.Populators;
-using OpenRpg.Core.Stats.Variables;
 using OpenRpg.Core.Utils;
-using OpenRpg.Genres.Builders;
 using OpenRpg.Genres.Extensions;
 using OpenRpg.Genres.Fantasy.Builders;
 using OpenRpg.Genres.Fantasy.Persistence.Items.Equipment;

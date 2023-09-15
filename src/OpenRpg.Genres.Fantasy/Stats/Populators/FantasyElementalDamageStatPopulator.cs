@@ -1,16 +1,17 @@
 using System.Collections.Generic;
 using OpenRpg.Core.Effects;
+using OpenRpg.Core.Stats.Entity;
 using OpenRpg.Core.Stats.Populators;
-using OpenRpg.Core.Stats.Variables;
 using OpenRpg.Core.Variables;
 using OpenRpg.Genres.Fantasy.Effects;
 using OpenRpg.Genres.Fantasy.Extensions;
 using OpenRpg.Genres.Fantasy.Stats.Populators.Conventions;
 using OpenRpg.Genres.Fantasy.Types;
+using OpenRpg.Genres.Populators.Entity.Stats;
 
 namespace OpenRpg.Genres.Fantasy.Stats.Populators
 {
-    public class FantasyElementalDamageStatPopulator : CompositeStatPopulator, IPartialStatPopulator
+    public class FantasyElementalDamageStatPopulator : CompositeStatPopulator<IEntityStatsVariables>, IEntityPartialStatPopulator
     {
         public int Priority => 10;
         
@@ -38,7 +39,7 @@ namespace OpenRpg.Genres.Fantasy.Stats.Populators
             };
         }
 
-        public static float GetElementalModBonus(IStatsVariables stats, IReadOnlyCollection<Effect> activeEffects,
+        public static float GetElementalModBonus(IEntityStatsVariables stats, IReadOnlyCollection<Effect> activeEffects,
             IReadOnlyCollection<IVariables> relatedVars)
         { return stats.Intelligence() / 100.0f;}
     }

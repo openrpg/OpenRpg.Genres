@@ -2,14 +2,14 @@ using System.Collections.Generic;
 using System.Linq;
 using OpenRpg.Combat.Attacks;
 using OpenRpg.Combat.Processors.Attacks;
-using OpenRpg.Core.Stats.Variables;
+using OpenRpg.Core.Stats.Entity;
 using OpenRpg.Genres.Fantasy.Extensions;
 
 namespace OpenRpg.Genres.Fantasy.Combat
 {
-    public class DefaultAttackProcessor : IAttackProcessor
+    public class DefaultAttackProcessor : IAttackProcessor<IEntityStatsVariables>
     {
-        public ProcessedAttack ProcessAttack(Attack attack, IStatsVariables stats)
+        public ProcessedAttack ProcessAttack(Attack attack, IEntityStatsVariables stats)
         {
             var applicableDefenses = stats.GetDefenseReferences().Where(x => x.StatValue != 0);
             var damageLookups = attack.Damages.ToDictionary(x => x.Type, x => x.Value);

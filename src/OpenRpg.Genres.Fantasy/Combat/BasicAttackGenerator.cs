@@ -1,7 +1,8 @@
 using System.Linq;
 using OpenRpg.Combat.Attacks;
 using OpenRpg.Combat.Processors.Attacks;
-using OpenRpg.Core.Stats.Variables;
+using OpenRpg.Core.Stats;
+using OpenRpg.Core.Stats.Entity;
 using OpenRpg.Genres.Fantasy.Extensions;
 
 namespace OpenRpg.Genres.Fantasy.Combat
@@ -10,7 +11,7 @@ namespace OpenRpg.Genres.Fantasy.Combat
     {
         public Attack GenerateAttack(IStatsVariables stats)
         {
-            var damages = stats.GetDamageReferences()
+            var damages = (stats as IEntityStatsVariables)?.GetDamageReferences()
                 .Where(x => x.StatValue != 0)
                 .Select(x => new Damage(x.StatType, x.StatValue))
                 .ToArray();

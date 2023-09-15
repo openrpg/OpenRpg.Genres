@@ -1,15 +1,14 @@
 using System.Collections.Generic;
 using OpenRpg.Core.Effects;
 using OpenRpg.Core.Extensions;
-using OpenRpg.Core.Stats.Populators;
-using OpenRpg.Core.Stats.Variables;
+using OpenRpg.Core.Stats.Entity;
 using OpenRpg.Core.Variables;
 using OpenRpg.Genres.Extensions;
 using OpenRpg.Genres.Types;
 
-namespace OpenRpg.Genres.Stats.Populators
+namespace OpenRpg.Genres.Populators.Entity.Stats
 {
-    public class DefenseStatPopulator : IPartialStatPopulator
+    public class DefenseStatPopulator : IEntityPartialStatPopulator
     {
         public int Priority => 10;
 
@@ -25,7 +24,7 @@ namespace OpenRpg.Genres.Stats.Populators
             return amount + addition;
         }
         
-        public void Populate(IStatsVariables stats, IReadOnlyCollection<Effect> activeEffects, IReadOnlyCollection<IVariables> relatedVars)
+        public void Populate(IEntityStatsVariables stats, IReadOnlyCollection<Effect> activeEffects, IReadOnlyCollection<IVariables> relatedVars)
         {
             var totalValue = ComputeTotal(activeEffects);
             stats.Defense(totalValue);
