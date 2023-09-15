@@ -6,7 +6,7 @@ using OpenRpg.Genres.Populators.Entity.Stats;
 
 namespace OpenRpg.Genres.Fantasy.Stats
 {
-    public class FantasyStatsPopulator : CompositeStatPopulator<IEntityStatsVariables>
+    public class FantasyStatsPopulator : CompositeStatPopulator<IEntityStatsVariables>, IEntityStatPopulator
     {
         public FantasyStatsPopulator(IEnumerable<IEntityPartialStatPopulator> additionalStatPopulators = null)
         {
