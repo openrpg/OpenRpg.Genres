@@ -7,6 +7,5 @@ namespace OpenRpg.Genres.Characters
     /// </summary>
     public interface ICharacter : IUniqueEntity
     {
-        byte GenderType { get; }
     }
 }

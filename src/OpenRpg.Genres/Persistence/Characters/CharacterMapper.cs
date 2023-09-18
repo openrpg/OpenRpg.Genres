@@ -35,6 +35,12 @@ namespace OpenRpg.Genres.Persistence.Characters
         {
             var entityVariables = new DefaultEntityVariables();
 
+            if (data.Variables.ContainsKey(GenreEntityVariableTypes.Gender))
+            {
+                var genderId = (byte)data.Variables[GenreEntityVariableTypes.Gender];
+                entityVariables.Gender(genderId);
+            }
+
             if (data.Variables.ContainsKey(GenreEntityVariableTypes.Race))
             {
                 var raceTemplate = GetRaceTemplateFor((int)data.Variables[GenreEntityVariableTypes.Race]);
@@ -80,8 +86,7 @@ namespace OpenRpg.Genres.Persistence.Characters
                 DescriptionLocaleId = data.DescriptionLocaleId,
                 UniqueId = data.Id,
                 Variables = variables,
-                State = state,
-                GenderType = data.GenderType
+                State = state
             };
         }
         

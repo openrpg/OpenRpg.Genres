@@ -3,7 +3,7 @@ using OpenRpg.Genres.Fantasy.Types;
 
 namespace OpenRpg.Genres.Fantasy.Extensions
 {
-    public static class CharacterStateVariableExtensions
+    public static class EntityStateVariableExtensions
     {
         public static int Magic(this IEntityStateVariables state) => (int)state.Get(FantasyEntityStateVariableTypes.Magic);
         public static void Magic(this IEntityStateVariables state, int value) => state[FantasyEntityStateVariableTypes.Magic] = value;

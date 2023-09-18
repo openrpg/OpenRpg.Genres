@@ -3,7 +3,7 @@ using OpenRpg.Genres.Fantasy.Types;
 
 namespace OpenRpg.Genres.Fantasy.Extensions
 {
-    public static class EntityStatExtensions
+    public static class EntityStatVariableExtensions
     {
         public static int Strength(this IEntityStatsVariables stats) => (int)stats.Get(FantasyEntityStatsVariableTypes.Strength);
         public static int Dexterity(this IEntityStatsVariables stats) => (int)stats.Get(FantasyEntityStatsVariableTypes.Dexterity);

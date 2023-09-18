@@ -41,6 +41,12 @@ namespace OpenRpg.Genres.Extensions
                 variables.Add(GenreEntityVariableTypes.Race, raceTemplateId);
             }
             
+            if (character.Variables.HasGender())
+            {
+                var genderId = character.Variables.Gender();
+                variables.Add(GenreEntityVariableTypes.Gender, genderId);
+            }
+            
             if (character.Variables.HasClass())
             {
                 var classData = character.Variables.Class().ToDataModel();
@@ -54,7 +60,7 @@ namespace OpenRpg.Genres.Extensions
             }
             
             return new CharacterData(character.UniqueId,
-                character.NameLocaleId, character.DescriptionLocaleId, character.GenderType, character.State, variables);
+                character.NameLocaleId, character.DescriptionLocaleId, character.State, variables);
         }
 
         public static ItemData ToDataModel(this IUniqueItem item)

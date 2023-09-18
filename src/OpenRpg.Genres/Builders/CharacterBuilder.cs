@@ -20,7 +20,8 @@ namespace OpenRpg.Genres.Builders
         public ICharacterMapper CharacterMapper { get; }
         public IRandomizer Randomizer { get; }
 
-        protected int _raceId, _classId, _classLevels, _genderId;
+        protected int _raceId, _classId, _classLevels;
+        protected byte _genderId;
         protected string _name, _description;
         protected Dictionary<int, float> _state;
 
@@ -116,21 +117,9 @@ namespace OpenRpg.Genres.Builders
         public T As<T>() where T : CharacterBuilder
         { return this as T; }
         
-        protected virtual void RandomizeDefaults()
-        {
-            if (_genderId == 0) { _genderId = Randomizer.Random(1,2); }
-            if (_classLevels == 0) { _classLevels = Randomizer.Random(1,5); }
-        }
-        
-        protected virtual void PostProcessCharacter(ICharacter character)
-        {
-
-        }
-
-        protected virtual void PreCreateCharacterData()
-        {
-
-        }
+        protected virtual void RandomizeDefaults() {}
+        protected virtual void PostProcessCharacter(ICharacter character){}
+        protected virtual void PreCreateCharacterData(){}
 
         protected void ProcessEquipmentToVariables()
         {
@@ -154,6 +143,12 @@ namespace OpenRpg.Genres.Builders
         {
             if (_raceId == 0) { return; }
             _variables.Add(GenreEntityVariableTypes.Race, _raceId);
+        }        
+        
+        protected void ProcessGenderToVariables()
+        {
+            if (_genderId == 0) { return; }
+            _variables.Add(GenreEntityVariableTypes.Gender, _genderId);
         }
         
         protected void ProcessClassToVariables()
@@ -170,8 +165,9 @@ namespace OpenRpg.Genres.Builders
             ProcessInventoryToVariables();
             ProcessRaceToVariables();
             ProcessClassToVariables();
+            ProcessGenderToVariables();
 
-            return new CharacterData(Guid.NewGuid(), _name, _description, (byte)_genderId, _state, _variables);
+            return new CharacterData(Guid.NewGuid(), _name, _description, _state, _variables);
         }
         
         public ICharacter Build()

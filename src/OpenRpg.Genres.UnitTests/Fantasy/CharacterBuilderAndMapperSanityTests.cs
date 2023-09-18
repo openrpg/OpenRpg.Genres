@@ -29,6 +29,7 @@ namespace OpenRpg.Genres.UnitTests.Fantasy
             var characterBuilder = new FantasyCharacterBuilder(characterMapper, mockRandomizer.Object);
             var character = characterBuilder
                 .CreateNew()
+                .WithGender(1)
                 .WithRaceId(1)
                 .WithClassId(1, 1)
                 .WithInventoryItem(new DefaultItem(){ ItemTemplate = new DefaultItemTemplate() })

@@ -42,9 +42,14 @@ namespace OpenRpg.Genres.Requirements
 
                 return false;
             }
-            
-            if(requirement.RequirementType == GenreRequirementTypes.GenderRequirement)
-            { return character.GenderType == requirement.AssociatedId; }
+
+            if (requirement.RequirementType == GenreRequirementTypes.GenderRequirement)
+            {
+                if (!character.Variables.HasGender())
+                { return false; }
+                
+                return character.Variables.Gender() == requirement.AssociatedId;
+            }
             
             if (requirement.RequirementType == GenreRequirementTypes.EquipmentItemRequirement)
             {

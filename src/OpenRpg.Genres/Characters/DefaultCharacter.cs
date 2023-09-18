@@ -7,6 +7,5 @@ namespace OpenRpg.Genres.Characters
     /// </summary>
     public class DefaultCharacter : DefaultUniqueEntity, ICharacter
     {
-        public byte GenderType { get; set; }
     }
 }
