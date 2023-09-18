@@ -20,16 +20,16 @@ namespace OpenRpg.Genres.Fantasy.Stats.Populators
             PartialPopulators = new[]
             {
                 new DamageOrDefenseStatPartialPopulator(FantasyEffectTypes.AllMeleeDefenseBonusAmount, FantasyEffectTypes.AllMeleeDefenseBonusPercentage, 
-                    FantasyStatsVariableTypes.BluntDefense, EffectRelationships.BluntDefenseRelationship, GetBluntModBonus, Priority),
+                    FantasyEntityStatsVariableTypes.BluntDefense, EffectRelationships.BluntDefenseRelationship, GetBluntModBonus, Priority),
                 
                 new DamageOrDefenseStatPartialPopulator(FantasyEffectTypes.AllMeleeDefenseBonusAmount, FantasyEffectTypes.AllMeleeDefenseBonusPercentage, 
-                    FantasyStatsVariableTypes.PiercingDefense, EffectRelationships.PiercingDefenseRelationship, GetPiercingModBonus, Priority),
+                    FantasyEntityStatsVariableTypes.PiercingDefense, EffectRelationships.PiercingDefenseRelationship, GetPiercingModBonus, Priority),
                 
                 new DamageOrDefenseStatPartialPopulator(FantasyEffectTypes.AllMeleeDefenseBonusAmount, FantasyEffectTypes.AllMeleeDefenseBonusPercentage, 
-                    FantasyStatsVariableTypes.SlashingDefense, EffectRelationships.SlashingDefenseRelationship, GetSlashingOrUnarmedModBonus, Priority),
+                    FantasyEntityStatsVariableTypes.SlashingDefense, EffectRelationships.SlashingDefenseRelationship, GetSlashingOrUnarmedModBonus, Priority),
                 
                 new DamageOrDefenseStatPartialPopulator(FantasyEffectTypes.AllMeleeDefenseBonusAmount, FantasyEffectTypes.AllMeleeDefenseBonusPercentage, 
-                    FantasyStatsVariableTypes.UnarmedDefense, EffectRelationships.UnarmedDefenseRelationship, GetSlashingOrUnarmedModBonus, Priority),
+                    FantasyEntityStatsVariableTypes.UnarmedDefense, EffectRelationships.UnarmedDefenseRelationship, GetSlashingOrUnarmedModBonus, Priority),
             };
         }
 

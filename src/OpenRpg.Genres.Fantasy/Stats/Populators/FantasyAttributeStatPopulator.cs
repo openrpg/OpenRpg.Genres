@@ -14,12 +14,12 @@ namespace OpenRpg.Genres.Fantasy.Stats.Populators
         {
             PartialPopulators = new[]
             {
-                new BasicAttributePartialPopulator(FantasyEffectTypes.StrengthBonusAmount, FantasyEffectTypes.StrengthBonusPercentage, FantasyStatsVariableTypes.Strength, Priority),
-                new BasicAttributePartialPopulator(FantasyEffectTypes.DexterityBonusAmount, FantasyEffectTypes.DexterityBonusPercentage, FantasyStatsVariableTypes.Dexterity, Priority),
-                new BasicAttributePartialPopulator(FantasyEffectTypes.ConstitutionBonusAmount, FantasyEffectTypes.ConstitutionBonusPercentage, FantasyStatsVariableTypes.Constitution, Priority),
-                new BasicAttributePartialPopulator(FantasyEffectTypes.IntelligenceBonusAmount, FantasyEffectTypes.IntelligenceBonusPercentage, FantasyStatsVariableTypes.Intelligence, Priority),
-                new BasicAttributePartialPopulator(FantasyEffectTypes.WisdomBonusAmount, FantasyEffectTypes.WisdomBonusPercentage, FantasyStatsVariableTypes.Wisdom, Priority),
-                new BasicAttributePartialPopulator(FantasyEffectTypes.CharismaBonusAmount, FantasyEffectTypes.CharismaBonusPercentage, FantasyStatsVariableTypes.Charisma, Priority),
+                new BasicAttributePartialPopulator(FantasyEffectTypes.StrengthBonusAmount, FantasyEffectTypes.StrengthBonusPercentage, FantasyEntityStatsVariableTypes.Strength, Priority),
+                new BasicAttributePartialPopulator(FantasyEffectTypes.DexterityBonusAmount, FantasyEffectTypes.DexterityBonusPercentage, FantasyEntityStatsVariableTypes.Dexterity, Priority),
+                new BasicAttributePartialPopulator(FantasyEffectTypes.ConstitutionBonusAmount, FantasyEffectTypes.ConstitutionBonusPercentage, FantasyEntityStatsVariableTypes.Constitution, Priority),
+                new BasicAttributePartialPopulator(FantasyEffectTypes.IntelligenceBonusAmount, FantasyEffectTypes.IntelligenceBonusPercentage, FantasyEntityStatsVariableTypes.Intelligence, Priority),
+                new BasicAttributePartialPopulator(FantasyEffectTypes.WisdomBonusAmount, FantasyEffectTypes.WisdomBonusPercentage, FantasyEntityStatsVariableTypes.Wisdom, Priority),
+                new BasicAttributePartialPopulator(FantasyEffectTypes.CharismaBonusAmount, FantasyEffectTypes.CharismaBonusPercentage, FantasyEntityStatsVariableTypes.Charisma, Priority),
             };
         }
     }

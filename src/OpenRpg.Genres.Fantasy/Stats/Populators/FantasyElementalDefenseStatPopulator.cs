@@ -20,22 +20,22 @@ namespace OpenRpg.Genres.Fantasy.Stats.Populators
             PartialPopulators = new[]
             {
                 new DamageOrDefenseStatPartialPopulator(FantasyEffectTypes.AllElementDefenseBonusAmount, FantasyEffectTypes.AllElementDefenseBonusPercentage, 
-                    FantasyStatsVariableTypes.IceDefense, EffectRelationships.IceDefenseRelationship, GetElementalModBonus, Priority),
+                    FantasyEntityStatsVariableTypes.IceDefense, EffectRelationships.IceDefenseRelationship, GetElementalModBonus, Priority),
                 
                 new DamageOrDefenseStatPartialPopulator(FantasyEffectTypes.AllElementDefenseBonusAmount, FantasyEffectTypes.AllElementDefenseBonusPercentage, 
-                    FantasyStatsVariableTypes.FireDefense, EffectRelationships.FireDefenseRelationship, GetElementalModBonus, Priority),
+                    FantasyEntityStatsVariableTypes.FireDefense, EffectRelationships.FireDefenseRelationship, GetElementalModBonus, Priority),
                 
                 new DamageOrDefenseStatPartialPopulator(FantasyEffectTypes.AllElementDefenseBonusAmount, FantasyEffectTypes.AllElementDefenseBonusPercentage, 
-                    FantasyStatsVariableTypes.WindDefense, EffectRelationships.WindDefenseRelationship, GetElementalModBonus, Priority),
+                    FantasyEntityStatsVariableTypes.WindDefense, EffectRelationships.WindDefenseRelationship, GetElementalModBonus, Priority),
                 
                 new DamageOrDefenseStatPartialPopulator(FantasyEffectTypes.AllElementDefenseBonusAmount, FantasyEffectTypes.AllElementDefenseBonusPercentage, 
-                    FantasyStatsVariableTypes.EarthDefense, EffectRelationships.EarthDefenseRelationship, GetElementalModBonus, Priority),
+                    FantasyEntityStatsVariableTypes.EarthDefense, EffectRelationships.EarthDefenseRelationship, GetElementalModBonus, Priority),
                 
                 new DamageOrDefenseStatPartialPopulator(FantasyEffectTypes.AllElementDefenseBonusAmount, FantasyEffectTypes.AllElementDefenseBonusPercentage, 
-                    FantasyStatsVariableTypes.LightDefense, EffectRelationships.LightDefenseRelationship, GetElementalModBonus, Priority),
+                    FantasyEntityStatsVariableTypes.LightDefense, EffectRelationships.LightDefenseRelationship, GetElementalModBonus, Priority),
                 
                 new DamageOrDefenseStatPartialPopulator(FantasyEffectTypes.AllElementDefenseBonusAmount, FantasyEffectTypes.AllElementDefenseBonusPercentage, 
-                    FantasyStatsVariableTypes.DarkDefense, EffectRelationships.DarkDefenseRelationship, GetElementalModBonus, Priority),
+                    FantasyEntityStatsVariableTypes.DarkDefense, EffectRelationships.DarkDefenseRelationship, GetElementalModBonus, Priority),
             };
         }
 

@@ -12,20 +12,14 @@ namespace OpenRpg.Genres.Persistence.Characters
         public Guid Id { get; }
         public string NameLocaleId { get; }
         public string DescriptionLocaleId { get; }
-        public byte GenderType { get; }
-        public int RaceTemplateId { get; }
-        public ClassData ClassData { get; }
         public IReadOnlyDictionary<int, float> StateVariables { get; }
         public IReadOnlyDictionary<int, object> Variables { get; }
 
-        public CharacterData(Guid id, string nameLocaleId, string descriptionLocaleId, byte genderType, int raceTemplateId, ClassData classData, IReadOnlyDictionary<int, float> stateVariables, IReadOnlyDictionary<int, object> variables = null)
+        public CharacterData(Guid id, string nameLocaleId, string descriptionLocaleId, IReadOnlyDictionary<int, float> stateVariables, IReadOnlyDictionary<int, object> variables = null)
         {
             Id = id;
             NameLocaleId = nameLocaleId;
             DescriptionLocaleId = descriptionLocaleId;
-            GenderType = genderType;
-            RaceTemplateId = raceTemplateId;
-            ClassData = classData;
             StateVariables = stateVariables;
             Variables = variables ?? new Dictionary<int, object>();
         }

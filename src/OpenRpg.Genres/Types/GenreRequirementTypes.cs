@@ -6,7 +6,6 @@ namespace OpenRpg.Genres.Types
         
         public static readonly int RaceRequirement = 1;
         public static readonly int ClassRequirement = 2;
-        public static readonly int LevelRequirement = 3;
         public static readonly int TriggerRequirement = 4;
         public static readonly int QuestStateRequirement = 5;
         public static readonly int InventoryItemRequirement = 6;

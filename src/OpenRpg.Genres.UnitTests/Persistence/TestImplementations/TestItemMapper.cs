@@ -6,7 +6,7 @@ namespace OpenRpg.Genres.UnitTests.Persistence.TestImplementations
 {
     public class TestItemMapper : ItemMapper
     {
-        private readonly DefaultModification DefaultModification = new DefaultModification();
+        private readonly DefaultModificationTemplate DefaultModification = new DefaultModificationTemplate();
         private readonly DefaultItemTemplate DefaultItemTemplate = new DefaultItemTemplate();
         
         public override IItemTemplate GetItemTemplateFor(int itemTemplateId)
@@ -14,7 +14,7 @@ namespace OpenRpg.Genres.UnitTests.Persistence.TestImplementations
             return DefaultItemTemplate;
         }
 
-        public override IModification GetModificationsFor(int modificationId)
+        public override IModificationTemplate GetModificationsFor(int modificationId)
         {
             return DefaultModification;
         }
