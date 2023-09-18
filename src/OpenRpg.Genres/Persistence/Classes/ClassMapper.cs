@@ -21,8 +21,7 @@ namespace OpenRpg.Genres.Persistence.Classes
             return new DefaultClass
             {
                 Variables = variables,
-                ClassTemplate = template,
-                Level = data.ClassLevel
+                Template = template,
             };
         }
 

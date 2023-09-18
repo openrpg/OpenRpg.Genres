@@ -4,6 +4,7 @@ using OpenRpg.Core.Utils;
 using OpenRpg.Genres.Builders;
 using OpenRpg.Genres.Extensions;
 using OpenRpg.Genres.Fantasy.Persistence.Items.Equipment;
+using OpenRpg.Genres.Persistence.Classes;
 using OpenRpg.Genres.Persistence.Items.Inventory;
 using OpenRpg.Genres.UnitTests.Persistence.TestImplementations;
 using Xunit;
@@ -18,8 +19,10 @@ namespace OpenRpg.Genres.UnitTests.Persistence
             var mockRandomizer = new Mock<IRandomizer>();
             
             var itemMapper = new TestItemMapper();
-            var characterMapper = new TestCharacterMapper(new TestItemMapper(), new TestClassMapper(),
-                new FantasyEquipmentMapper(itemMapper), new InventoryMapper(itemMapper));
+            var classMapper = new TestClassMapper();
+            var characterMapper = new TestCharacterMapper(new TestItemMapper(), classMapper, 
+                new MultiClassMapper(classMapper), new FantasyEquipmentMapper(itemMapper), 
+                new InventoryMapper(itemMapper));
             
             var characterBuilder = new CharacterBuilder(characterMapper, mockRandomizer.Object);
             var character = characterBuilder

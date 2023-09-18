@@ -23,6 +23,6 @@ namespace OpenRpg.Genres.Persistence.Items
         }
 
         public abstract IItemTemplate GetItemTemplateFor(int itemTemplateId);
-        public abstract IModification GetModificationsFor(int modificationId);
+        public abstract IModificationTemplate GetModificationsFor(int modificationId);
     }
 }

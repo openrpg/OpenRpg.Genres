@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using OpenRpg.Core.Types;
 using OpenRpg.Core.Utils;
 using OpenRpg.Genres.Characters;
 using OpenRpg.Genres.Extensions;
@@ -69,15 +70,10 @@ namespace OpenRpg.Genres.Builders
             return this;
         }
 
-        public CharacterBuilder WithClassId(int classId)
+        public CharacterBuilder WithClassId(int classId, int level)
         {
             _classId = classId;
-            return this;
-        }
-
-        public CharacterBuilder WithClassLevels(int levels)
-        {
-            _classLevels = levels;
+            _classLevels = level;
             return this;
         }
 
@@ -151,17 +147,31 @@ namespace OpenRpg.Genres.Builders
             if (_inventory.Count == 0) { return; }
             
             var persistedInventory = _inventory.Select(x => x.ToDataModel()).ToArray();
-            _variables.Add(GenreEntityVariableTypes.Inventory, new InventoryData(persistedInventory, null));
+            _variables.Add(GenreEntityVariableTypes.Inventory, new InventoryData(persistedInventory));
+        }
+        
+        protected void ProcessRaceToVariables()
+        {
+            if (_raceId == 0) { return; }
+            _variables.Add(GenreEntityVariableTypes.Race, _raceId);
+        }
+        
+        protected void ProcessClassToVariables()
+        {
+            if (_classId == 0) { return; }
+            var classVars = new Dictionary<int, object>();
+            classVars.Add(ClassVariableTypes.Level, _classLevels);
+            _variables.Add(GenreEntityVariableTypes.Class, new ClassData(_classId, classVars));
         }
         
         public virtual CharacterData CreateCharacterData()
         {
-            var persistedClass = new ClassData(_classId, _classLevels);
             ProcessEquipmentToVariables();
             ProcessInventoryToVariables();
+            ProcessRaceToVariables();
+            ProcessClassToVariables();
 
-            return new CharacterData(Guid.NewGuid(), _name, _description, (byte)_genderId, 
-                _raceId, persistedClass, _state, _variables);
+            return new CharacterData(Guid.NewGuid(), _name, _description, (byte)_genderId, _state, _variables);
         }
         
         public ICharacter Build()

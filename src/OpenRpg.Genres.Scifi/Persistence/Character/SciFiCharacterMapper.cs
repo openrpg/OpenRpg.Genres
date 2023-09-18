@@ -8,8 +8,8 @@ namespace OpenRpg.Genres.Scifi.Persistence.Character
 {
     public abstract class SciFiCharacterMapper : CharacterMapper, ISciFiCharacterMapper
     {
-        protected SciFiCharacterMapper(ItemMapper itemMapper, IClassMapper classMapper, ISciFiCharacterEquipmentMapper equipmentMapper, InventoryMapper inventoryMapper) 
-            : base(itemMapper, classMapper, equipmentMapper, inventoryMapper)
+        protected SciFiCharacterMapper(ItemMapper itemMapper, IClassMapper classMapper, IMultiClassMapper multiClassMapper, ISciFiCharacterEquipmentMapper equipmentMapper, InventoryMapper inventoryMapper) 
+            : base(itemMapper, classMapper, multiClassMapper, equipmentMapper, inventoryMapper)
         {
         }
     }

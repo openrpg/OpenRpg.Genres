@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using OpenRpg.Core.Classes;
+using OpenRpg.Core.Extensions;
 using OpenRpg.Core.Types;
 using OpenRpg.Genres.Characters;
 using OpenRpg.Genres.Persistence.Characters;
@@ -34,9 +35,26 @@ namespace OpenRpg.Genres.Extensions
                 variables.Add(GenreEntityVariableTypes.Inventory, inventoryData);
             }
             
+            if (character.Variables.HasRace())
+            {
+                var raceTemplateId = character.Variables.Race().Id;
+                variables.Add(GenreEntityVariableTypes.Race, raceTemplateId);
+            }
+            
+            if (character.Variables.HasClass())
+            {
+                var classData = character.Variables.Class().ToDataModel();
+                variables.Add(GenreEntityVariableTypes.Class, classData);
+            }
+            
+            if (character.Variables.HasMultiClass())
+            {
+                var multiClassData = character.Variables.MultiClass().ToDataModel();
+                variables.Add(GenreEntityVariableTypes.MultiClasses, multiClassData);
+            }
+            
             return new CharacterData(character.UniqueId,
-                character.NameLocaleId, character.DescriptionLocaleId, character.GenderType,
-                character.Race.Id, character.Class.ToDataModel(), character.State, variables);
+                character.NameLocaleId, character.DescriptionLocaleId, character.GenderType, character.State, variables);
         }
 
         public static ItemData ToDataModel(this IUniqueItem item)
@@ -64,6 +82,9 @@ namespace OpenRpg.Genres.Extensions
         }
         
         public static ClassData ToDataModel(this IClass @class)
-        { return new ClassData(@class.ClassTemplate.Id, @class.Level, @class.Variables); }
+        { return new ClassData(@class.Template.Id, @class.Variables); }
+        
+        public static MultiClassData ToDataModel(this IMultiClass multiClass)
+        { return new MultiClassData(multiClass.Classes.Select(x => x.ToDataModel()).ToArray()); }
     }
 }

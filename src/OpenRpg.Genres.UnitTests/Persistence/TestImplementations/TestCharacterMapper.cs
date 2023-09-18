@@ -12,8 +12,8 @@ namespace OpenRpg.Genres.UnitTests.Persistence.TestImplementations
     {
         private readonly DefaultRaceTemplate DefaultRaceTemplate = new DefaultRaceTemplate();
         
-        public TestCharacterMapper(IItemMapper itemMapper, IClassMapper classMapper, IEquipmentMapper equipmentMapper, IInventoryMapper inventoryMapper) 
-            : base(itemMapper, classMapper, equipmentMapper, inventoryMapper)
+        public TestCharacterMapper(IItemMapper itemMapper, IClassMapper classMapper, IMultiClassMapper multiClassMapper, IEquipmentMapper equipmentMapper, IInventoryMapper inventoryMapper) 
+            : base(itemMapper, classMapper, multiClassMapper, equipmentMapper, inventoryMapper)
         {
         }
 

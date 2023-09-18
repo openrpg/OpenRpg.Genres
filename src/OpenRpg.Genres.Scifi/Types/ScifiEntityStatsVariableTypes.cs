@@ -1,6 +1,6 @@
 namespace OpenRpg.Genres.Scifi.Types
 {
-    public interface ScifiStatsVariableTypes : Genres.Types.GenreStatsVariableTypes
+    public interface ScifiEntityStatsVariableTypes : Genres.Types.GenreEntityStatsVariableTypes
     {
         // Attack stats
         public static readonly int PhysicalDamage = 80;

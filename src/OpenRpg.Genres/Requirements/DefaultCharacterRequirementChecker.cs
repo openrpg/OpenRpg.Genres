@@ -1,9 +1,11 @@
 using System.Linq;
+using OpenRpg.Core.Extensions;
 using OpenRpg.Core.Requirements;
 using OpenRpg.Genres.Characters;
 using OpenRpg.Genres.Extensions;
 using OpenRpg.Genres.Types;
 using OpenRpg.Items.Extensions;
+using OpenRpg.Quests;
 using OpenRpg.Quests.Types;
 using OpenRpg.Quests.Variables;
 
@@ -14,13 +16,32 @@ namespace OpenRpg.Genres.Requirements
         public virtual bool IsRequirementMet(ICharacter character, Requirement requirement)
         {
             if (requirement.RequirementType == GenreRequirementTypes.RaceRequirement)
-            { return character.Race.Id == requirement.AssociatedId; }
-            
+            {
+                if (!character.Variables.HasRace())
+                { return false; }
+                
+                return character.Variables.Race().Id == requirement.AssociatedId;
+            }
+
             if (requirement.RequirementType == GenreRequirementTypes.ClassRequirement)
-            { return character.Class.ClassTemplate.Id == requirement.AssociatedId; }
-            
-            if (requirement.RequirementType == GenreRequirementTypes.LevelRequirement)
-            { return character.Class.Level >= requirement.AssociatedValue; }
+            {
+                if (character.Variables.HasRace())
+                {
+                    var classDetails = character.Variables.Class();
+                    if (classDetails.Template.Id == requirement.AssociatedId)
+                    { return classDetails.Variables.Level() >= requirement.AssociatedValue; }
+                }
+
+                if (character.Variables.HasMultiClass())
+                {
+                    var multiClass = character.Variables.MultiClass();
+                    var possibleClass = multiClass.GetClass(requirement.AssociatedId);
+                    if (possibleClass != null)
+                    { return possibleClass.Variables.Level() >= requirement.AssociatedValue; }
+                }
+
+                return false;
+            }
             
             if(requirement.RequirementType == GenreRequirementTypes.GenderRequirement)
             { return character.GenderType == requirement.AssociatedId; }
@@ -49,15 +70,12 @@ namespace OpenRpg.Genres.Requirements
             return true;
         }
 
-        public virtual bool IsRequirementMet(IQuestStateVariables state, Requirement requirement)
+        public virtual bool IsRequirementMet(IQuestState state, Requirement requirement)
         {
             if (requirement.RequirementType == GenreRequirementTypes.QuestStateRequirement)
             {
-                var hasQuestState = state.ContainsKey(requirement.AssociatedId);
-                if(requirement.AssociatedValue == QuestStateTypes.QuestNotStarted && !hasQuestState) 
-                { return true; }
-
-                return state[requirement.AssociatedId] == requirement.AssociatedValue;
+                var questState = state.GetQuestState(requirement.AssociatedId);
+                return requirement.AssociatedValue == questState;
             }
             
             return true;
