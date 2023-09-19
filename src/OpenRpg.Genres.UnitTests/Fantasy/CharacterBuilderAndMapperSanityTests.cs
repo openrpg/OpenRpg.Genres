@@ -1,5 +1,6 @@
 using Moq;
 using Newtonsoft.Json;
+using OpenRpg.Core.Extensions;
 using OpenRpg.Core.Utils;
 using OpenRpg.Genres.Extensions;
 using OpenRpg.Genres.Fantasy.Builders;
@@ -81,6 +82,9 @@ namespace OpenRpg.Genres.UnitTests.Fantasy
             var jsonData = JsonConvert.SerializeObject(characterData, jsonSettings);
             var recreatedCharacterData = JsonConvert.DeserializeObject<CharacterData>(jsonData, jsonSettings);
             var characterRegenerated = characterMapper.Map(recreatedCharacterData);
+
+            var level = characterRegenerated.Variables.Class().Variables.Level();
+            var gender = characterRegenerated.Variables.Gender();
             
             var expected = JsonConvert.SerializeObject(character);
             var actual = JsonConvert.SerializeObject(characterRegenerated);
