@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using OpenRpg.Core.Classes;
 using OpenRpg.Core.Extensions;
@@ -37,13 +38,13 @@ namespace OpenRpg.Genres.Persistence.Characters
 
             if (data.Variables.ContainsKey(GenreEntityVariableTypes.Gender))
             {
-                var genderId = (byte)data.Variables[GenreEntityVariableTypes.Gender];
+                var genderId = Convert.ToByte(data.Variables[GenreEntityVariableTypes.Gender]);
                 entityVariables.Gender(genderId);
             }
 
             if (data.Variables.ContainsKey(GenreEntityVariableTypes.Race))
             {
-                var raceTemplate = GetRaceTemplateFor((int)data.Variables[GenreEntityVariableTypes.Race]);
+                var raceTemplate = GetRaceTemplateFor(Convert.ToInt32(data.Variables[GenreEntityVariableTypes.Race]));
                 entityVariables.Race(raceTemplate);
             }
 
