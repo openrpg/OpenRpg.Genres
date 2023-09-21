@@ -2,12 +2,13 @@ using System.Collections.Generic;
 using System.Linq;
 using OpenRpg.Combat.Attacks;
 using OpenRpg.Combat.Processors.Attacks;
+using OpenRpg.Combat.Processors.Attacks.Entity;
 using OpenRpg.Core.Stats.Entity;
 using OpenRpg.Genres.Fantasy.Extensions;
 
 namespace OpenRpg.Genres.Fantasy.Combat
 {
-    public class DefaultAttackProcessor : IAttackProcessor<IEntityStatsVariables>
+    public class DefaultAttackProcessor : IEntityAttackProcessor
     {
         public ProcessedAttack ProcessAttack(Attack attack, IEntityStatsVariables stats)
         {
