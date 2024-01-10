@@ -5,6 +5,7 @@ using OpenRpg.Genres.Characters;
 using OpenRpg.Genres.Extensions;
 using OpenRpg.Genres.Types;
 using OpenRpg.Items.Extensions;
+using OpenRpg.Items.TradeSkills.Extensions;
 using OpenRpg.Quests;
 using OpenRpg.Quests.State;
 using OpenRpg.Quests.Types;
@@ -59,6 +60,18 @@ namespace OpenRpg.Genres.Requirements
 
                 return character.Variables.Equipment().Slots.Values
                     .Any(x => x.SlottedItem?.Template.Id == requirement.AssociatedId);
+            }
+            
+            if (requirement.RequirementType == GenreRequirementTypes.TradeSkillRequirement)
+            {
+                if (!character.Variables.HasTradeSkillState())
+                { return false; }
+
+                var tradeSkills = character.Variables.TradeSkillState();
+                if (!tradeSkills.ContainsKey(requirement.AssociatedId))
+                { return false; }
+
+                return tradeSkills[requirement.AssociatedId] >= requirement.AssociatedValue;
             }
             
             if (requirement.RequirementType == GenreRequirementTypes.InventoryItemRequirement)

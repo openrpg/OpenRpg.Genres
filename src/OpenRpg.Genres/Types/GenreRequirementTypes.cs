@@ -13,5 +13,6 @@ namespace OpenRpg.Genres.Types
         public static readonly int GenderRequirement = 8;
         public static readonly int ActiveEffectRequirement = 9;
         public static readonly int MaxHealthRequirement = 10;
+        public static readonly int TradeSkillRequirement = 11;
     }
 }

@@ -1,3 +1,4 @@
+using OpenRpg.Core.Extensions;
 using OpenRpg.Core.State.Entity;
 using OpenRpg.Genres.Fantasy.Types;
 
@@ -12,7 +13,7 @@ namespace OpenRpg.Genres.Fantasy.Extensions
         {
             var newValue = state.Magic() + change;
             if (maxMagic.HasValue)
-            { state.EnsureMagicInBounds(newValue, maxMagic.Value); }
+            { state.AddValue(FantasyEntityStateVariableTypes.Magic, newValue, 0, maxMagic.Value); }
             else
             { state.Magic(newValue); }
         }
@@ -21,19 +22,9 @@ namespace OpenRpg.Genres.Fantasy.Extensions
         {
             var newValue = state.Magic() - change;
             if (maxMagic.HasValue)
-            { state.EnsureMagicInBounds(newValue, maxMagic.Value); }
+            { state.AddValue(FantasyEntityStateVariableTypes.Magic, newValue, 0, maxMagic.Value); }
             else
             { state.Magic(newValue); }
-        }
-
-        public static void EnsureMagicInBounds(this IEntityStateVariables state, int value, int maxMagic)
-        {
-            if(value > maxMagic)
-            { state[FantasyEntityStateVariableTypes.Magic] = maxMagic; }
-            else if(value <= 0)
-            { state[FantasyEntityStateVariableTypes.Magic] = 0; }
-            else
-            { state[FantasyEntityStateVariableTypes.Magic] = value; }
         }
     }
 }

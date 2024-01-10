@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using OpenRpg.Combat.Processors.Attacks;
+using OpenRpg.Core.Extensions;
 using OpenRpg.Core.State.Entity;
 using OpenRpg.Genres.Types;
 
@@ -19,28 +20,18 @@ namespace OpenRpg.Genres.Extensions
             if(maxHealth == null) 
             { state.Health(newValue); }
             else 
-            {state.EnsureHealthInBounds(newValue, maxHealth.Value); }
+            { state.AddValue(GenreEntityStateVariableTypes.Health, newValue, 0, maxHealth.Value); }
         }
 
         public static void DeductHealth(this IEntityStateVariables state, int change, int? maxHealth = null)
         {
             var newValue = state.Health() - change;
             if(newValue <= 0) { newValue = 0; }
-            
-            if(maxHealth == null) 
-            { state.Health(newValue); }
-            else 
-            {state.EnsureHealthInBounds(newValue, maxHealth.Value); }
-        }
 
-        public static void EnsureHealthInBounds(this IEntityStateVariables state, int value, int maxHealth)
-        {
-            if(value > maxHealth)
-            { state[GenreEntityStateVariableTypes.Health] = maxHealth; }
-            else if(value <= 0)
-            { state[GenreEntityStateVariableTypes.Health] = 0; }
+            if (maxHealth == null)
+            { state.Health(newValue); }
             else
-            { state[GenreEntityStateVariableTypes.Health] = value; }
+            { state.AddValue(GenreEntityStateVariableTypes.Health, newValue, 0, maxHealth.Value); }
         }
         
         public static void ApplyDamageToTarget(this IEntityStateVariables state, ProcessedAttack attack)
