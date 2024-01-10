@@ -1,6 +1,6 @@
 namespace OpenRpg.Genres.Fantasy.Types
 {
-    public class FantasyTradeSkillTypes
+    public interface FantasyTradeSkillTypes
     {
         public static readonly int Unknown = 0;
         
