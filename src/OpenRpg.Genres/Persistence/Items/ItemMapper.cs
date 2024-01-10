@@ -17,7 +17,7 @@ namespace OpenRpg.Genres.Persistence.Items
             {
                 UniqueId = data.Id,
                 Variables = itemVariables,
-                ItemTemplate = GetItemTemplateFor(data.ItemTemplateId),
+                Template = GetItemTemplateFor(data.ItemTemplateId),
                 Modifications = data.ModificationTypes.Select(GetModificationsFor)
             };
         }

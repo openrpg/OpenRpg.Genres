@@ -1,7 +1,6 @@
 using OpenRpg.Core.Requirements;
 using OpenRpg.Genres.Characters;
-using OpenRpg.Quests;
-using OpenRpg.Quests.Variables;
+using OpenRpg.Quests.State;
 
 namespace OpenRpg.Genres.Requirements
 {

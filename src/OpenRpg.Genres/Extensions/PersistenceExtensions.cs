@@ -67,7 +67,7 @@ namespace OpenRpg.Genres.Extensions
         {
             if (item == null) { return null; }
             return new ItemData(item.UniqueId,
-                item.ItemTemplate.Id,
+                item.Template.Id,
                 item.Modifications.Select(x => x.Id).ToArray(),
                 item.Variables);
         }

@@ -34,7 +34,7 @@ namespace OpenRpg.Genres.UnitTests.Fantasy
                 .WithGender(1)
                 .WithRaceId(1)
                 .WithClassId(1, 1)
-                .WithInventoryItem(new DefaultItem(){ ItemTemplate = new DefaultItemTemplate() })
+                .WithInventoryItem(new DefaultItem(){ Template = new DefaultItemTemplate() })
                 .Build();
             
             Assert.NotNull(character);
@@ -67,7 +67,7 @@ namespace OpenRpg.Genres.UnitTests.Fantasy
                 .WithGender(1)
                 .WithRaceId(1)
                 .WithClassId(1, 1)
-                .WithInventoryItem(new DefaultItem(){ ItemTemplate = new DefaultItemTemplate() })
+                .WithInventoryItem(new DefaultItem(){ Template = new DefaultItemTemplate() })
                 .Build();
             
             Assert.NotNull(character);

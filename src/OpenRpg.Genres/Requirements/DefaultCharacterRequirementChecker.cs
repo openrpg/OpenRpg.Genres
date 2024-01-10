@@ -6,6 +6,7 @@ using OpenRpg.Genres.Extensions;
 using OpenRpg.Genres.Types;
 using OpenRpg.Items.Extensions;
 using OpenRpg.Quests;
+using OpenRpg.Quests.State;
 using OpenRpg.Quests.Types;
 using OpenRpg.Quests.Variables;
 
@@ -57,7 +58,7 @@ namespace OpenRpg.Genres.Requirements
                 { return false; }
 
                 return character.Variables.Equipment().Slots.Values
-                    .Any(x => x.SlottedItem?.ItemTemplate.Id == requirement.AssociatedId);
+                    .Any(x => x.SlottedItem?.Template.Id == requirement.AssociatedId);
             }
             
             if (requirement.RequirementType == GenreRequirementTypes.InventoryItemRequirement)
