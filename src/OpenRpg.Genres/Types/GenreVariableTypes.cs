@@ -4,7 +4,7 @@ using OpenRpg.Quests.Types;
 
 namespace OpenRpg.Genres.Types
 {
-    public interface GenreVariableTypes : CombatVariableTypes, QuestVariableTypes, ItemVariableTypes
+    public interface GenreVariableTypes : CombatVariableTypes, QuestVariableTypes, ItemCoreVariableTypes
     {
     }
 }
