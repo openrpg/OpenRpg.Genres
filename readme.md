@@ -1,3 +1,5 @@
+-- THIS REPO HAS BEEN MERGED INTO THE MAIN OPENRPG REPO, SO IS NO LONGER MAINTAINED HERE --
+
 # OpenRpg.Genres
 
 This builds on top of the `OpenRpg` core library and adds common genres infrastructure as well as fantasy and scifi related game related functionality.
